@@ -229,7 +229,10 @@ export default {
 
 .food {
     background-color: #FF5733;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    text-align: center;
+    line-height: 100%;
 }
 </style>
