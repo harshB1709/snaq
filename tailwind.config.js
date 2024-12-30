@@ -14,6 +14,9 @@ export default {
 
     theme: {
         extend: {
+            fontSize: {
+                xxs: ['0.7rem', '0.8rem']
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
