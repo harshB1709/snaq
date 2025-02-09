@@ -1,0 +1,1115 @@
+{
+  "1": [
+    {
+      "question": "In web development, what does 'HTML' stand for?",
+      "answer": "HyperText Markup Language",
+      "wrong_answers": [
+        "HyperText Markdown Language",
+        "Hyperlink Text Markup Language",
+        "HyperText Machine Language"
+      ]
+    },
+    {
+      "question": "What is the value of 2 + 2?",
+      "answer": 4,
+      "wrong_answers": [
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "question": "Which company developed the Windows operating system?",
+      "answer": "Microsoft",
+      "wrong_answers": [
+        "Apple",
+        "Google",
+        "IBM"
+      ]
+    },
+    {
+      "question": "What does 'CPU' stand for in computing?",
+      "answer": "Central Processing Unit",
+      "wrong_answers": [
+        "Computer Power Unit",
+        "Central Performance Unit",
+        "Core Processing Utility"
+      ]
+    },
+    {
+      "question": "In programming, what symbol is commonly used to end a statement in languages like C and Java?",
+      "answer": "Semicolon",
+      "wrong_answers": [
+        "Colon",
+        "Comma",
+        "Period"
+      ]
+    },
+    {
+      "question": "What is the color of the sky on a clear day?",
+      "answer": "Blue",
+      "wrong_answers": [
+        "Green",
+        "Red",
+        "Yellow"
+      ]
+    },
+    {
+      "question": "In mathematics, what is 10 squared?",
+      "answer": 100,
+      "wrong_answers": [
+        20,
+        50,
+        1000
+      ]
+    },
+    {
+      "question": "Which language is primarily used for web page structure?",
+      "answer": "HTML",
+      "wrong_answers": [
+        "CSS",
+        "JavaScript",
+        "PHP"
+      ]
+    },
+    {
+      "question": "What symbol is used for comments in single-line PHP code?",
+      "answer": "//",
+      "wrong_answers": [
+        "/* */",
+        "<!-- -->",
+        "#"
+      ]
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "answer": "Mars",
+      "wrong_answers": [
+        "Venus",
+        "Jupiter",
+        "Saturn"
+      ]
+    },
+    {
+      "question": "What is the largest planet in our Solar System?",
+      "answer": "Jupiter",
+      "wrong_answers": [
+        "Saturn",
+        "Earth",
+        "Mars"
+      ]
+    },
+    {
+      "question": "In programming, what does 'IDE' stand for?",
+      "answer": "Integrated Development Environment",
+      "wrong_answers": [
+        "Internet Development Engine",
+        "Integrated Design Editor",
+        "Interface Data Executor"
+      ]
+    },
+    {
+      "question": "Which language is primarily used for adding interactivity to web pages?",
+      "answer": "JavaScript",
+      "wrong_answers": [
+        "HTML",
+        "CSS",
+        "Python"
+      ]
+    },
+    {
+      "question": "What is the capital city of France?",
+      "answer": "Paris",
+      "wrong_answers": [
+        "London",
+        "Berlin",
+        "Rome"
+      ]
+    },
+    {
+      "question": "In computing, what does 'GPU' stand for?",
+      "answer": "Graphics Processing Unit",
+      "wrong_answers": [
+        "General Processing Unit",
+        "Graphics Performance Utility",
+        "Global Processing Unit"
+      ]
+    },
+    {
+      "question": "What is the process of finding and fixing errors in software code called?",
+      "answer": "Debugging",
+      "wrong_answers": [
+        "Compiling",
+        "Executing",
+        "Encrypting"
+      ]
+    },
+    {
+      "question": "What is the smallest prime number?",
+      "answer": "2",
+      "wrong_answers": [
+        "1",
+        "3",
+        "0"
+      ]
+    },
+    {
+      "question": "Which company developed the Android operating system?",
+      "answer": "Google",
+      "wrong_answers": [
+        "Apple",
+        "Microsoft",
+        "Samsung"
+      ]
+    },
+    {
+      "question": "In web browsers, what does the 'F5' key typically do?",
+      "answer": "Refreshes the page",
+      "wrong_answers": [
+        "Opens the search bar",
+        "Closes the browser",
+        "Opens a new tab"
+      ]
+    },
+    {
+      "question": "Which HTML tag is used to display an image?",
+      "answer": "<img>",
+      "wrong_answers": [
+        "<image>",
+        "<pic>",
+        "<src>"
+      ]
+    },
+    {
+      "question": "In mathematics, what is 15 divided by 3?",
+      "answer": "5",
+      "wrong_answers": [
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    {
+      "question": "What is the term for a piece of code that can be called multiple times in a program?",
+      "answer": "Function",
+      "wrong_answers": [
+        "Variable",
+        "Loop",
+        "Class"
+      ]
+    },
+    {
+      "question": "Which of the following is not a programming language?",
+      "answer": "HTML",
+      "wrong_answers": [
+        "Python",
+        "Java",
+        "C++"
+      ]
+    },
+    {
+      "question": "What color do you get when you mix red and blue?",
+      "answer": "Purple",
+      "wrong_answers": [
+        "Green",
+        "Orange",
+        "Brown"
+      ]
+    },
+    {
+      "question": "Which planet is known for its rings?",
+      "answer": "Saturn",
+      "wrong_answers": [
+        "Jupiter",
+        "Mars",
+        "Venus"
+      ]
+    },
+    {
+      "question": "In email addresses, what symbol is used to separate the username from the domain?",
+      "answer": "@",
+      "wrong_answers": [
+        "#",
+        "$",
+        "%"
+      ]
+    },
+    {
+      "question": "What is the term for a network security system that monitors and controls incoming and outgoing network traffic?",
+      "answer": "Firewall",
+      "wrong_answers": [
+        "Antivirus",
+        "Router",
+        "Switch"
+      ]
+    },
+    {
+      "question": "In which country is the Great Wall located?",
+      "answer": "China",
+      "wrong_answers": [
+        "Japan",
+        "India",
+        "Russia"
+      ]
+    },
+    {
+      "question": "What is the main component of a computer that performs calculations?",
+      "answer": "CPU",
+      "wrong_answers": [
+        "RAM",
+        "Hard Drive",
+        "GPU"
+      ]
+    },
+    {
+      "question": "Which device is used to input text into a computer?",
+      "answer": "Keyboard",
+      "wrong_answers": [
+        "Mouse",
+        "Monitor",
+        "Printer"
+      ]
+    },
+    {
+      "question": "What is the name of the network of physical objects connected via the internet?",
+      "answer": "Internet of Things",
+      "wrong_answers": [
+        "World Wide Web",
+        "Cloud Computing",
+        "Internet Protocol"
+      ]
+    },
+    {
+      "question": "In which direction does the sun rise?",
+      "answer": "East",
+      "wrong_answers": [
+        "West",
+        "North",
+        "South"
+      ]
+    },
+    {
+      "question": "What does 'URL' stand for?",
+      "answer": "Uniform Resource Locator",
+      "wrong_answers": [
+        "Universal Resource Link",
+        "Uniform Reference Link",
+        "Unique Resource Locator"
+      ]
+    },
+    {
+      "question": "Which symbol is used to denote comments in HTML?",
+      "answer": "<!-- comment -->",
+      "wrong_answers": [
+        "// comment",
+        "# comment",
+        "/* comment */"
+      ]
+    },
+    {
+      "question": "What is the shortcut key for copying text on most computers?",
+      "answer": "Ctrl + C",
+      "wrong_answers": [
+        "Ctrl + V",
+        "Ctrl + X",
+        "Ctrl + Z"
+      ]
+    },
+    {
+      "question": "What is the command to display text in the console in JavaScript?",
+      "answer": "console.log('text');",
+      "wrong_answers": [
+        "print('text');",
+        "echo 'text';",
+        "System.out.println('text');"
+      ]
+    },
+    {
+      "question": "In mathematics, what is the result of 9 × 9?",
+      "answer": "81",
+      "wrong_answers": [
+        "72",
+        "99",
+        "90"
+      ]
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "answer": "H₂O",
+      "wrong_answers": [
+        "CO₂",
+        "O₂",
+        "NaCl"
+      ]
+    },
+    {
+      "question": "Which ocean is the largest on Earth?",
+      "answer": "Pacific Ocean",
+      "wrong_answers": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean"
+      ]
+    },
+    {
+      "question": "Which programming language is used to develop iOS apps?",
+      "answer": "Swift",
+      "wrong_answers": [
+        "Java",
+        "C#",
+        "Python"
+      ]
+    },
+    {
+      "question": "In HTML, which tag is used to create a hyperlink?",
+      "answer": "<a>",
+      "wrong_answers": [
+        "<link>",
+        "<href>",
+        "<hyperlink>"
+      ]
+    }
+  ],
+  "2": [
+    {
+      "question": "What is the output of the following PHP code?\n\n<?php\necho 5 + '5 apples';\n?>",
+      "answer": 10,
+      "wrong_answers": [
+        "5",
+        "5 apples",
+        "Error"
+      ]
+    },
+    {
+      "question": "Solve for x: 3x + 9 = 0",
+      "answer": -3,
+      "wrong_answers": [
+        3,
+        -9,
+        0
+      ]
+    },
+    {
+      "question": "In CSS, which property is used to change the text color of an element?",
+      "answer": "color",
+      "wrong_answers": [
+        "font-color",
+        "text-color",
+        "background-color"
+      ]
+    },
+    {
+      "question": "What does 'JSON' stand for?",
+      "answer": "JavaScript Object Notation",
+      "wrong_answers": [
+        "Java Source Open Network",
+        "Just Some Object Notation",
+        "JavaScript Output Name"
+      ]
+    },
+    {
+      "question": "Which data structure uses LIFO (Last In, First Out) principle?",
+      "answer": "Stack",
+      "wrong_answers": [
+        "Queue",
+        "Array",
+        "Linked List"
+      ]
+    },
+    {
+      "question": "In Laravel, which file stores the database connection settings?",
+      "answer": "config/database.php",
+      "wrong_answers": [
+        "config/app.php",
+        "env/database.php",
+        "routes/web.php"
+      ]
+    },
+    {
+      "question": "What is the binary equivalent of the decimal number 10?",
+      "answer": "1010",
+      "wrong_answers": [
+        "1100",
+        "1001",
+        "1110"
+      ]
+    },
+    {
+      "question": "Who invented the World Wide Web?",
+      "answer": "Tim Berners-Lee",
+      "wrong_answers": [
+        "Bill Gates",
+        "Steve Jobs",
+        "Mark Zuckerberg"
+      ]
+    },
+    {
+      "question": "In programming, what is a loop that never ends called?",
+      "answer": "Infinite Loop",
+      "wrong_answers": [
+        "Recursive Loop",
+        "Dead Loop",
+        "Endless Function"
+      ]
+    },
+    {
+      "question": "What does 'OOP' stand for?",
+      "answer": "Object-Oriented Programming",
+      "wrong_answers": [
+        "Out Of Package",
+        "Open Operational Procedure",
+        "Object Operating Protocol"
+      ]
+    },
+    {
+      "question": "What is the output of the following JavaScript code?\n\nconsole.log(typeof null);",
+      "answer": "object",
+      "wrong_answers": [
+        "null",
+        "undefined",
+        "number"
+      ]
+    },
+    {
+      "question": "Solve for x: 2x² - 8 = 0",
+      "answer": "x = 2 or x = -2",
+      "wrong_answers": [
+        "x = 4",
+        "x = -4",
+        "x = 0"
+      ]
+    },
+    {
+      "question": "In HTML5, which tag is used to embed a video in a webpage?",
+      "answer": "<video>",
+      "wrong_answers": [
+        "<media>",
+        "<embed>",
+        "<movie>"
+      ]
+    },
+    {
+      "question": "What is the default port number for HTTP?",
+      "answer": "80",
+      "wrong_answers": [
+        "21",
+        "8080",
+        "443"
+      ]
+    },
+    {
+      "question": "In CSS, which property is used to change the background color of an element?",
+      "answer": "background-color",
+      "wrong_answers": [
+        "color",
+        "bgcolor",
+        "background-style"
+      ]
+    },
+    {
+      "question": "Which HTML attribute is used to define inline styles?",
+      "answer": "style",
+      "wrong_answers": [
+        "class",
+        "styles",
+        "css"
+      ]
+    },
+    {
+      "question": "What is the value of the expression 7 % 3 in most programming languages?",
+      "answer": "1",
+      "wrong_answers": [
+        "0",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "question": "In relational databases, which SQL command is used to remove rows from a table?",
+      "answer": "DELETE",
+      "wrong_answers": [
+        "REMOVE",
+        "DROP",
+        "TRUNCATE"
+      ]
+    },
+    {
+      "question": "In programming, what is the term for a function that calls itself?",
+      "answer": "Recursive function",
+      "wrong_answers": [
+        "Callback function",
+        "Anonymous function",
+        "Higher-order function"
+      ]
+    },
+    {
+      "question": "What is the purpose of the 'git commit' command in Git?",
+      "answer": "To save changes to the local repository",
+      "wrong_answers": [
+        "To upload changes to a remote repository",
+        "To create a new branch",
+        "To initialize a new repository"
+      ]
+    },
+    {
+      "question": "Which HTML tag is used to define an unordered list?",
+      "answer": "<ul>",
+      "wrong_answers": [
+        "<ol>",
+        "<li>",
+        "<list>"
+      ]
+    },
+    {
+      "question": "In Java, which keyword is used to inherit a class?",
+      "answer": "extends",
+      "wrong_answers": [
+        "implements",
+        "inherits",
+        "derives"
+      ]
+    },
+    {
+      "question": "What is the output of the following Python code?\n\nprint(len([1, 2, [3, 4], 5]))",
+      "answer": "4",
+      "wrong_answers": [
+        "5",
+        "3",
+        "6"
+      ]
+    },
+    {
+      "question": "In CSS, how do you select all elements with the class 'container'?",
+      "answer": ".container",
+      "wrong_answers": [
+        "#container",
+        "container",
+        "*container"
+      ]
+    },
+    {
+      "question": "Which protocol is used to send emails?",
+      "answer": "SMTP",
+      "wrong_answers": [
+        "IMAP",
+        "POP3",
+        "FTP"
+      ]
+    },
+    {
+      "question": "In JavaScript, which operator is used to compare both value and type?",
+      "answer": "===",
+      "wrong_answers": [
+        "==",
+        "=",
+        "!=="
+      ]
+    },
+    {
+      "question": "What is the hexadecimal representation of the decimal number 255?",
+      "answer": "FF",
+      "wrong_answers": [
+        "FE",
+        "F0",
+        "0F"
+      ]
+    },
+    {
+      "question": "In object-oriented programming, what is encapsulation?",
+      "answer": "Bundling data and methods within a class",
+      "wrong_answers": [
+        "Objects taking on many forms",
+        "Basing an object on another object",
+        "Using interfaces to define methods"
+      ]
+    },
+    {
+      "question": "In SQL, which clause is used to filter records based on a condition?",
+      "answer": "WHERE",
+      "wrong_answers": [
+        "SELECT",
+        "FROM",
+        "GROUP BY"
+      ]
+    },
+    {
+      "question": "Which of the following is not a relational database management system?",
+      "answer": "MongoDB",
+      "wrong_answers": [
+        "MySQL",
+        "PostgreSQL",
+        "SQLite"
+      ]
+    },
+    {
+      "question": "In CSS, which property is used to make text bold?",
+      "answer": "font-weight",
+      "wrong_answers": [
+        "font-style",
+        "font-bold",
+        "text-decoration"
+      ]
+    },
+    {
+      "question": "Which HTML attribute is used to provide alternate text for an image if it cannot be displayed?",
+      "answer": "alt",
+      "wrong_answers": [
+        "title",
+        "src",
+        "href"
+      ]
+    },
+    {
+      "question": "In Java, which method is the entry point of any Java program?",
+      "answer": "main",
+      "wrong_answers": [
+        "start",
+        "init",
+        "run"
+      ]
+    },
+    {
+      "question": "What is the result of 2 raised to the power of 5?",
+      "answer": "32",
+      "wrong_answers": [
+        "16",
+        "25",
+        "64"
+      ]
+    },
+    {
+      "question": "Which HTTP method is used to update an existing resource?",
+      "answer": "PUT",
+      "wrong_answers": [
+        "GET",
+        "POST",
+        "DELETE"
+      ]
+    },
+    {
+      "question": "In programming, what is an array?",
+      "answer": "A collection of elements identified by index",
+      "wrong_answers": [
+        "A single value",
+        "A function",
+        "An object without properties"
+      ]
+    },
+    {
+      "question": "In CSS, which property controls the space between lines of text?",
+      "answer": "line-height",
+      "wrong_answers": [
+        "letter-spacing",
+        "word-spacing",
+        "text-indent"
+      ]
+    },
+    {
+      "question": "What does 'DRY' stand for in software development principles?",
+      "answer": "Don't Repeat Yourself",
+      "wrong_answers": [
+        "Do Repeat Yourself",
+        "Develop Rapidly Yourself",
+        "Debug Regularly Yourself"
+      ]
+    },
+    {
+      "question": "In relational databases, what is a primary key?",
+      "answer": "A unique identifier for each record in a table",
+      "wrong_answers": [
+        "A field that links two tables",
+        "An attribute that can have multiple values",
+        "A column that allows duplicate values"
+      ]
+    },
+    {
+      "question": "Which programming language is widely used for machine learning and artificial intelligence?",
+      "answer": "Python",
+      "wrong_answers": [
+        "C",
+        "HTML",
+        "PHP"
+      ]
+    },
+    {
+      "question": "In web development, what does 'API' stand for?",
+      "answer": "Application Programming Interface",
+      "wrong_answers": [
+        "Application Protocol Interface",
+        "Advanced Programming Integration",
+        "Application Program Instruction"
+      ]
+    }
+  ],
+  "3": [
+    {
+      "question": "Which sorting algorithm is generally the fastest for large datasets?",
+      "answer": "Quick Sort",
+      "wrong_answers": [
+        "Bubble Sort",
+        "Selection Sort",
+        "Insertion Sort"
+      ]
+    },
+    {
+      "question": "What is the time complexity of binary search in a sorted array?",
+      "answer": "O(log n)",
+      "wrong_answers": [
+        "O(n)",
+        "O(n log n)",
+        "O(1)"
+      ]
+    },
+    {
+      "question": "In database normalization, what does '3NF' stand for?",
+      "answer": "Third Normal Form",
+      "wrong_answers": [
+        "Third Normal Function",
+        "Three Non-functional",
+        "Third Null Form"
+      ]
+    },
+    {
+      "question": "What is the integral of cos(x)?",
+      "answer": "sin(x) + C",
+      "wrong_answers": [
+        "-sin(x) + C",
+        "cos(x) + C",
+        "-cos(x) + C"
+      ]
+    },
+    {
+      "question": "In Laravel, which of the following is used to protect routes from unauthorized access?",
+      "answer": "Middleware",
+      "wrong_answers": [
+        "Controllers",
+        "Policies",
+        "Events"
+      ]
+    },
+    {
+      "question": "What is the Big O notation for the performance of the Merge Sort algorithm?",
+      "answer": "O(n log n)",
+      "wrong_answers": [
+        "O(n^2)",
+        "O(log n)",
+        "O(n)"
+      ]
+    },
+    {
+      "question": "Which design pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation?",
+      "answer": "Iterator Pattern",
+      "wrong_answers": [
+        "Observer Pattern",
+        "Strategy Pattern",
+        "Decorator Pattern"
+      ]
+    },
+    {
+      "question": "What is the result of the SQL query: SELECT COUNT(*) FROM table WHERE 1=1;",
+      "answer": "Returns the total number of rows in 'table'",
+      "wrong_answers": [
+        "Returns rows where the value is 1",
+        "Returns an error",
+        "Returns zero"
+      ]
+    },
+    {
+      "question": "In object-oriented programming, what is the term for a class that cannot be instantiated but can be subclassed?",
+      "answer": "Abstract Class",
+      "wrong_answers": [
+        "Interface",
+        "Static Class",
+        "Final Class"
+      ]
+    },
+    {
+      "question": "What does SOLID stand for in software engineering principles?",
+      "answer": "Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion",
+      "wrong_answers": [
+        "Secure, Optimized, Layered, Integrated, Distributed",
+        "Simple, Object-oriented, Linked, Iterative, Dynamic",
+        "Scalable, Organized, Low-coupling, Independent, Documented"
+      ]
+    },
+    {
+      "question": "In JavaScript, which method converts a JSON string into a JavaScript object?",
+      "answer": "JSON.parse()",
+      "wrong_answers": [
+        "JSON.stringify()",
+        "JSON.convert()",
+        "JSON.toObject()"
+      ]
+    },
+    {
+      "question": "What is the output of the following code in Python?\n\nprint('Hello World'[::-1])",
+      "answer": "dlroW olleH",
+      "wrong_answers": [
+        "Hello World",
+        "Error",
+        "olleH dlroW"
+      ]
+    },
+    {
+      "question": "In SQL, which clause is used to sort the result set in ascending or descending order?",
+      "answer": "ORDER BY",
+      "wrong_answers": [
+        "GROUP BY",
+        "SORT BY",
+        "FILTER BY"
+      ]
+    },
+    {
+      "question": "Which of the following is a NoSQL database?",
+      "answer": "MongoDB",
+      "wrong_answers": [
+        "MySQL",
+        "PostgreSQL",
+        "SQLite"
+      ]
+    },
+    {
+      "question": "What does the 'this' keyword refer to in JavaScript within a regular function (not in strict mode)?",
+      "answer": "The global object (window in browsers)",
+      "wrong_answers": [
+        "The function itself",
+        "Undefined",
+        "The object that called the function"
+      ]
+    },
+    {
+      "question": "In CSS Flexbox, which property specifies the alignment along the main axis?",
+      "answer": "justify-content",
+      "wrong_answers": [
+        "align-items",
+        "flex-direction",
+        "flex-wrap"
+      ]
+    },
+    {
+      "question": "Which HTTP status code indicates that the requested resource has been permanently moved to a new URL?",
+      "answer": "301",
+      "wrong_answers": [
+        "404",
+        "500",
+        "302"
+      ]
+    },
+    {
+      "question": "In Git, what does the command 'git merge' do?",
+      "answer": "Combines changes from one branch into another",
+      "wrong_answers": [
+        "Deletes a branch",
+        "Creates a new branch",
+        "Updates the local repository from the remote"
+      ]
+    },
+    {
+      "question": "Which programming paradigm is Python primarily known for supporting?",
+      "answer": "Multiple paradigms including object-oriented, imperative, and functional programming",
+      "wrong_answers": [
+        "Only functional programming",
+        "Only object-oriented programming",
+        "Only procedural programming"
+      ]
+    },
+    {
+      "question": "In relational databases, what is a foreign key?",
+      "answer": "A field in one table that uniquely identifies a row in another table",
+      "wrong_answers": [
+        "A unique identifier within its own table",
+        "An attribute that can have multiple values",
+        "A key that has no duplicates in the table"
+      ]
+    },
+    {
+      "question": "Which JavaScript array method creates a new array with the results of calling a provided function on every element?",
+      "answer": "map()",
+      "wrong_answers": [
+        "forEach()",
+        "filter()",
+        "reduce()"
+      ]
+    },
+    {
+      "question": "What is the correct way to declare a JavaScript variable with block scope?",
+      "answer": "let variableName;",
+      "wrong_answers": [
+        "var variableName;",
+        "const variableName;",
+        "block variableName;"
+      ]
+    },
+    {
+      "question": "In CSS Grid, which property defines the columns of the grid?",
+      "answer": "grid-template-columns",
+      "wrong_answers": [
+        "grid-columns",
+        "grid-template-rows",
+        "grid-area"
+      ]
+    },
+    {
+      "question": "Which command is used to initialize a new Git repository?",
+      "answer": "git init",
+      "wrong_answers": [
+        "git start",
+        "git create",
+        "git new"
+      ]
+    },
+    {
+      "question": "What is the term for a function passed into another function as an argument in JavaScript?",
+      "answer": "Callback function",
+      "wrong_answers": [
+        "Anonymous function",
+        "Constructor function",
+        "Arrow function"
+      ]
+    },
+    {
+      "question": "In HTML5, which attribute is used to specify that an input field must be filled out?",
+      "answer": "required",
+      "wrong_answers": [
+        "validate",
+        "mandatory",
+        "need"
+      ]
+    },
+    {
+      "question": "Which CSS property is used to create space between the element's border and its content?",
+      "answer": "padding",
+      "wrong_answers": [
+        "margin",
+        "border-spacing",
+        "spacing"
+      ]
+    },
+    {
+      "question": "What is the purpose of the 'async' attribute in HTML script tags?",
+      "answer": "Allows the script to be downloaded in the background without blocking the page",
+      "wrong_answers": [
+        "Defers the script execution until after the page has loaded",
+        "Synchronizes the script execution with other scripts",
+        "Makes the script execute multiple times"
+      ]
+    },
+    {
+      "question": "In object-oriented programming, what is inheritance?",
+      "answer": "A mechanism where one class acquires the properties and behaviors of another",
+      "wrong_answers": [
+        "A way to hide internal details of objects",
+        "A way to define multiple methods with the same name",
+        "A technique to ensure a class has only one instance"
+      ]
+    },
+    {
+      "question": "Which of the following is a front-end JavaScript framework?",
+      "answer": "React",
+      "wrong_answers": [
+        "Django",
+        "Laravel",
+        "Ruby on Rails"
+      ]
+    },
+    {
+      "question": "What does CSS stand for?",
+      "answer": "Cascading Style Sheets",
+      "wrong_answers": [
+        "Computer Style Sheets",
+        "Creative Style System",
+        "Cascading System Sheets"
+      ]
+    },
+    {
+      "question": "In Python, which keyword is used to handle exceptions?",
+      "answer": "try",
+      "wrong_answers": [
+        "catch",
+        "handle",
+        "except"
+      ]
+    },
+    {
+      "question": "What is a closure in JavaScript?",
+      "answer": "A function having access to the parent scope, even after the parent function has closed",
+      "wrong_answers": [
+        "A function that returns another function",
+        "A function that calls itself",
+        "A function without a name"
+      ]
+    },
+    {
+      "question": "In SQL, which function is used to calculate the total of a numeric column?",
+      "answer": "SUM()",
+      "wrong_answers": [
+        "TOTAL()",
+        "COUNT()",
+        "ADD()"
+      ]
+    },
+    {
+      "question": "Which HTML element is used to define important text?",
+      "answer": "<strong>",
+      "wrong_answers": [
+        "<em>",
+        "<important>",
+        "<b>"
+      ]
+    },
+    {
+      "question": "In CSS, which value of the 'position' property will position an element relative to the viewport, so it always stays in the same place even if the page is scrolled?",
+      "answer": "fixed",
+      "wrong_answers": [
+        "absolute",
+        "relative",
+        "sticky"
+      ]
+    },
+    {
+      "question": "Which of the following is a package manager for JavaScript?",
+      "answer": "npm",
+      "wrong_answers": [
+        "pip",
+        "gem",
+        "composer"
+      ]
+    },
+    {
+      "question": "In web development, what is the main purpose of using AJAX?",
+      "answer": "To update parts of a web page without reloading the entire page",
+      "wrong_answers": [
+        "To add animations to a web page",
+        "To enhance security",
+        "To improve SEO"
+      ]
+    },
+    {
+      "question": "In programming, what does 'API' stand for?",
+      "answer": "Application Programming Interface",
+      "wrong_answers": [
+        "Application Protocol Interface",
+        "Advanced Programming Integration",
+        "Application Program Instruction"
+      ]
+    },
+    {
+      "question": "Which protocol is commonly used for secure communication over a computer network?",
+      "answer": "HTTPS",
+      "wrong_answers": [
+        "FTP",
+        "HTTP",
+        "SMTP"
+      ]
+    },
+    {
+      "question": "In JavaScript, what is the purpose of the 'reduce' method on arrays?",
+      "answer": "To execute a reducer function on each element resulting in a single output value",
+      "wrong_answers": [
+        "To filter elements based on a condition",
+        "To find the minimum value in the array",
+        "To remove duplicate elements"
+      ]
+    }
+  ]
+}

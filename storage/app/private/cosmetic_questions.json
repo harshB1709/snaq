@@ -1,0 +1,510 @@
+{
+  "1": [
+    {
+      "question": "What is the primary purpose of a moisturizer?",
+      "answer": "Hydration",
+      "wrong_answers": [
+        "Cleansing",
+        "Sun protection",
+        "Exfoliation"
+      ]
+    },
+    {
+      "question": "Which vitamin is commonly found in anti-aging skincare products?",
+      "answer": "Vitamin C",
+      "wrong_answers": [
+        "Vitamin A",
+        "Vitamin E",
+        "Vitamin K"
+      ]
+    },
+    {
+      "question": "What is the main function of a toner in a skincare routine?",
+      "answer": "Cleansing",
+      "wrong_answers": [
+        "Moisturizing",
+        "Sun protection",
+        "Makeup removal"
+      ]
+    },
+    {
+      "question": "Which ingredient is often used for its anti-inflammatory properties in skincare?",
+      "answer": "Chamomile",
+      "wrong_answers": [
+        "Hyaluronic acid",
+        "Salicylic acid",
+        "Retinol"
+      ]
+    },
+    {
+      "question": "What does SPF stand for in sunscreens?",
+      "answer": "Sun Protection Factor",
+      "wrong_answers": [
+        "Skin Permeability Factor",
+        "Sunlight Prevention Formula",
+        "Sweat and Pore Fix"
+      ]
+    },
+    {
+      "question": "Which type of makeup brush is commonly used for applying foundation?",
+      "answer": "Stippling brush",
+      "wrong_answers": [
+        "Kabuki brush",
+        "Angled brush",
+        "Fan brush"
+      ]
+    },
+    {
+      "question": "What is the purpose of a setting spray in makeup application?",
+      "answer": "Fixing makeup",
+      "wrong_answers": [
+        "Moisturizing",
+        "Sun protection",
+        "Exfoliation"
+      ]
+    },
+    {
+      "question": "Which ingredient is known for its oil-absorbing properties in skincare products?",
+      "answer": "Kaolin clay",
+      "wrong_answers": [
+        "Glycerin",
+        "Jojoba oil",
+        "Shea butter"
+      ]
+    },
+    {
+      "question": "What is the main function of an exfoliant in skincare?",
+      "answer": "Removing dead skin cells",
+      "wrong_answers": [
+        "Moisturizing",
+        "Cleansing",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which type of mask is designed to unclog pores and prevent acne?",
+      "answer": "Clay mask",
+      "wrong_answers": [
+        "Sheet mask",
+        "Hydrating mask",
+        "Gel mask"
+      ]
+    },
+    {
+      "question": "What is the primary function of a primer in makeup application?",
+      "answer": "Smoothing the skin",
+      "wrong_answers": [
+        "Moisturizing",
+        "Color correction",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to add color to the cheeks?",
+      "answer": "Blush",
+      "wrong_answers": [
+        "Bronzer",
+        "Highlighter",
+        "Contour powder"
+      ]
+    },
+    {
+      "question": "What does BB cream stand for in skincare and makeup?",
+      "answer": "Blemish Balm",
+      "wrong_answers": [
+        "Beauty Boost",
+        "Base Blend",
+        "Brightening Base"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly used for its anti-acne properties in skincare?",
+      "answer": "Tea tree oil",
+      "wrong_answers": [
+        "Vitamin E",
+        "Argan oil",
+        "Coconut oil"
+      ]
+    },
+    {
+      "question": "Which type of lipstick provides a glossy finish?",
+      "answer": "Lip gloss",
+      "wrong_answers": [
+        "Matte",
+        "Satin",
+        "Cream"
+      ]
+    },
+    {
+      "question": "What is the purpose of a lip liner in makeup?",
+      "answer": "Define and outline lips",
+      "wrong_answers": [
+        "Color correction",
+        "Hydration",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to enhance the curl of eyelashes?",
+      "answer": "Mascara",
+      "wrong_answers": [
+        "Eyeliner",
+        "Eyeshadow",
+        "False lashes"
+      ]
+    },
+    {
+      "question": "What is the primary function of a hair conditioner?",
+      "answer": "Moisturizing",
+      "wrong_answers": [
+        "Cleansing",
+        "Coloring",
+        "Styling"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly found in anti-dandruff shampoos?",
+      "answer": "Salicylic acid",
+      "wrong_answers": [
+        "Aloe vera",
+        "Coconut oil",
+        "Argan oil"
+      ]
+    },
+    {
+      "question": "What is the purpose of a heat protectant in hair care?",
+      "answer": "Preventing heat damage",
+      "wrong_answers": [
+        "Color protection",
+        "Shine enhancement",
+        "Curl retention"
+      ]
+    },
+    {
+      "question": "Which type of nail polish finish has a shiny, glossy appearance?",
+      "answer": "High gloss",
+      "wrong_answers": [
+        "Matte",
+        "Satin",
+        "Cream"
+      ]
+    },
+    {
+      "question": "What is the main function of a cuticle oil in nail care?",
+      "answer": "Cuticle softening",
+      "wrong_answers": [
+        "Color protection",
+        "Moisturizing",
+        "Nail strengthening"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is used to set and hold the eyebrows in place?",
+      "answer": "Eyebrow gel",
+      "wrong_answers": [
+        "Eyebrow pencil",
+        "Eyebrow powder",
+        "Eyebrow wax"
+      ]
+    },
+    {
+      "question": "What is the primary purpose of a facial cleanser?",
+      "answer": "Cleansing",
+      "wrong_answers": [
+        "Exfoliation",
+        "Moisturizing",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which ingredient is known for its soothing properties in skincare?",
+      "answer": "Aloe vera",
+      "wrong_answers": [
+        "Peppermint oil",
+        "Witch hazel",
+        "Lemon extract"
+      ]
+    },
+    {
+      "question": "What is the main function of a sheet mask in skincare?",
+      "answer": "Intensive treatment",
+      "wrong_answers": [
+        "Exfoliation",
+        "Moisturizing",
+        "Cleansing"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to create a dewy finish on the skin?",
+      "answer": "Dewy foundation",
+      "wrong_answers": [
+        "Setting powder",
+        "Matte foundation",
+        "Concealer"
+      ]
+    },
+    {
+      "question": "What is the purpose of a concealer in makeup?",
+      "answer": "Color correction",
+      "wrong_answers": [
+        "Highlighting",
+        "Moisturizing",
+        "Eyebrow shaping"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly found in anti-cellulite creams?",
+      "answer": "Caffeine",
+      "wrong_answers": [
+        "Shea butter",
+        "Coconut oil",
+        "Vitamin E"
+      ]
+    },
+    {
+      "question": "What is the main function of a body scrub?",
+      "answer": "Exfoliation",
+      "wrong_answers": [
+        "Cleansing",
+        "Moisturizing",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is used to enhance the natural color of the lips?",
+      "answer": "Lipstick",
+      "wrong_answers": [
+        "Lip balm",
+        "Lip liner",
+        "Lip gloss"
+      ]
+    },
+    {
+      "question": "What is the purpose of a hair serum?",
+      "answer": "Shine enhancement",
+      "wrong_answers": [
+        "Color protection",
+        "Heat protection",
+        "Curl definition"
+      ]
+    },
+    {
+      "question": "Which type of eyeshadow is in a cream or gel form?",
+      "answer": "Cream eyeshadow",
+      "wrong_answers": [
+        "Powder eyeshadow",
+        "Liquid eyeshadow",
+        "Baked eyeshadow"
+      ]
+    },
+    {
+      "question": "What does CC cream stand for in skincare and makeup?",
+      "answer": "Color Control",
+      "wrong_answers": [
+        "Complexion Corrector",
+        "Concealer Cream",
+        "Clear Coverage"
+      ]
+    },
+    {
+      "question": "Which ingredient is known for its brightening properties in skincare?",
+      "answer": "Arbutin",
+      "wrong_answers": [
+        "Hyaluronic acid",
+        "Glycolic acid",
+        "Coenzyme Q10"
+      ]
+    },
+    {
+      "question": "What is the primary function of a dry shampoo?",
+      "answer": "Oil absorption",
+      "wrong_answers": [
+        "Color protection",
+        "Curl definition",
+        "Heat protection"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to add definition to the eyes?",
+      "answer": "Eyeliner",
+      "wrong_answers": [
+        "Mascara",
+        "Eyeshadow",
+        "False lashes"
+      ]
+    },
+    {
+      "question": "What is the purpose of a facial serum in skincare?",
+      "answer": "Targeted treatment",
+      "wrong_answers": [
+        "Moisturizing",
+        "Exfoliation",
+        "Cleansing"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly used for its anti-aging properties in skincare?",
+      "answer": "Retinol",
+      "wrong_answers": [
+        "Collagen",
+        "Ceramides",
+        "Green tea extract"
+      ]
+    },
+    {
+      "question": "What is the main function of a BB cream in makeup?",
+      "answer": "Sun protection",
+      "wrong_answers": [
+        "Moisturizing",
+        "Color correction",
+        "Matte finish"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is used to create the illusion of higher cheekbones?",
+      "answer": "Contour powder",
+      "wrong_answers": [
+        "Blush",
+        "Highlighter",
+        "Bronzer"
+      ]
+    },
+    {
+      "question": "What is the purpose of a makeup primer?",
+      "answer": "Smoothing the skin",
+      "wrong_answers": [
+        "Moisturizing",
+        "Color correction",
+        "Matte finish"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly found in anti-itch creams?",
+      "answer": "Calamine",
+      "wrong_answers": [
+        "Witch hazel",
+        "Salicylic acid",
+        "Tea tree oil"
+      ]
+    },
+    {
+      "question": "What is the primary function of a body lotion?",
+      "answer": "Moisturizing",
+      "wrong_answers": [
+        "Cleansing",
+        "Coloring",
+        "Exfoliation"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is used to add definition and color to the eyebrows?",
+      "answer": "Eyebrow pencil",
+      "wrong_answers": [
+        "Eyebrow gel",
+        "Eyebrow powder",
+        "Eyebrow wax"
+      ]
+    },
+    {
+      "question": "What is the purpose of a gel cleanser in skincare?",
+      "answer": "Cleansing",
+      "wrong_answers": [
+        "Exfoliation",
+        "Moisturizing",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to add a luminous glow to the skin?",
+      "answer": "Highlighter",
+      "wrong_answers": [
+        "Blush",
+        "Bronzer",
+        "Contour powder"
+      ]
+    },
+    {
+      "question": "What is the primary function of a lip balm?",
+      "answer": "Hydration",
+      "wrong_answers": [
+        "Color correction",
+        "Define and outline lips",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly used for its calming properties in skincare products?",
+      "answer": "Lavender oil",
+      "wrong_answers": [
+        "Peppermint oil",
+        "Witch hazel",
+        "Glycolic acid"
+      ]
+    },
+    {
+      "question": "What is the purpose of a makeup setting powder?",
+      "answer": "Setting makeup",
+      "wrong_answers": [
+        "Moisturizing",
+        "Color correction",
+        "Exfoliation"
+      ]
+    },
+    {
+      "question": "Which type of nail polish finish dries quickly and has a matte appearance?",
+      "answer": "Matte",
+      "wrong_answers": [
+        "High gloss",
+        "Satin",
+        "Shimmer"
+      ]
+    },
+    {
+      "question": "What does the term 'Cruelty-Free' mean in the context of cosmetics?",
+      "answer": "Not tested on animals",
+      "wrong_answers": [
+        "Free of synthetic chemicals",
+        "Long-lasting formula",
+        "Dermatologist-approved"
+      ]
+    },
+    {
+      "question": "Which cosmetic product is designed to create the appearance of fuller lashes?",
+      "answer": "False lashes",
+      "wrong_answers": [
+        "Mascara",
+        "Eyeliner",
+        "Eyeshadow"
+      ]
+    },
+    {
+      "question": "What is the primary function of a toning lotion in skincare?",
+      "answer": "Tightening pores",
+      "wrong_answers": [
+        "Moisturizing",
+        "Cleansing",
+        "Sun protection"
+      ]
+    },
+    {
+      "question": "Which ingredient is commonly found in anti-redness skincare products?",
+      "answer": "Niacinamide",
+      "wrong_answers": [
+        "Vitamin C",
+        "Aloe vera",
+        "Retinol"
+      ]
+    },
+    {
+      "question": "What is the purpose of a hair mousse?",
+      "answer": "Curl definition",
+      "wrong_answers": [
+        "Color protection",
+        "Heat protection",
+        "Straightening"
+      ]
+    }
+  ],
+  "2": [],
+  "3": []
+}

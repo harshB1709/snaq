@@ -1,41 +1,91 @@
 <template>
-    <div class="flex justify-center w-full">
-        <div class="max-w-lg w-full flex flex-col items-center gap-2">
-            <span>
-                Score: {{score}}
-            </span>
-            <div
-                class="w-full grid aspect-square"
-                :style="gridStyle"
-            >
-                <template
-                    v-for="(row, rowIndex) in grid"
+    <div class="flex justify-center w-svw max-w-6xl h-svh m-auto">
+        <div
+            class="w-full max-h-full flex-col md:flex-row items-center gap-3 md:gap-8 p-2 pt-4"
+            :class="{
+                'hidden': !gameStarted,
+                'flex': gameStarted
+            }"
+        >
+            <!-- Snake grid -->
+            <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
+                <span class="text-center">
+                    Score: {{score}}
+                </span>
+                <div
+                    class="flex items-center justify-center flex-1 min-h-4 max-w-full"
                 >
                     <div
-                        v-for="(cell, colIndex) in row"
-                        :key="`${rowIndex}.${colIndex}`"
-                        :class="['cell', cell === 'snake' ? 'snake' : '', cell?.food ? 'food' : '']"
-                    >{{cell.text ?? ''}}</div>
-                </template>
+                        class="grid aspect-square border border-white md:w-full max-w-full max-h-full ground-grid"
+                        :style="gridStyle"
+                    >
+                        <template
+                            v-for="(row, rowIndex) in grid"
+                        >
+                            <div
+                                v-for="(cell, colIndex) in row"
+                                :key="`${rowIndex}.${colIndex}`"
+                                :class="['cell md:text-sm leading-none font-semibold', cell === 'snake' ? 'snake' : '', cell?.food ? 'food' : '']"
+                            >
+                                <span v-if="cell?.food">
+                                    {{ cell.text ?? '' }}
+                                </span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
             </div>
-            <div class="w-full" v-if="gameStarted">
-                <div class="mt-2 w-full p-2 bg-primary text-primary-content rounded">Q: {{questions[position].question}}?</div>
-                <div class="grid grid-cols-2 gap-3 mt-3">
-                    <span v-for="(option, index) in questions[position].options" class="p-2 bg-primary text-primary-content rounded">{{String.fromCharCode(65 + index)}}: {{option.value}}</span>
+
+            <div class="w-full md:w-auto md:flex-1 flex flex-col gap-4 pb-4 justify-center">
+                <!-- Controls -->
+                <div class="flex flex-col gap-3 md:hidden">
+                    <div class="flex w-full justify-center">
+                      <button><kbd class="kbd kbd-xl" @click="handleNav('up')">▲</kbd></button>
+                    </div>
+                    <div class="flex w-full justify-center gap-3">
+                      <button><kbd class="kbd kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
+                      <button><kbd class="kbd kbd-xl" @click="handleNav('down')">▼</kbd></button>
+                      <button><kbd class="kbd kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
+                    </div>
+                </div>
+
+                <!-- MCQ -->
+                <div class="w-full text-xxs md:text-base" v-if="gameStarted">
+                    <div class="mt-2 w-full p-1.5 bg-primary text-primary-content rounded"><span class="font-bold">Q:</span> {{questions[position].question}}?</div>
+                    <div class="grid grid-cols-2 gap-3 mt-3">
+                        <span v-for="(option, index) in questions[position].options" class="p-1.5 bg-primary text-primary-content rounded"><span class="font-bold">{{String.fromCharCode(65 + index)}}:</span> {{option.value}}</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <dialog id="game_start_modal" class="modal" ref="gameStartModal" open>
-        <div class="modal-box">
+        <div class="modal-box" v-if="startModalPanel === 1">
             <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
             <ol class="list-disc py-3 pl-2">
-                <li>A mathematical question will appear one after another with four options.</li>
+                <li>
+                    <div class="form-control">
+                      <label class="label cursor-pointer">
+                        <span class="label-text">Full Screen</span>
+                        <input type="checkbox" class="toggle" :checked="isFullScreen ? 'checked' : false" @input="toggleFullScreen"/>
+                      </label>
+                    </div>
+                </li>
+            </ol>
+            <div class="modal-action justify-center">
+                <button class="btn" @click="nextStartModal">Next</button>
+            </div>
+        </div>
+        <div class="modal-box" v-else-if="startModalPanel === 2">
+            <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
+            <ol class="list-disc py-3 pl-2">
+                <li>A question will appear one after another with four options.</li>
                 <li>Eat the food with the correct option to score a point else you lose a point.</li>
             </ol>
             <p class="pb-4">Click below button to start the game.</p>
             <div class="modal-action justify-center">
+                <button class="btn" @click="prevStartModal">Prev</button>
                 <button class="btn" @click="handleGameStartClose">Start</button>
             </div>
         </div>
@@ -63,7 +113,7 @@ export default {
             snake: [{ row: 1, col: 1 }],
             food: { row: 0, col: 0 },
             direction: 'right',
-            timeout: 200,
+            timeout: 240,
             gameInterval: null,
             gameOverMsg: '',
             questions: [
@@ -71,7 +121,9 @@ export default {
             ],
             position: 0,
             gameStarted: false,
-            score: 0
+            score: 0,
+            startModalPanel: 1,
+            isFullScreen: false
         }
     },
     props: {
@@ -82,13 +134,43 @@ export default {
     },
     beforeMount () {
         window.addEventListener('keydown', this.handleKeydown, null);
+        document.documentElement.addEventListener('fullscreenchange', this.onFullScreenChange, null);
     },
     mounted() {
     },
     beforeDestroy () {
         window.removeEventListener('keydown', this.handleKeydown);
+        window.documentElement.removeEventListener('fullscreenchange', this.onFullScreenChange);
     },
     methods: {
+        nextStartModal() {
+            this.startModalPanel++;
+        },
+        prevStartModal() {
+            this.startModalPanel--;
+        },
+        onFullScreenChange() {
+            this.isFullScreen = document.fullscreenElement || document.mozCancelFullScreen || document.webkitFullscreenElement;
+        },
+        toggleFullScreen() {
+            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }
+        },
         handleGameStartClose() {
             this.$refs.gameStartModal.close();
             this.startGame();
@@ -99,6 +181,24 @@ export default {
             this.gameInterval = setInterval(() => {
                 this.move();
             }, this.timeout);
+        },
+        handleNav(dir) {
+            switch(dir) {
+                case 'left':
+                    this.direction = this.direction !== 'right' ? 'left' : 'right';
+                    break;
+                case 'up':
+                    this.direction = this.direction !== 'down' ? 'up' : 'down';
+                    break;
+                case 'right':
+                    this.direction = this.direction !== 'left' ? 'right' : 'left';
+                    break;
+                case 'down':
+                    this.direction = this.direction !== 'up' ? 'down' : 'up';
+                    break;
+                default:
+                    break;
+            }
         },
         handleKeydown (e) {
             switch (e.keyCode) {
@@ -218,9 +318,16 @@ export default {
 </script>
 
 <style scoped>
+
+div.ground-grid {
+    height: min(100%, calc(100vw - 20px));
+}
+
 .cell {
+    height: 100%;
     aspect-ratio: 1;
-    border: 1px solid #ddd;
+    font-size: min(2vmax, 1.5rem);
+    /*border: 1px solid #ddd;*/
 }
 
 .snake {
@@ -229,10 +336,38 @@ export default {
 
 .food {
     background-color: #FF5733;
+    color: white;
+    line-height: 100%;
+}
+
+.snake, .food {
+    padding: 8%;
+    border-radius: 8%;
+}
+
+.snake>span, .food>span {
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 8%;
+}
+
+.snake::after {
+    content: '';
+    border: 1.5px solid white;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.food>span {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    line-height: 100%;
+}
+
+.kbd-xl {
+    min-width: 3.2rem;
+    min-height: 3.2rem;
+    font-size: 1.6rem;
 }
 </style>
