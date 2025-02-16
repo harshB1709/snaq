@@ -126,6 +126,10 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'total_questions' => 21,
+
+    'invite_validity_mins' => 15,
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
