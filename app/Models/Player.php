@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Notifications\Notifiable;
 
 class Player extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'event_id',
