@@ -30,4 +30,8 @@ class Game extends Model
     {
         return $this->hasMany(GameQuestion::class);
     }
+
+    public function questions() {
+        return $this->belongsToMany(Question::class, 'game_questions')->withPivot('score');
+    }
 }

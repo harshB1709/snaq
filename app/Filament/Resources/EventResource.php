@@ -123,7 +123,7 @@ class EventResource extends Resource
                             ]),
                         Tabs\Tab::make('Players')
                             ->schema([
-                                \Njxqlus\Filament\Components\Forms\RelationManager::make()->manager(RelationManagers\PlayerRelationManager::class)->lazy(false)
+                                \Njxqlus\Filament\Components\Forms\RelationManager::make()->manager(RelationManagers\PlayerRelationManager::class)->lazy(true)
                             ])
                     ])
                     ->columnSpanFull(),
@@ -153,6 +153,8 @@ class EventResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->date(),
+                ToggleColumn::make('is_active')
+                    ->label('Active')
             ])
             ->filters([
                 //

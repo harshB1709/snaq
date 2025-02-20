@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->foreignId('player_id')->constrained();
-            $table->unsignedInteger('score')->nullable();
+            $table->integer('score')->nullable();
             $table->timestamps();
         });
     }

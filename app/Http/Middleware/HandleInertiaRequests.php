@@ -36,8 +36,9 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $event = $request->route('event');
         return array_merge(parent::share($request), [
-            //
+            'currentEvent' => $event
         ]);
     }
 }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('game_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id')->constrained();
-            $table->foreignId('question_id')->constrained();
-            $table->unsignedInteger('score')->nullable();
+            $table->foreignId('game_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('question_id')->constrained()->onDelete('cascade');
+            $table->integer('score')->nullable();
         });
     }
 

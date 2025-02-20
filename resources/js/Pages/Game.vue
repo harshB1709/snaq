@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center w-svw max-w-6xl h-svh m-auto">
         <div
-            class="w-full max-h-full flex-col md:flex-row items-center gap-3 md:gap-8 p-2 pt-4"
+            class="w-full max-h-full flex-col md:flex-row items-center gap-3 md:gap-8 p-3 pt-4"
             :class="{
                 'hidden': !gameStarted,
                 'flex': gameStarted
@@ -9,14 +9,14 @@
         >
             <!-- Snake grid -->
             <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
-                <span class="text-center">
+                <span class="text-center font-bold text-lg md:text-xl text-primary-content">
                     Score: {{score}}
                 </span>
                 <div
                     class="flex items-center justify-center flex-1 min-h-4 max-w-full"
                 >
                     <div
-                        class="grid aspect-square border border-white md:w-full max-w-full max-h-full ground-grid"
+                        class="grid aspect-square border border-white md:w-full max-w-full max-h-full ground-grid bg-base-300"
                         :style="gridStyle"
                     >
                         <template
@@ -25,11 +25,17 @@
                             <div
                                 v-for="(cell, colIndex) in row"
                                 :key="`${rowIndex}.${colIndex}`"
-                                :class="['cell md:text-sm leading-none font-semibold', cell === 'snake' ? 'snake' : '', cell?.food ? 'food' : '']"
+                                :class="[
+                                    'cell md:text-sm leading-none font-semibold',
+                                    cell === 'snake' ? 'snake bg-primary' : '',
+                                    cell?.food ? 'food' : '',
+                                    cell?.food && cooldown ? 'opacity-50' : ''
+                                ]"
+                                :style="`background: ${cell?.color ?? ''}`"
                             >
-                                <span v-if="cell?.food">
+                                <!-- <span v-if="cell?.food">
                                     {{ cell.text ?? '' }}
-                                </span>
+                                </span> -->
                             </div>
                         </template>
                     </div>
@@ -40,20 +46,31 @@
                 <!-- Controls -->
                 <div class="flex flex-col gap-3 md:hidden">
                     <div class="flex w-full justify-center">
-                      <button><kbd class="kbd kbd-xl" @click="handleNav('up')">▲</kbd></button>
+                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
                     </div>
                     <div class="flex w-full justify-center gap-3">
-                      <button><kbd class="kbd kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
-                      <button><kbd class="kbd kbd-xl" @click="handleNav('down')">▼</kbd></button>
-                      <button><kbd class="kbd kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
+                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
+                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('down')">▼</kbd></button>
+                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
                     </div>
                 </div>
 
                 <!-- MCQ -->
-                <div class="w-full text-xxs md:text-base" v-if="gameStarted">
-                    <div class="mt-2 w-full p-1.5 bg-primary text-primary-content rounded"><span class="font-bold">Q:</span> {{questions[position].question}}?</div>
-                    <div class="grid grid-cols-2 gap-3 mt-3">
-                        <span v-for="(option, index) in questions[position].options" class="p-1.5 bg-primary text-primary-content rounded"><span class="font-bold">{{String.fromCharCode(65 + index)}}:</span> {{option.value}}</span>
+                <div class="w-full" v-if="gameStarted">
+                    <div class="mt-2 w-full p-3 pl-6 bg-warning text-warning-content rounded-xl md:text-lg font-bold">
+                        <span class="font-extrabold">Q:</span> {{question}}?</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 text-sm md:text-base font-semibold">
+                        <div v-for="(option, index) in options" class="p-3 pl-6 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
+                            <div
+                                class="font-bold border border-white h-5 w-5 md:h-5 md:w-5 flex-none"
+                                :style="`background: ${option.color};`"
+                            >
+                                <!-- {{String.fromCharCode(65 + index)}}: -->
+                            </div>
+                            <span>
+                                &nbsp;{{option.value}}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,31 +79,45 @@
 
     <dialog id="game_start_modal" class="modal" ref="gameStartModal" open>
         <div class="modal-box" v-if="startModalPanel === 1">
-            <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
-            <ol class="list-disc py-3 pl-2">
-                <li>
-                    <div class="form-control">
-                      <label class="label cursor-pointer">
-                        <span class="label-text">Full Screen</span>
-                        <input type="checkbox" class="toggle" :checked="isFullScreen ? 'checked' : false" @input="toggleFullScreen"/>
-                      </label>
-                    </div>
-                </li>
-            </ol>
+            <h3 class="font-bold text-xl text-primary-content">Laracon 2024 Snake Game!</h3>
+            <div class="w-full flex justify-center">
+                <ol class="list-disc py-3 px-2 w-fit">
+                    <li>
+                        <div class="form-control items-center">
+                          <label class="label cursor-pointer justify-start gap-16">
+                            <span class="label-text text-lg font-bold text-primary-content">Full Screen</span>
+                            <input type="checkbox" class="toggle toggle-primary" :checked="isFullScreen ? 'checked' : false" @input="toggleFullScreen"/>
+                          </label>
+                        </div>
+                    </li>
+                </ol>
+            </div>
             <div class="modal-action justify-center">
-                <button class="btn" @click="nextStartModal">Next</button>
+                <button class="btn btn-accent" @click="nextStartModal">Next</button>
             </div>
         </div>
         <div class="modal-box" v-else-if="startModalPanel === 2">
             <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
             <ol class="list-disc py-3 pl-2">
-                <li>A question will appear one after another with four options.</li>
-                <li>Eat the food with the correct option to score a point else you lose a point.</li>
+                <li>{{totalQuestions}} questions will appear one after another with four options.</li>
+                <li>Eat the food with the correct option to the adjacent question to score points else you lose a point.</li>
+                <li>There is a cooldown of 2s after every question.</li>
+                <li>The speed of the snake increases after answering every question.</li>
             </ol>
             <p class="pb-4">Click below button to start the game.</p>
             <div class="modal-action justify-center">
-                <button class="btn" @click="prevStartModal">Prev</button>
-                <button class="btn" @click="handleGameStartClose">Start</button>
+                <button class="btn btn-neutral" @click="prevStartModal">Prev</button>
+                <button class="btn btn-primary" @click="startGame" ref="startGame">Start</button>
+            </div>
+        </div>
+        <div class="modal-box" v-else-if="startModalPanel === 3">
+            <div class="w-full flex flex-col items-center gap-6">
+                <h3 class="text-2xl font-bold text-primary">STARTING IN</h3>
+                <div class="radial-progress bg-primary text-primary-content border-4 border-primary" :style="`--value:${(gameStartedTimer*100)/300}; --size:12rem; --thickness: 2rem;`">
+                    <span class="countdown font-mono font-bold text-6xl">
+                        <span :style="`--value:${Math.round(gameStartedTimer/86)};`"></span>
+                    </span>
+                </div>
             </div>
         </div>
     </dialog>
@@ -104,6 +135,8 @@
 </template>
 
 <script>
+import { usePage, Link } from '@inertiajs/vue3'
+
 export default {
     name: "Game",
     data() {
@@ -113,23 +146,29 @@ export default {
             snake: [{ row: 1, col: 1 }],
             food: { row: 0, col: 0 },
             direction: 'right',
-            timeout: 240,
+            timeout: this.speedTimeout,
             gameInterval: null,
             gameOverMsg: '',
-            questions: [
-                this.firstQuestion
-            ],
+            question: null,
+            options: null,
             position: 0,
             gameStarted: false,
             score: 0,
             startModalPanel: 1,
-            isFullScreen: false
+            isFullScreen: false,
+            gameStartedTimer: null,
+            gameStartedTimerSetInterval: null,
+            cooldown: false
         }
     },
     props: {
-        firstQuestion: {
-            type: Object,
-            default: null
+        totalQuestions: {
+            type: Number,
+            required: true
+        },
+        speedTimeout: {
+            type: Number,
+            default: 750
         }
     },
     beforeMount () {
@@ -171,16 +210,55 @@ export default {
                 }
             }
         },
-        handleGameStartClose() {
-            this.$refs.gameStartModal.close();
-            this.startGame();
-            this.gameStarted = true;
-            this.getNextQuestion(null);
-        },
         startGame() {
+
+            this.$refs.startGame?.classList?.add('loading');
+            axios
+                .post(`/${usePage().props.currentEvent.slug}/start-game`)
+                .then((res) => {
+                    const data = res.data;
+                    this.nextStartModal();
+                    this.gameStartedTimer = 300;
+                    this.gameStartedTimerSetInterval = setInterval(function() {
+                        if(this.gameStartedTimer > 0) {
+                            this.gameStartedTimer--;
+                        }
+                        if(this.gameStartedTimer === 0) {
+                            this.setNewQuestion(data.question, data.options);
+                            this.$refs.gameStartModal.close();
+                            clearInterval(this.gameStartedTimerSetInterval);
+                            this.gameStartedTimerSetInterval = null;
+                            this.gameStarted = true;
+                            this.changeSnakeSpeed();
+                        }
+                    }.bind(this), 10)
+                })
+                .catch((err) => {
+
+                })
+                .finally(() => {
+                    this.$refs.startGame?.classList?.remove('loading');
+                })
+        },
+        changeSnakeSpeed() {
+            if(this.gameInterval) {
+                clearInterval(this.gameInterval);
+                this.gameInterval = null;
+            }
             this.gameInterval = setInterval(() => {
                 this.move();
             }, this.timeout);
+        },
+        setNewQuestion(question, options) {
+            this.question = question;
+            this.options = options;
+
+            if(question?.length){
+                this.cooldown = true;
+                setTimeout(() => {
+                    this.cooldown = false
+                }, 2000)
+            }
         },
         handleNav(dir) {
             switch(dir) {
@@ -244,21 +322,21 @@ export default {
 
             // Check collision with walls
             if (head.row < 0 || head.row >= this.rows || head.col < 0 || head.col >= this.cols) {
-                this.handleGameEnd('Game Over! You hit the wall.');
+                this.gameEnd('hitWall');
                 return;
             }
 
             // Check collision with itself
             if (this.snake.some(segment => segment.row === head.row && segment.col === head.col)) {
-                this.handleGameEnd('Game Over! You collided with yourself.');
+                this.gameEnd('hitSelf');
                 return;
             }
 
             let unshifted = false;
             // Check collision with food
-            if (this.inPositions(head.row, head.col)) {
+            if (this.inPositions(head.row, head.col) && !this.cooldown) {
                 this.position++;
-                this.getNextQuestion([head.row, head.col]);
+                this.handleFoodEat([head.row, head.col]);
                 // this.snake.unshift({ ...this.food });
                 // unshifted = true;
             } else {
@@ -277,9 +355,38 @@ export default {
             this.startGame();
         },
         inPositions(r,c) {
-            return this.optionsPosition.map(i => {
-                return i[0] === r && i[1] === c
+            return this.options.map(i => {
+                return i?.position?.[0] === r && i?.position?.[1] === c
             }).includes(true)
+        },
+        gameEnd(action) {
+            axios.post(`/${usePage().props.currentEvent.slug}/game-action`, {
+                action
+            }).then(res => {
+                const data = res.data;
+                this.score = data.points;
+                if(data.gameOver)
+                    this.handleGameEnd(data.gameOverMessage);
+            });
+        },
+        handleFoodEat(pos) {
+            const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);
+            const color = option?.[0]?.color;
+            if(color?.length) {
+                this.setNewQuestion('', []);
+                axios.post(`/${usePage().props.currentEvent.slug}/game-action`, {
+                    color,
+                    action: 'eatFood'
+                }).then(res => {
+                    const data = res.data;
+                    this.score = data.points;
+                    this.setNewQuestion(data.question, data.options);
+                    this.timeout = data.speedTimeout;
+                    this.changeSnakeSpeed();
+                    if(data.gameOver)
+                        this.handleGameEnd(data.gameOverMessage);
+                });
+            }
         },
         async getNextQuestion(pos) {
             let data = await axios.get('/api/next-question', {
@@ -300,7 +407,7 @@ export default {
             });
 
             if(this.gameStarted) {
-                this.questions[this.position].options.forEach((d, i) => {grid[d.position[0]][d.position[1]] = {food: true, text: String.fromCharCode(65 + i)}})
+                this.options.forEach((d, i) => {grid[d.position[0]][d.position[1]] = {food: true, color: d.color}})
             }
 
             return grid;
@@ -309,9 +416,6 @@ export default {
             return {
                 "grid-template-columns": `repeat(${this.rows}, minmax(0, 1fr))`
             }
-        },
-        optionsPosition() {
-            return this.questions[this.position].options.map(o => o.position)
         }
     }
 }
@@ -327,17 +431,14 @@ div.ground-grid {
     height: 100%;
     aspect-ratio: 1;
     font-size: min(2vmax, 1.5rem);
-    /*border: 1px solid #ddd;*/
-}
-
-.snake {
-    background-color: #4CAF50;
+    border: 0.5px solid #ddd;
 }
 
 .food {
-    background-color: #FF5733;
+/*    background-color: #FF5733;*/
     color: white;
     line-height: 100%;
+    border: 1px solid white;
 }
 
 .snake, .food {

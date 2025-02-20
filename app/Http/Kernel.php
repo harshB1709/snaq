@@ -66,5 +66,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'app.setting' => \App\Http\Middleware\AppSetting::class,
+        'device_allowed' => \App\Http\Middleware\EnsureDeviceIsAllowed::class,
+        'player.identified' => \App\Http\Middleware\PlayerIdentified::class,
+        'game.ongoing' => \App\Http\Middleware\GameInProgress::class,
     ];
 }

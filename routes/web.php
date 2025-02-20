@@ -38,9 +38,9 @@ Route::prefix("{event:slug}")->group(function () {
         // Route::get('/register', [PlayerController::class, 'home'])->middleware(['app.setting:player_registration', 'device_allowed'])->name('player-register');
         Route::get('/{player}/game', [GameController::class, 'gamePage'])->middleware(['device_allowed'])->name('game');
 
-        // Route::middleware(['player.identified'])->group(function() {
-        //     Route::post('/start-game', [PlayerController::class, 'startGame'])->name('start-game');
-        //     Route::post('/game-action', [PlayerController::class, 'gameAction'])->middleware(['game.ongoing'])->name('game-action');
-        // });
+        Route::middleware(['player.identified'])->group(function() {
+            Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');
+            Route::post('/game-action', [GameController::class, 'gameAction'])->middleware(['game.ongoing'])->name('game-action');
+        });
     });
 });
