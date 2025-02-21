@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('question');
-            $table->json('options');
+            $table->jsonb('options');
             $table->string('answer');
             $table->enum('difficulty', ['easy', 'medium', 'hard'])->default('easy');
             $table->boolean('is_active')->default(true);
