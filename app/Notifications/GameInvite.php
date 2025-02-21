@@ -36,7 +36,7 @@ class GameInvite extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $game_invite_validity = config('app.invite_validity_mins');
+        $game_invite_validity = config('app.game.invite_validity_mins');
         $event = $notifiable->event;
         $notifiable->invite_expires_at = now()->addMinutes($game_invite_validity);
         $notifiable->save();

@@ -30,7 +30,7 @@ class GameController extends Controller
             abort(400, 'Sorry, this link has expired.');
         }
 
-        $initial_speed_timeout = 400;
+        $initial_speed_timeout = config('app.game.initial_speed_timeout');
 
         session([
             'player_id' => $player->id,
@@ -38,8 +38,10 @@ class GameController extends Controller
         ]);
 
         return Inertia::render('Game', [
-            'totalQuestions' => config('app.total_questions'),
-            'speedTimeout' => $initial_speed_timeout
+            'totalQuestions' => config('app.game.total_questions'),
+            'speedTimeout' => $initial_speed_timeout,
+            'cooldownTime' => config('app.game.cooldown_time'),
+            'lives' => config('app.game.lives')
         ]);
     }
 
@@ -61,7 +63,7 @@ class GameController extends Controller
                         ['difficulty', $difficulty],
                         ['is_active', true]
                     ])
-                    ->limit(config('app.total_questions')/count($difficulties))
+                    ->limit(config('app.game.total_questions')/count($difficulties))
                     ->get()
             );
         }
@@ -91,7 +93,7 @@ class GameController extends Controller
             'questions' => $questions,
             'points_scored' => 0,
             'current_index' => 0,
-            'speedTimeout' => session('speedTimeout')
+            'speedTimeout' => session('speedTimeout') ?? config('app.game.initial_speed_timeout'),
         ]);
 
         return response()->json([
@@ -104,13 +106,13 @@ class GameController extends Controller
     public function gameAction(Request $request, Event $event) {
         function incrementIndex(&$current_index, &$question_change, &$game_over, &$speed_timeout) {
             $current_index++;
-            $question_change = $current_index <= (config('app.total_questions') - 1);
-            $game_over = $current_index > (config('app.total_questions') - 1);
-            $speed_timeout -= 20;
+            $question_change = $current_index <= (config('app.game.total_questions') - 1);
+            $game_over = $current_index > (config('app.game.total_questions') - 1);
+            $speed_timeout -= config('app.game.speed_timeout_difference');
         }
 
         $action = $request->get('action', 'hitWall');
-        $max_timer = config('app.timer_seconds');
+        $max_timer = config('app.game.timer_seconds');
 
         if(in_array($action, ['eatFood', 'hitWall', 'hitSelf'])) {
             $question_change = false;

@@ -126,9 +126,19 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'total_questions' => 21,
+    'game' => [
+        'total_questions' => 21,
 
-    'invite_validity_mins' => 15,
+        'invite_validity_mins' => 15,
+
+        'initial_speed_timeout' => 450, //speed for question 1
+
+        'speed_timeout_difference' => 14, //change in timeout after every question
+
+        'cooldown_time' => 2000, //cooldown time after answering a question in ms
+
+        'lives' => 3
+    ],
 
     /*
     |--------------------------------------------------------------------------

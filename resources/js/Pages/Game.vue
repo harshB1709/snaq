@@ -1,7 +1,8 @@
 <template>
+    <Head title="Game Page" />
     <div class="flex justify-center w-svw max-w-6xl h-svh m-auto">
         <div
-            class="w-full max-h-full flex-col md:flex-row items-center gap-3 md:gap-8 p-3 pt-4"
+            class="w-full max-h-full flex-col md:flex-row items-center gap-3 md:gap-8 p-3"
             :class="{
                 'hidden': !gameStarted,
                 'flex': gameStarted
@@ -9,11 +10,17 @@
         >
             <!-- Snake grid -->
             <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
-                <span class="text-center font-bold text-lg md:text-xl text-primary-content">
-                    Score: {{score}}
-                </span>
+                <div class="flex justify-evenly">
+                    <span class="text-center font-bold text-xl md:text-2xl text-primary-content">
+                        Score: {{score}}
+                    </span>
+
+                    <span class="text-center font-bold text-xl md:text-2xl text-primary-content">
+                        Lives: <span v-html="livesString"></span>
+                    </span>
+                </div>
                 <div
-                    class="flex items-center justify-center flex-1 min-h-4 max-w-full"
+                    class="flex justify-center flex-1 min-h-4 max-w-full"
                 >
                     <div
                         class="grid aspect-square border border-white md:w-full max-w-full max-h-full ground-grid bg-base-300"
@@ -42,25 +49,25 @@
                 </div>
             </div>
 
-            <div class="w-full md:w-auto md:flex-1 flex flex-col gap-4 pb-4 justify-center">
+            <div class="w-full md:w-auto md:flex-1 flex flex-col gap-2 pb-1 justify-center">
                 <!-- Controls -->
                 <div class="flex flex-col gap-3 md:hidden">
                     <div class="flex w-full justify-center">
-                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
+                      <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
                     </div>
                     <div class="flex w-full justify-center gap-3">
-                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
-                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('down')">▼</kbd></button>
-                      <button><kbd class="kbd bg-base-300 shadow-md kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
+                      <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
+                      <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('down')">▼</kbd></button>
+                      <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
                     </div>
                 </div>
 
                 <!-- MCQ -->
                 <div class="w-full" v-if="gameStarted">
-                    <div class="mt-2 w-full p-3 pl-6 bg-warning text-warning-content rounded-xl md:text-lg font-bold">
-                        <span class="font-extrabold">Q:</span> {{question}}?</div>
+                    <div class="mt-2 w-full p-3 px-6 bg-warning text-warning-content rounded-xl md:text-lg font-bold">
+                        <span class="font-extrabold">Q{{questionNum}}:</span> {{question}}?</div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 text-sm md:text-base font-semibold">
-                        <div v-for="(option, index) in options" class="p-3 pl-6 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
+                        <div v-for="(option, index) in options" class="p-3 px-5 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
                             <div
                                 class="font-bold border border-white h-5 w-5 md:h-5 md:w-5 flex-none"
                                 :style="`background: ${option.color};`"
@@ -128,17 +135,20 @@
             <p class="py-4">Your Final Score: {{score}}</p>
             <p class="py-4">Click below button to start the game.</p>
             <div class="modal-action justify-center">
-                <button class="btn" @click="resetGame">Restart</button>
+                <button class="btn btn-active" @click="resetGame">Restart</button>
             </div>
         </div>
     </dialog>
 </template>
 
 <script>
-import { usePage, Link } from '@inertiajs/vue3'
+import { Head, usePage, Link } from '@inertiajs/vue3'
 
 export default {
     name: "Game",
+    components: {
+        Head
+    },
     data() {
         return {
             rows: 20,
@@ -158,7 +168,9 @@ export default {
             isFullScreen: false,
             gameStartedTimer: null,
             gameStartedTimerSetInterval: null,
-            cooldown: false
+            cooldown: false,
+            questionNum: 0,
+            livesRemaining: this.lives
         }
     },
     props: {
@@ -168,8 +180,16 @@ export default {
         },
         speedTimeout: {
             type: Number,
-            default: 750
-        }
+            default: 450
+        },
+        cooldownTime: {
+            type: Number,
+            default: 2000
+        },
+        lives: {
+            type: Number,
+            default: 3
+        },
     },
     beforeMount () {
         window.addEventListener('keydown', this.handleKeydown, null);
@@ -224,6 +244,7 @@ export default {
                             this.gameStartedTimer--;
                         }
                         if(this.gameStartedTimer === 0) {
+                            this.questionNum++;
                             this.setNewQuestion(data.question, data.options);
                             this.$refs.gameStartModal.close();
                             clearInterval(this.gameStartedTimerSetInterval);
@@ -257,7 +278,7 @@ export default {
                 this.cooldown = true;
                 setTimeout(() => {
                     this.cooldown = false
-                }, 2000)
+                }, this.cooldownTime)
             }
         },
         handleNav(dir) {
@@ -304,7 +325,6 @@ export default {
         },
         move() {
             const head = Object.assign({}, this.snake[0]);
-
             switch (this.direction) {
                 case 'up':
                     head.row--;
@@ -335,7 +355,7 @@ export default {
             let unshifted = false;
             // Check collision with food
             if (this.inPositions(head.row, head.col) && !this.cooldown) {
-                this.position++;
+                // this.position++;
                 this.handleFoodEat([head.row, head.col]);
                 // this.snake.unshift({ ...this.food });
                 // unshifted = true;
@@ -373,13 +393,19 @@ export default {
             const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);
             const color = option?.[0]?.color;
             if(color?.length) {
-                this.setNewQuestion('', []);
+                this.setNewQuestion('', [
+                    {value: ''},
+                    {value: ''},
+                    {value: ''},
+                    {value: ''}
+                ]);
                 axios.post(`/${usePage().props.currentEvent.slug}/game-action`, {
                     color,
                     action: 'eatFood'
                 }).then(res => {
                     const data = res.data;
                     this.score = data.points;
+                    this.questionNum++;
                     this.setNewQuestion(data.question, data.options);
                     this.timeout = data.speedTimeout;
                     this.changeSnakeSpeed();
@@ -407,7 +433,10 @@ export default {
             });
 
             if(this.gameStarted) {
-                this.options.forEach((d, i) => {grid[d.position[0]][d.position[1]] = {food: true, color: d.color}})
+                this.options.forEach((d, i) => {
+                    if(d.position)
+                        grid[d.position[0]][d.position[1]] = {food: true, color: d.color}
+                })
             }
 
             return grid;
@@ -416,6 +445,12 @@ export default {
             return {
                 "grid-template-columns": `repeat(${this.rows}, minmax(0, 1fr))`
             }
+        },
+        livesString() {
+            let lives = '';
+            for(let i = 0; i < this.livesRemaining; i++)
+                lives += '❤️&nbsp;';
+            return lives;
         }
     }
 }
