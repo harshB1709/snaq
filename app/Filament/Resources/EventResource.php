@@ -125,6 +125,7 @@ class EventResource extends Resource
                             ->schema([
                                 \Njxqlus\Filament\Components\Forms\RelationManager::make()->manager(RelationManagers\PlayerRelationManager::class)->lazy(true)
                             ])
+                            ->hiddenOn('create')
                     ])
                     ->columnSpanFull(),
             ]);
