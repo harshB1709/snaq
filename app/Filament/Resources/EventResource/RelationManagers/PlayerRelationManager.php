@@ -8,6 +8,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -47,6 +48,7 @@ class PlayerRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('display_name'),
                 Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('invite_expires_at')->since(),
             ])
             ->filters([
                 //
@@ -60,6 +62,42 @@ class PlayerRelationManager extends RelationManager
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('reset_game')
+                    ->label('Reset Game')
+                    ->accessSelectedRecords()
+                    ->requiresConfirmation()
+                    ->modalHeading('Reset Game')
+                    ->modalSubheading('Are you sure you want to reset the game for this player? This action will delete the current game score for the player.')
+                    ->modalSubmitActionLabel('Reset')
+                    ->color('primary')
+                    ->icon('heroicon-o-arrow-path-rounded-square')
+                    ->action(function($data, Player $record) {
+                        $record->game()?->delete();
+                        $record->invite_expires_at = now()->addMinutes(config('app.game.invite_validity_mins'));
+                        $record->save();
+
+                        Notification::make()
+                            ->title('Game has been reset!')
+                            ->success()
+                            ->send();
+                    }),
+                Tables\Actions\Action::make('resend_invite')
+                    ->label('Resend Invite')
+                    ->accessSelectedRecords()
+                    ->requiresConfirmation()
+                    ->modalHeading('Resend Invite')
+                    ->modalSubheading('Are you sure you want to resend the invite to this player?')
+                    ->modalSubmitActionLabel('Resend')
+                    ->color('secondary')
+                    ->icon('heroicon-o-envelope')
+                    ->action(function($data, Player $record) {
+                        $record->notify(new GameInvite());
+
+                        Notification::make()
+                            ->title('Invite resent!')
+                            ->success()
+                            ->send();
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
