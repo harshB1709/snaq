@@ -48,10 +48,23 @@ class PlayerRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('display_name')
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('display_name'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('invite_expires_at')->since(),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('display_name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('invite_expires_at')
+                    ->since()
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('game.score')
+                    ->label('Score')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
                 //
