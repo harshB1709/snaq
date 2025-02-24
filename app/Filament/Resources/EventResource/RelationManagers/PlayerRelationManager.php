@@ -15,6 +15,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Closure;
+use Filament\Forms\Get;
 
 class PlayerRelationManager extends RelationManager
 {
@@ -31,7 +33,8 @@ class PlayerRelationManager extends RelationManager
                     ->maxLength(255),
                 TextInput::make('email')
                     ->required()
-                    ->email(),
+                    ->email()
+                    ->unique(ignoreRecord: true, modifyRuleUsing: fn ($rule) => $rule->where('event_id', $this->getOwnerRecord()?->id)),
                 TextInput::make('phone')
                     ->label('Phone No.')
                     ->required()
@@ -71,6 +74,7 @@ class PlayerRelationManager extends RelationManager
                     ->modalSubmitActionLabel('Reset')
                     ->color('primary')
                     ->icon('heroicon-o-arrow-path-rounded-square')
+                    ->button()
                     ->action(function($data, Player $record) {
                         $record->game()?->delete();
                         $record->invite_expires_at = now()->addMinutes(config('app.game.invite_validity_mins'));
@@ -88,8 +92,9 @@ class PlayerRelationManager extends RelationManager
                     ->modalHeading('Resend Invite')
                     ->modalSubheading('Are you sure you want to resend the invite to this player?')
                     ->modalSubmitActionLabel('Resend')
-                    ->color('secondary')
+                    ->color('info')
                     ->icon('heroicon-o-envelope')
+                    ->button()
                     ->action(function($data, Player $record) {
                         $record->notify(new GameInvite());
 

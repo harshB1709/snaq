@@ -163,6 +163,10 @@ class EventResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('self_register')
+                    ->url(fn ($record) => route('player.register', ['event' => $record]))
+                    ->icon('heroicon-s-user-plus')
+                    ->color('info')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
