@@ -13,8 +13,16 @@ use Storage;
 
 class GameController extends Controller
 {
+    private array $points_distribution;
+    private int $time_bonus;
+
+    public function __construct() {
+        $this->points_distribution = config('app.game.points_distribution');
+        $this->time_bonus = config('app.game.time_bonus');
+    }
+
     public function gamePage(Request $request, Event $event, Player $player) {
-        $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout']);
+        $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout', 'started_at']);
         if($player->event_id !== $event->id) {
             abort(400, 'Sorry, this link isn\'t valid');
         }
@@ -80,6 +88,7 @@ class GameController extends Controller
         $game->questions()->syncWithPivotValues($questions->map(fn ($question) => $question->id)->toArray(), ['score' => 0]);
 
         $questions = $questions->map(function($question, $k) use($difficulties) {
+
             return [
                 'id' => $question->id,
                 'question' => $question->question,
@@ -88,7 +97,10 @@ class GameController extends Controller
                     $k == 0 ? [[1,1]] : []
                 ),
                 'answer' => $question->answer,
-                'points' => array_search($question->difficulty, $difficulties) + 1,
+                'points' => $this->points_distribution[$question->difficulty->value] ?? [
+                    'correct' => 0,
+                    'incorrect' => 0
+                ],
                 'is_completed' => false
             ];
         })->shuffle()->toArray();
@@ -98,6 +110,7 @@ class GameController extends Controller
             'points_scored' => 0,
             'current_index' => 0,
             'speedTimeout' => session('speedTimeout') ?? config('app.game.initial_speed_timeout'),
+            'started_at' => now()->addSeconds(3)->timestamp
         ]);
 
         return response()->json([
@@ -108,11 +121,12 @@ class GameController extends Controller
     }
 
     public function gameAction(Request $request, Event $event) {
-        function incrementIndex(&$current_index, &$question_change, &$game_over, &$speed_timeout) {
+        function incrementIndex(&$current_index, &$question_change, &$game_over, &$speed_timeout, &$started_at) {
             $current_index++;
             $question_change = $current_index <= (config('app.game.total_questions') - 1);
             $game_over = $current_index > (config('app.game.total_questions') - 1);
             $speed_timeout -= config('app.game.speed_timeout_difference');
+            $started_at = now()->timestamp;
         }
 
         $action = $request->get('action', 'hitWall');
@@ -125,7 +139,9 @@ class GameController extends Controller
             $current_index = session('current_index', null);
             $points_scored = session('points_scored', 0);
             $speed_timeout = session('speedTimeout');
+            $started_at = session('started_at');
             $game_over_message = null;
+            $bonus_points = 0;
 
             switch ($action) {
                 case 'eatFood':
@@ -134,7 +150,9 @@ class GameController extends Controller
                     $selected_answer = collect($question['options'])
                         ->where(fn ($o) => $o['color'] === $color)
                         ->first();
-                    $earned = ($selected_answer['value'] === $question['answer']) ? $question['points'] : (-1);
+                    $time_elapsed = max(1, now()->timestamp - $started_at - config('app.game.delay_seconds') - (config('app.game.cooldown_time')/1000));
+                    $bonus_points = max(0, config('app.game.bonus_threshold_seconds') - $time_elapsed) * $this->time_bonus;
+                    $earned = ($selected_answer['value'] === $question['answer']) ? ($question['points']['correct'] + $bonus_points) : (-1 * $question['points']['incorrect']);
                     $points_scored += $earned;
                     $game = Game::where('player_id', session('player_id'))->first();
                     $game->score = $points_scored;
@@ -145,7 +163,7 @@ class GameController extends Controller
                         ->update([
                             'score' => $earned
                         ]);
-                    incrementIndex($current_index, $question_change, $game_over, $speed_timeout);
+                    incrementIndex($current_index, $question_change, $game_over, $speed_timeout, $started_at);
                     if($game_over)
                         $game_over_message = 'You have answered all the questions. Please wait for the results.';
                     break;
@@ -166,17 +184,19 @@ class GameController extends Controller
                     'questions' => $questions,
                     'points_scored' => $points_scored,
                     'current_index' => $current_index,
-                    'speedTimeout' => $speed_timeout
+                    'speedTimeout' => $speed_timeout,
+                    'started_at' => $started_at
                 ]);
 
                 $curr_ques = $questions[$current_index];
             }
             else {
-                $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout']);
+                $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout', 'started_at']);
             }
 
             return response()->json([
                 'points' => $points_scored,
+                'bonus_points' => $bonus_points,
                 'question' => $curr_ques['question'] ?? null,
                 'options' => $curr_ques['options'] ?? null,
                 'speedTimeout' => $speed_timeout,
@@ -186,45 +206,6 @@ class GameController extends Controller
             ]);
         }
         abort(404);
-    }
-
-    public function getNextQuestion(Request $request) {
-        $sess = $request->session()->all();
-        $question = $this->resolveQuestion($sess['generated'] + 1);
-        $sess['generated']++;
-        if($request->has('pos') && $request->get('pos')) {
-            $pos = $request->get('pos');
-            $q_no = $sess['answered'];
-            if($sess['correct'][$q_no][0] == $pos[0] && $sess['correct'][$q_no][1] == $pos[1]) {
-                $sess['score']++;
-            }
-            else {
-                $sess['score']--;
-            }
-            logger($sess['score']);
-            $sess['answered']++;
-        }
-        array_push($sess['correct'], $question['correct_position']);
-        array_push($sess['avoid'][$question['difficulty']], $question['index']);
-        session($sess);
-
-        return response()->json([
-            'question' => [
-                'question' => $question['question'],
-                'options' => $question['options']
-            ],
-            'score' => $sess['score']
-        ]);
-    }
-
-    private function getRandomQuestion(int $difficulty = 1, array $avoid = []) {
-        $questions = Storage::disk('private')->get('mixed_questions.json');
-        $questions = collect(json_decode($questions, true))[$difficulty] ?? [];
-        $q_index = collect()->range(0, count($questions) - 1)->diff($avoid[$difficulty] ?? collect([]))->random();
-        return [
-            'index' => $q_index,
-            'question' => $questions[$q_index]
-        ];
     }
 
     private function getCoordinates(array $avoid = [[1,1]], int $quantity = 4) {

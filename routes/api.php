@@ -25,7 +25,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::prefix("{event:slug}")->group(function () {
         Route::post('/register', [PlayerController::class, 'register'])->middleware(['app.setting:player_registration'])->name('register-api');
 
-        Route::middleware([])->group(function() {
+        Route::middleware(['app.setting:app_status', 'player.identified'])->group(function() {
             Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');
             Route::post('/game-action', [GameController::class, 'gameAction'])->middleware(['game.ongoing'])->name('game-action');
         });

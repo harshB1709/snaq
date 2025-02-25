@@ -161,7 +161,6 @@ export default {
             gameOverMsg: '',
             question: null,
             options: null,
-            position: 0,
             gameStarted: false,
             score: 0,
             startModalPanel: 1,
@@ -355,7 +354,6 @@ export default {
             let unshifted = false;
             // Check collision with food
             if (this.inPositions(head.row, head.col) && !this.cooldown) {
-                // this.position++;
                 this.handleFoodEat([head.row, head.col]);
                 // this.snake.unshift({ ...this.food });
                 // unshifted = true;

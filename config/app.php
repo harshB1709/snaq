@@ -131,13 +131,34 @@ return [
 
         'invite_validity_mins' => 15,
 
-        'initial_speed_timeout' => 450, //speed for question 1
+        'initial_speed_timeout' => 400, //speed for question 1
 
-        'speed_timeout_difference' => 14, //change in timeout after every question
+        'speed_timeout_difference' => 15, //change in timeout after every question
 
         'cooldown_time' => 2000, //cooldown time after answering a question in ms
 
-        'lives' => 3
+        'lives' => 3,
+
+        'points_distribution' => [
+            'easy' => [
+                'correct' => 20,
+                'incorrect' => 10
+            ],
+            'medium' => [
+                'correct' => 40,
+                'incorrect' => 10
+            ],
+            'hard' => [
+                'correct' => 80,
+                'incorrect' => 5
+            ],
+        ],
+
+        'time_bonus' => 2,
+
+        'bonus_threshold_seconds' => 5,
+
+        'delay_seconds' => 2
     ],
 
     /*
