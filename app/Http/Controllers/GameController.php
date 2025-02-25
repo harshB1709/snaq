@@ -15,6 +15,10 @@ class GameController extends Controller
 {
     public function gamePage(Request $request, Event $event, Player $player) {
         $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout']);
+        if($player->event_id !== $event->id) {
+            abort(400, 'Sorry, this link isn\'t valid');
+        }
+
         if($request->user())
             $player->game()?->delete();
 
@@ -244,5 +248,18 @@ class GameController extends Controller
         ]);
 
         return $options_array;
+    }
+
+    public function leaderboard(Event $event, Request $request) {
+        $games = Game::withWhereHas('player', fn ($query) => $query->where('event_id', $event->id))->select('id','event_id','name','display_name')
+                    ->select('id', 'player_id', 'score')
+                    ->orderByDesc('score')
+                    ->paginate(25);
+
+        $games->onEachSide(0)->links();
+
+        return Inertia::render('Event/Leaderboard', [
+            'games' => $games,
+        ]);
     }
 }

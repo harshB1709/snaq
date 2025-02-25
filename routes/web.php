@@ -33,7 +33,7 @@ Route::middleware([
 
 Route::prefix("{event:slug}")->group(function () {
     // Route::get('/', [HomeController::class, 'home'])->name('home');
-    // Route::get('/leaderboard', [PlayerController::class, 'leaderboard'])->middleware(['app.setting:show_leaderboard'])->name('leaderboard');
+    Route::get('/leaderboard', [GameController::class, 'leaderboard'])->middleware(['app.setting:show_leaderboard'])->name('leaderboard');
 
     Route::middleware(['app.setting:app_status'])->group(function() {
         Route::get('/register', [PlayerController::class, 'home'])->middleware(['app.setting:player_registration', 'device_allowed'])->name('player.register');
