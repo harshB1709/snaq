@@ -398,21 +398,23 @@ export default {
                 action
             }).then(res => {
                 const data = res.data;
-                this.score = data.points;
-                this.livesRemaining = data.lives;
-                this.unblinkSnake();
-                this.spawnNewSnake();
-                this.respawnCountdown = 3;
-                const respawnInterval = setInterval(() => {
-                    this.respawnCountdown--;
-                    if(this.respawnCountdown === 0) {
-                        clearInterval(respawnInterval);
-                        this.respawnCountdown = null;
-                        this.changeSnakeSpeed();
-                    }
-                }, 1000)
                 if(data.gameOver)
                     this.handleGameEnd(data.gameOverMessage);
+                else {
+                    this.score = data.points;
+                    this.livesRemaining = data.lives;
+                    this.unblinkSnake();
+                    this.spawnNewSnake();
+                    this.respawnCountdown = 3;
+                    const respawnInterval = setInterval(() => {
+                        this.respawnCountdown--;
+                        if(this.respawnCountdown === 0) {
+                            clearInterval(respawnInterval);
+                            this.respawnCountdown = null;
+                            this.changeSnakeSpeed();
+                        }
+                    }, 1000)
+                }
             });
         },
         startBlinkSnake() {
