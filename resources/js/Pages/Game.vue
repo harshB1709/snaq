@@ -234,7 +234,7 @@ export default {
 
             this.$refs.startGame?.classList?.add('loading');
             axios
-                .post(`/${usePage().props.currentEvent.slug}/start-game`)
+                .post(`/api/${usePage().props.currentEvent.slug}/start-game`)
                 .then((res) => {
                     const data = res.data;
                     this.nextStartModal();
@@ -380,7 +380,7 @@ export default {
             }).includes(true)
         },
         gameEnd(action) {
-            axios.post(`/${usePage().props.currentEvent.slug}/game-action`, {
+            axios.post(`/api/${usePage().props.currentEvent.slug}/game-action`, {
                 action
             }).then(res => {
                 const data = res.data;
@@ -399,7 +399,7 @@ export default {
                     {value: ''},
                     {value: ''}
                 ]);
-                axios.post(`/${usePage().props.currentEvent.slug}/game-action`, {
+                axios.post(`/api/${usePage().props.currentEvent.slug}/game-action`, {
                     color,
                     action: 'eatFood'
                 }).then(res => {

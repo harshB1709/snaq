@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Http\Request;
@@ -22,8 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/next-question', [HomeController::class, 'getNextQuestion']);
-});
 
-Route::prefix("{event:slug}")->group(function () {
-    Route::post('/register', [PlayerController::class, 'register'])->middleware(['app.setting:player_registration'])->name('register-api');
+    Route::prefix("{event:slug}")->group(function () {
+        Route::post('/register', [PlayerController::class, 'register'])->middleware(['app.setting:player_registration'])->name('register-api');
+
+        Route::middleware(['app.setting:app_status', 'player.identified'])->group(function() {
+            Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');
+            Route::post('/game-action', [GameController::class, 'gameAction'])->middleware(['game.ongoing'])->name('game-action');
+        });
+    });
 });
