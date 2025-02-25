@@ -234,7 +234,7 @@ export default {
 
             this.$refs.startGame?.classList?.add('loading');
             axios
-                .post(`/api/${usePage().props.currentEvent.slug}/start`, {})
+                .post(`/api/${usePage().props.currentEvent.slug}/start-game`, {})
                 .then((res) => {
                     const data = res.data;
                     this.nextStartModal();
