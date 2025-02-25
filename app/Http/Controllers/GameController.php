@@ -122,14 +122,6 @@ class GameController extends Controller
     }
 
     public function gameAction(Request $request, Event $event) {
-        function incrementIndex(&$current_index, &$question_change, &$game_over, &$speed_timeout, &$started_at) {
-            $current_index++;
-            $question_change = $current_index <= (config('app.game.total_questions') - 1);
-            $game_over = $current_index > (config('app.game.total_questions') - 1);
-            $speed_timeout -= config('app.game.speed_timeout_difference');
-            $started_at = now()->timestamp;
-        }
-
         $action = $request->get('action', 'hitWall');
         $max_timer = config('app.game.timer_seconds');
 
@@ -165,7 +157,7 @@ class GameController extends Controller
                         ->update([
                             'score' => $earned
                         ]);
-                    incrementIndex($current_index, $question_change, $game_over, $speed_timeout, $started_at);
+                    $this->incrementIndex($current_index, $question_change, $game_over, $speed_timeout, $started_at);
                     if($game_over)
                         $game_over_message = 'You have answered all the questions. Please wait for the results.';
                     break;
@@ -215,6 +207,14 @@ class GameController extends Controller
             ]);
         }
         abort(404);
+    }
+
+    private function incrementIndex(&$current_index, &$question_change, &$game_over, &$speed_timeout, &$started_at) {
+        $current_index++;
+        $question_change = $current_index <= (config('app.game.total_questions') - 1);
+        $game_over = $current_index > (config('app.game.total_questions') - 1);
+        $speed_timeout -= config('app.game.speed_timeout_difference');
+        $started_at = now()->timestamp;
     }
 
     private function getCoordinates(array $avoid = [[1,1]], int $quantity = 4) {
