@@ -20,12 +20,20 @@
                     </span>
                 </div>
                 <div
-                    class="flex justify-center flex-1 min-h-4 max-w-full"
+                    class="flex justify-center relative flex-1 min-h-4 max-w-full"
                 >
                     <div
-                        class="grid aspect-square border border-white md:w-full max-w-full max-h-full ground-grid bg-base-300"
+                        class="grid aspect-square border relative border-white md:w-full max-w-full max-h-full ground-grid bg-base-300"
                         :style="gridStyle"
                     >
+                        <div
+                            class="absolute w-64 h-52 bg-secondary bg-opacity-75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                            v-if="respawnCountdown !== null"
+                        >
+                            <span class="countdown font-mono font-bold text-6xl">
+                                <span :style="`--value:${respawnCountdown};`"></span>
+                            </span>
+                        </div>
                         <template
                             v-for="(row, rowIndex) in grid"
                         >
@@ -35,8 +43,9 @@
                                 :class="[
                                     'cell md:text-sm leading-none font-semibold',
                                     cell === 'snake' ? 'snake bg-primary' : '',
+                                    (cell === 'snake' && blinkSnake) ? 'opacity-50' : '',
                                     cell?.food ? 'food' : '',
-                                    cell?.food && cooldown ? 'opacity-50' : ''
+                                    (cell?.food && cooldown) ? 'opacity-50' : ''
                                 ]"
                                 :style="`background: ${cell?.color ?? ''}`"
                             >
@@ -55,7 +64,7 @@
                     <div class="flex w-full justify-center">
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
                     </div>
-                    <div class="flex w-full justify-center gap-3">
+                    <div class="flex w-full justify-center gap-5">
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('left')">◀︎</kbd></button>
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('down')">▼</kbd></button>
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('right')">▶︎</kbd></button>
@@ -169,7 +178,10 @@ export default {
             gameStartedTimerSetInterval: null,
             cooldown: false,
             questionNum: 0,
-            livesRemaining: this.lives
+            livesRemaining: this.lives,
+            blinkSnake: false,
+            blinkSnakeInterval: null,
+            respawnCountdown: null
         }
     },
     props: {
@@ -323,6 +335,7 @@ export default {
             this.$refs.gameEndModal.showModal();
         },
         move() {
+            const prevSnake = [...this.snake];
             const head = Object.assign({}, this.snake[0]);
             switch (this.direction) {
                 case 'up':
@@ -341,13 +354,13 @@ export default {
 
             // Check collision with walls
             if (head.row < 0 || head.row >= this.rows || head.col < 0 || head.col >= this.cols) {
-                this.gameEnd('hitWall');
+                this.handleSnakeHit(prevSnake,'hitWall');
                 return;
             }
 
             // Check collision with itself
             if (this.snake.some(segment => segment.row === head.row && segment.col === head.col)) {
-                this.gameEnd('hitSelf');
+                this.handleSnakeHit(prevSnake, 'hitSelf');
                 return;
             }
 
@@ -377,15 +390,119 @@ export default {
                 return i?.position?.[0] === r && i?.position?.[1] === c
             }).includes(true)
         },
-        gameEnd(action) {
+        handleSnakeHit(prevSnakeState, action) {
+            clearInterval(this.gameInterval);
+            this.snake = prevSnakeState;
+            this.startBlinkSnake();
             axios.post(`/api/${usePage().props.currentEvent.slug}/game-action`, {
                 action
             }).then(res => {
                 const data = res.data;
                 this.score = data.points;
+                this.livesRemaining = data.lives;
+                this.unblinkSnake();
+                this.spawnNewSnake();
+                this.respawnCountdown = 3;
+                const respawnInterval = setInterval(() => {
+                    this.respawnCountdown--;
+                    if(this.respawnCountdown === 0) {
+                        clearInterval(respawnInterval);
+                        this.respawnCountdown = null;
+                        this.changeSnakeSpeed();
+                    }
+                }, 1000)
                 if(data.gameOver)
                     this.handleGameEnd(data.gameOverMessage);
             });
+        },
+        startBlinkSnake() {
+            this.blinkSnakeInterval = setInterval(() => {
+                this.blinkSnake = !this.blinkSnake;
+            }, 100)
+        },
+        unblinkSnake() {
+            if(this.blinkSnakeInterval && this.blinkSnakeInterval !== null) {
+                clearInterval(this.blinkSnakeInterval);
+                this.blinkSnakeInterval = null;
+            }
+            this.blinkSnake = false;
+        },
+        spawnNewSnake() {
+            
+            const foodSet = new Set(this.options.map(opt => `${opt.position[0]},${opt.position[1]}`));
+            const snakeLength = this.snake.length;
+
+            const inBounds = (r, c) => {
+                return (r >= 0 && r < this.rows && c >= 0 && c < this.cols);
+            }
+
+            function isFood(r, c) {
+                return foodSet.has(`${r},${c}`);
+            }
+
+            function inSnake(r, c, snakeArray) {
+                return snakeArray.some(segment => segment.row === r && segment.col === c);
+            }
+
+            const directions = [
+                { dr: -1, dc:  0 },
+                { dr:  1, dc:  0 },
+                { dr:  0, dc: -1 },
+                { dr:  0, dc:  1 }
+            ];
+            
+            function randomChoice(array) {
+                return array[Math.floor(Math.random() * array.length)];
+            }
+
+            function randomInRange(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            const maxAttempts = 1000;
+
+            for (let attempt = 0; attempt < maxAttempts; attempt++) {
+                const headRow = randomInRange(3, 16);
+                const headCol = randomInRange(3, 16);
+                if (isFood(headRow, headCol)) {
+                    continue;
+                }
+
+                const headDirection = randomChoice(['up', 'down', 'left', 'right']);
+
+                const newSnake = [{ row: headRow, col: headCol }];
+
+                for (let segmentIndex = 1; segmentIndex < snakeLength; segmentIndex++) {
+                    const prev = newSnake[newSnake.length - 1];
+                    const possibleNextCells = [];
+
+                    for (const dir of directions) {
+                        const nextR = prev.row + dir.dr;
+                        const nextC = prev.col + dir.dc;
+
+                        if (
+                            inBounds(nextR, nextC) &&
+                            !isFood(nextR, nextC) &&
+                            !inSnake(nextR, nextC, newSnake)
+                        ) {
+                            possibleNextCells.push({ row: nextR, col: nextC });
+                        }
+                    }
+
+                    if (possibleNextCells.length === 0) {
+                        break;
+                    }
+
+                    const chosenCell = randomChoice(possibleNextCells);
+                    newSnake.push(chosenCell);
+                }
+
+                if (newSnake.length === snakeLength) {
+                    this.snake = newSnake;
+                    this.direction = headDirection;
+                    break;
+                }
+            }
         },
         handleFoodEat(pos) {
             const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);

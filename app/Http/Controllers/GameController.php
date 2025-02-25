@@ -22,7 +22,7 @@ class GameController extends Controller
     }
 
     public function gamePage(Request $request, Event $event, Player $player) {
-        $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout', 'started_at']);
+        $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout', 'started_at', 'lives']);
         if($player->event_id !== $event->id) {
             abort(400, 'Sorry, this link isn\'t valid');
         }
@@ -110,7 +110,8 @@ class GameController extends Controller
             'points_scored' => 0,
             'current_index' => 0,
             'speedTimeout' => session('speedTimeout') ?? config('app.game.initial_speed_timeout'),
-            'started_at' => now()->addSeconds(3)->timestamp
+            'started_at' => now()->addSeconds(3)->timestamp,
+            'lives' => config('app.game.lives')
         ]);
 
         return response()->json([
@@ -140,6 +141,7 @@ class GameController extends Controller
             $points_scored = session('points_scored', 0);
             $speed_timeout = session('speedTimeout');
             $started_at = session('started_at');
+            $lives = session('lives');
             $game_over_message = null;
             $bonus_points = 0;
 
@@ -168,12 +170,18 @@ class GameController extends Controller
                         $game_over_message = 'You have answered all the questions. Please wait for the results.';
                     break;
                 case 'hitWall':
-                    $game_over = true;
-                    $game_over_message = 'Game Over! You hit the wall.';
+                    $lives--;
+                    if($lives <= 0) {
+                        $game_over = true;
+                        $game_over_message = 'Game Over! You hit the wall.';
+                    }
                     break;
                 case 'hitSelf':
-                    $game_over = true;
-                    $game_over_message = 'Game Over! You collided with yourself.';
+                    $lives--;
+                    if($lives <= 0) {
+                        $game_over = true;
+                        $game_over_message = 'Game Over! You collided with yourself.';
+                    }
                     break;
             }
 
@@ -181,11 +189,11 @@ class GameController extends Controller
 
             if(!$game_over) {
                 session([
-                    'questions' => $questions,
                     'points_scored' => $points_scored,
                     'current_index' => $current_index,
                     'speedTimeout' => $speed_timeout,
-                    'started_at' => $started_at
+                    'started_at' => $started_at,
+                    'lives' => $lives
                 ]);
 
                 $curr_ques = $questions[$current_index];
@@ -202,7 +210,8 @@ class GameController extends Controller
                 'speedTimeout' => $speed_timeout,
                 'gameOver' => $game_over,
                 'gameOverMessage' => $game_over_message,
-                'question_change' => $question_change
+                'question_change' => $question_change,
+                'lives' => $lives
             ]);
         }
         abort(404);
@@ -226,7 +235,7 @@ class GameController extends Controller
             'value' => $item,
             'position' => $positions[$key],
             'color' => $colors[$key]
-        ]);
+        ])->shuffle();
 
         return $options_array;
     }
