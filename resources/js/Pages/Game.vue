@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="modal-box" v-else-if="startModalPanel === 2">
-            <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
+            <h3 class="font-bold text-lg">Ranium's SnaQ!</h3>
             <ol class="list-disc py-3 pl-2">
                 <li><strong>{{totalQuestions}} questions will appear one after another, each with four options.</strong></li>
                 <li><strong>Select the correct answer by "eating" the corresponding food.</strong> Correct answers earn points, while incorrect answers deduct points.</li>
