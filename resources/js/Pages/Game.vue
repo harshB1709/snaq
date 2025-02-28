@@ -117,10 +117,12 @@
         <div class="modal-box" v-else-if="startModalPanel === 2">
             <h3 class="font-bold text-lg">Laracon 2024 Snake Game!</h3>
             <ol class="list-disc py-3 pl-2">
-                <li>{{totalQuestions}} questions will appear one after another with four options.</li>
-                <li>Eat the food with the correct option to the adjacent question to score points else you lose a point.</li>
-                <li>There is a cooldown of 2s after every question.</li>
-                <li>The speed of the snake increases after answering every question.</li>
+                <li><strong>{{totalQuestions}} questions will appear one after another, each with four options.</strong></li>
+                <li><strong>Select the correct answer by "eating" the corresponding food.</strong> Correct answers earn points, while incorrect answers deduct points.</li>
+                <li><strong>There's a 2-second cooldown between each question.</strong></li>
+                <li><strong>The snake's speed increases with each correctly answered question.</strong></li>
+                <li><strong>Points awarded per question depend on its difficulty and your speed.</strong> Faster answers earn bonus points, but remember, wrong answers result in negative points.</li>
+                <li><strong>You have 3 lives to maximize your score.</strong> Hitting the wall or yourself will cost a life and respawn the snake at a random location.</li>
             </ol>
             <p class="pb-4">Click below button to start the game.</p>
             <div class="modal-action justify-center">
