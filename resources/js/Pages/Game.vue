@@ -27,7 +27,7 @@
                         :style="gridStyle"
                     >
                         <div
-                            class="absolute w-64 h-52 bg-secondary bg-opacity-75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                            class="absolute w-64 h-52 bg-secondary bg-opacity-75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
                             v-if="respawnCountdown !== null"
                         >
                             <span class="countdown font-mono font-bold text-6xl">
@@ -41,9 +41,11 @@
                                 v-for="(cell, colIndex) in row"
                                 :key="`${rowIndex}.${colIndex}`"
                                 :class="[
-                                    'cell md:text-sm leading-none font-semibold',
-                                    cell === 'snake' ? 'snake bg-primary' : '',
-                                    (cell === 'snake' && blinkSnake) ? 'opacity-50' : '',
+                                    'cell md:leading-none font-semibold',
+                                    cell?.snake ? 'snake bg-primary' : '',
+                                    (cell?.snake && cell.head) ? `head head_${direction} text-xs md:text-base` : '',
+                                    (cell?.snake && cell.tail) ? `tail tail_${tailDirection}` : '',
+                                    (cell?.snake && blinkSnake) ? 'opacity-50' : '',
                                     cell?.food ? 'food' : '',
                                     (cell?.food && cooldown) ? 'opacity-50' : ''
                                 ]"
@@ -140,23 +142,41 @@
 
     <dialog id="game_end_modal" class="modal" ref="gameEndModal">
         <div class="modal-box">
-            <h3 class="font-bold text-lg">{{gameOverMsg}}</h3>
-            <p class="py-4">Your Final Score: {{score}}</p>
-            <p class="py-4">Click below button to start the game.</p>
-            <div class="modal-action justify-center">
-                <button class="btn btn-active" @click="resetGame">Restart</button>
+            <!-- <h3 class="text-2xl font-bold text-center text-primary">Game Over!</h3> -->
+            <h3 class="font-bold text-xl text-primary-content text-center">{{gameOverMsg}}</h3>
+            <p class="text-2xl text-center pt-4">Final Score:</p>
+            <h3 class="font-bold text-primary text-6xl text-center">{{ score }}</h3>
+            <p class="mt-4">Please wait for the announcement of the winners. Keep an eye on the leaderboard as prizes will be awarded after the final talk.</p>
+            <p class="py-2" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
+            <div class="modal-action justify-center" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">
+                <Link class="btn btn-primary text-lg" :href="route('leaderboard', {event: $page.props.currentEvent.slug})" v-if="$page.props?.appSettings?.show_leaderboard?.value ?? false">Leaderboard</Link>
+                <button class="btn btn-active text-lg" @click="resetGame">Restart</button>
+            </div>
+            <div class="flex justify-center gap-2 pt-4">
+                <button class="btn btn-outline btn-primary" @click="openAboutModal">About</button>
+                <a href="https://x.com/ranium" target="_blank" class="btn btn-outline btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                </a>
             </div>
         </div>
     </dialog>
+
+    <about-modal
+        v-model="showAboutModal"
+        @update:modelValue="handleAboutModalShow"
+    />
 </template>
 
 <script>
-import { Head, usePage, Link } from '@inertiajs/vue3'
+import { Head, usePage, Link } from '@inertiajs/vue3';
+import AboutModal from "@/Components/AboutModal.vue"
 
 export default {
     name: "Game",
     components: {
-        Head
+        Head,
+        Link,
+        AboutModal
     },
     data() {
         return {
@@ -165,6 +185,7 @@ export default {
             snake: [{ row: 1, col: 1 }],
             food: { row: 0, col: 0 },
             direction: 'right',
+            tailDirection: 'right',
             timeout: this.speedTimeout,
             gameInterval: null,
             gameOverMsg: '',
@@ -181,7 +202,8 @@ export default {
             livesRemaining: this.lives,
             blinkSnake: false,
             blinkSnakeInterval: null,
-            respawnCountdown: null
+            respawnCountdown: null,
+            showAboutModal: false
         }
     },
     props: {
@@ -221,6 +243,16 @@ export default {
         },
         onFullScreenChange() {
             this.isFullScreen = document.fullscreenElement || document.mozCancelFullScreen || document.webkitFullscreenElement;
+        },
+        openAboutModal() {
+            this.showAboutModal = true;
+            this.$refs.gameEndModal.close();
+        },
+        handleAboutModalShow(val) {
+            this.showAboutModal = false;
+            if(val === false) {
+                this.$refs.gameEndModal.showModal();
+            }
         },
         toggleFullScreen() {
             if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
@@ -377,6 +409,35 @@ export default {
             if(!unshifted) {
                 this.snake.unshift(head);
             }
+
+            this.tailDirection = this.getTailDirection();
+        },
+        getTailDirection(snake = this.snake, direction = this.direction) {
+            let tailDir = null;
+            if(snake.length > 1) {
+                const lastBlock = snake[snake.length - 1];
+                const secondLastBlock = snake[snake.length - 2];
+                const dirString = `${lastBlock.row - secondLastBlock.row}${lastBlock.col - secondLastBlock.col}`;
+
+                switch(dirString) {
+                    case '01':
+                        tailDir = 'left';
+                        break;
+                    case '0-1':
+                        tailDir = 'right';
+                        break;
+                    case '10':
+                        tailDir = 'up';
+                        break;
+                    case '-10':
+                        tailDir = 'down';
+                        break;
+                }
+            }
+            else {
+                tailDir = direction;
+            }
+            return tailDir;
         },
         resetGame() {
             window.location.reload()
@@ -394,6 +455,7 @@ export default {
             clearInterval(this.gameInterval);
             this.snake = prevSnakeState;
             this.startBlinkSnake();
+            const newSnake = this.spawnNewSnake();
             axios.post(`/api/${usePage().props.currentEvent.slug}/game-action`, {
                 action
             }).then(res => {
@@ -404,7 +466,11 @@ export default {
                     this.score = data.points;
                     this.livesRemaining = data.lives;
                     this.unblinkSnake();
-                    this.spawnNewSnake();
+                    if(newSnake.snake.length) {
+                        this.snake = newSnake.snake;
+                        this.direction = newSnake.direction;
+                        this.tailDirection = newSnake.tailDirection;
+                    }
                     this.respawnCountdown = 3;
                     const respawnInterval = setInterval(() => {
                         this.respawnCountdown--;
@@ -447,10 +513,10 @@ export default {
             }
 
             const directions = [
-                { dr: -1, dc:  0 },
-                { dr:  1, dc:  0 },
-                { dr:  0, dc: -1 },
-                { dr:  0, dc:  1 }
+                { dr: -1, dc:  0, direction: 'up'},
+                { dr:  1, dc:  0, direction: 'down'},
+                { dr:  0, dc: -1, direction: 'left'},
+                { dr:  0, dc:  1, direction: 'right'}
             ];
             
             function randomChoice(array) {
@@ -460,48 +526,89 @@ export default {
             function randomInRange(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
+
+            function oppositeDirection(direction) {
+                return {
+                    dr: direction.dr * -1,
+                    dc: direction.dc * -1
+                }
+            }
+
+            function turnDirections(direction) {
+                return [
+                    {
+                        dr: direction.dc,
+                        dc: direction.dr
+                    },
+                    {
+                        dr: direction.dc * -1,
+                        dc: direction.dr * -1
+                    }
+                ]
+            }
             
             const maxAttempts = 1000;
 
             for (let attempt = 0; attempt < maxAttempts; attempt++) {
-                const headRow = randomInRange(3, 16);
-                const headCol = randomInRange(3, 16);
+                const headRow = randomInRange(3, this.rows - 4);
+                const headCol = randomInRange(3, this.cols - 4);
                 if (isFood(headRow, headCol)) {
                     continue;
                 }
 
-                const headDirection = randomChoice(['up', 'down', 'left', 'right']);
+                const headDirection = randomChoice(directions);
 
                 const newSnake = [{ row: headRow, col: headCol }];
+                let segmentLength = 1;
+                let spawnDirection = oppositeDirection(headDirection);
+                let turnedDirections = 0;
+                let justTurned = false;
 
                 for (let segmentIndex = 1; segmentIndex < snakeLength; segmentIndex++) {
+                    if(turnedDirections > 3)
+                        break;
+
                     const prev = newSnake[newSnake.length - 1];
-                    const possibleNextCells = [];
 
-                    for (const dir of directions) {
-                        const nextR = prev.row + dir.dr;
-                        const nextC = prev.col + dir.dc;
+                    const nextR = prev.row + spawnDirection.dr;
+                    const nextC = prev.col + spawnDirection.dc;
 
-                        if (
-                            inBounds(nextR, nextC) &&
-                            !isFood(nextR, nextC) &&
-                            !inSnake(nextR, nextC, newSnake)
-                        ) {
-                            possibleNextCells.push({ row: nextR, col: nextC });
+                    if (
+                        inBounds(nextR, nextC) &&
+                        !isFood(nextR, nextC) &&
+                        !inSnake(nextR, nextC, newSnake)
+                    ) {
+                        newSnake.push({ row: nextR, col: nextC });
+                        segmentLength++;
+                        justTurned = false;
+                        if(segmentLength >= 3 && turnedDirections < 3) {
+                            const turnDir = randomChoice([true, false]);
+                            if(turnDir) {
+                                spawnDirection = randomChoice(turnDirections(spawnDirection));
+                                segmentLength = 0
+                                justTurned = true;
+                                turnedDirections++;
+                            }
                         }
                     }
-
-                    if (possibleNextCells.length === 0) {
-                        break;
+                    else if(justTurned === false) {
+                        spawnDirection = randomChoice(turnDirections(spawnDirection));
+                        justTurned = true
+                        turnedDirections++;
+                        segmentIndex--;
+                        continue;
                     }
-
-                    const chosenCell = randomChoice(possibleNextCells);
-                    newSnake.push(chosenCell);
+                    else
+                        break;
                 }
 
                 if (newSnake.length === snakeLength) {
-                    this.snake = newSnake;
-                    this.direction = headDirection;
+                    console.log(attempt)
+                    return {
+                        snake: newSnake,
+                        direction: headDirection.direction,
+                        tailDirection: this.getTailDirection(newSnake, headDirection.direction)
+                    }
                     break;
                 }
             }
@@ -545,12 +652,16 @@ export default {
         grid() {
             const grid = Array.from({ length: this.rows }, () => Array(this.cols).fill(0));
 
-            this.snake.forEach(segment => {
-                grid[segment.row][segment.col] = 'snake';
+            this.snake.forEach((segment, ind) => {
+                grid[segment.row][segment.col] = {
+                    snake: true,
+                    head: (ind === 0) ? true : false,
+                    tail: ((ind === (this.snake.length - 1)) && (this.snake.length !== 1)) ? true : false
+                };
             });
 
             if(this.gameStarted) {
-                this.options.forEach((d, i) => {
+                this.options?.forEach((d, i) => {
                     if(d.position)
                         grid[d.position[0]][d.position[1]] = {food: true, color: d.color}
                 })
@@ -606,10 +717,59 @@ div.ground-grid {
 
 .snake::after {
     content: '';
+    color: white;
     border: 1.5px solid white;
     width: 100%;
     height: 100%;
     display: block;
+}
+
+.snake.head {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.snake.head::after {
+    content: ':';
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.snake.head.head_up {
+    transform: rotate(270deg);
+}
+
+.snake.head.head_down {
+    transform: rotate(90deg);
+}
+
+.snake.head.head_left {
+    transform: rotate(180deg);
+}
+
+.snake.tail {
+    border-top-left-radius: 900%;
+    border-bottom-left-radius: 900%;
+}
+
+.snake.tail::after {
+    border-top-left-radius: 900%;
+    border-bottom-left-radius: 900%;
+}
+
+.snake.tail.tail_up {
+    transform: rotate(270deg);
+}
+
+.snake.tail.tail_down {
+    transform: rotate(90deg);
+}
+
+.snake.tail.tail_left {
+    transform: rotate(180deg);
 }
 
 .food>span {

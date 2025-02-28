@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Closure;
 use Filament\Forms\Get;
+use Illuminate\Support\Facades\URL;
 
 class PlayerRelationManager extends RelationManager
 {
@@ -64,7 +65,7 @@ class PlayerRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('game.score')
                     ->label('Score')
                     ->searchable()
-                    ->sortable()
+                    ->sortable(query: fn (Builder $query, string $direction): Builder => $query->whereHas('game'))
             ])
             ->filters([
                 //
@@ -116,6 +117,11 @@ class PlayerRelationManager extends RelationManager
                             ->success()
                             ->send();
                     }),
+                Tables\Actions\Action::make('game_url')
+                    ->label('Game URL')
+                    ->url(fn ($record) => URL::signedRoute('game', ['player' => $record->id, 'event' => $record?->event?->slug]), shouldOpenInNewTab: true)
+                    ->icon('heroicon-c-link')
+                    ->color('gray')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

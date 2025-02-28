@@ -23,6 +23,7 @@ use Filament\Infolists\Infolist;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\IconPosition;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -70,6 +71,8 @@ class EventResource extends Resource
                                     ->fileAttachmentsDirectory('attachments')
                                     ->columnSpanFull()
                             ])
+                            ->icon('heroicon-o-presentation-chart-bar')
+                            ->iconPosition(IconPosition::After)
                             ->columns(2),
                         Tabs\Tab::make('Event Settings')
                             ->schema([
@@ -81,12 +84,7 @@ class EventResource extends Resource
                                     ->schema([
                                         Placeholder::make('setting_label')
                                             ->label('')
-                                            ->content(fn ($get) => match ($get('key') ?? '') {
-                                                'app_status' => 'App Status',
-                                                'player_registration' => 'Player Registration',
-                                                'show_leaderboard' => 'Show Leaderboard',
-                                                default => 'Setting',
-                                            })
+                                            ->content(fn ($get) => Str::replace('_', ' ', Str::title($get('key'))))
                                             ->columnSpanFull(),
                                         Hidden::make('key'),
                                         Toggle::make('value')
@@ -100,34 +98,33 @@ class EventResource extends Resource
                                     ->columns(7)
                                     ->columnSpanFull()
                                     ->afterStateHydrated(function ($state, callable $set, $record) {
-                                        $defaultSettings = [
-                                            ['key' => 'app_status', 'value' => true, 'message' => ''],
-                                            ['key' => 'player_registration', 'value' => true, 'message' => ''],
-                                            ['key' => 'show_leaderboard', 'value' => false, 'message' => ''],
-                                        ];
+                                        $defaultSettings = collect(
+                                            [
+                                                ['key' => 'app_status', 'value' => false, 'message' => ''],
+                                                ['key' => 'player_registration', 'value' => true, 'message' => ''],
+                                                ['key' => 'show_leaderboard', 'value' => false, 'message' => ''],
+                                                ['key' => 'allow_replay', 'value' => false, 'message' => ''],
+                                                ['key' => 'force_mobile', 'value' => true, 'message' => ''],
+                                            ]
+                                        )->keyBy('key');
+                                        $existingSettings = collect($state)->keyBy('key')->filter(fn ($v, $k) => !empty($v['key']));
 
-                                        // If state is empty or null, set default settings
-                                        if (blank($state)) {
-                                            $set('eventSettings', $defaultSettings);
-                                        } else {
-                                            // Ensure all 3 settings exist in case some are missing
-                                            $existingSettings = collect($state)->keyBy('key');
-
-                                            $mergedSettings = collect($defaultSettings)->map(function ($defaultSetting) use ($existingSettings) {
-                                                return $existingSettings->get($defaultSetting['key'], $defaultSetting);
-                                            })->toArray();
-
-                                            $set('eventSettings', $mergedSettings);
-                                        }
+                                        $mergedSettings = $defaultSettings->merge($existingSettings)->values();
+                                        $set('eventSettings', $mergedSettings->toArray());
                                     })
-                            ]),
+                            ])
+                            ->icon('heroicon-m-cog-8-tooth')
+                            ->iconPosition(IconPosition::After),
                         Tabs\Tab::make('Players')
                             ->schema([
                                 \Njxqlus\Filament\Components\Forms\RelationManager::make()->manager(RelationManagers\PlayerRelationManager::class)->lazy(true)
                             ])
                             ->hiddenOn('create')
+                            ->icon('heroicon-m-user-group')
+                            ->iconPosition(IconPosition::After)
                     ])
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->persistTabInQueryString(),
             ]);
     }
 
@@ -164,12 +161,12 @@ class EventResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
                 Tables\Actions\Action::make('self_register')
-                    ->url(fn ($record) => route('player.register', ['event' => $record]))
+                    ->url(fn ($record) => route('player.register', ['event' => $record]), shouldOpenInNewTab: true)
                     ->icon('heroicon-s-user-plus')
                     ->color('info'),
                 Tables\Actions\Action::make('leaderboard')
-                    ->url(fn ($record) => route('leaderboard', ['event' => $record]))
-                    ->icon('heroicon-m-user-group')
+                    ->url(fn ($record) => route('leaderboard', ['event' => $record]), shouldOpenInNewTab: true)
+                    ->icon('heroicon-m-trophy')
                     ->color('gray')
             ])
             ->bulkActions([
