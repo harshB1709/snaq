@@ -408,6 +408,7 @@ export default {
         },
         handleNav(dir) {
             this.playSound('move');
+            navigator.vibrate(50);
             let newDir = null
             switch(dir) {
                 case 'left':
@@ -435,6 +436,7 @@ export default {
         handleKeydown (e) {
             if([37, 38, 39, 40].includes(e.keyCode)) {
                 this.playSound('move');
+                navigator.vibrate(50);
                 let newDir = null
                 switch (e.keyCode) {
                     case 37:
@@ -555,6 +557,7 @@ export default {
         handleSnakeHit(prevSnakeState, action) {
             this.playSound('hit');
             this.lifeLost = true;
+            navigator.vibrate([200, 100, 200]);
             setTimeout(() => {
                 this.lifeLost = false
             }, 2300);
@@ -717,6 +720,7 @@ export default {
         },
         handleFoodEat(pos) {
             this.playSound('eat');
+            navigator.vibrate([40, 20, 40]);
             const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);
             const color = option?.[0]?.color;
             if(color?.length) {
