@@ -102,7 +102,7 @@
 
             <div class="w-full md:w-auto md:flex-1 flex flex-col gap-2 pb-1 justify-center">
                 <!-- Controls -->
-                <div class="flex flex-col gap-3 md:hidden">
+                <div class="flex flex-col gap-5 md:hidden">
                     <div class="flex w-full justify-center">
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
                     </div>
@@ -933,20 +933,8 @@ div.ground-grid {
 }
 
 .kbd-xl {
-    min-width: 3.2rem;
-    min-height: 3.2rem;
-    font-size: 1.6rem;
-}
-</style>
-<style>
-@keyframes fadeOutUp {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    font-size: 1.7rem;
 }
 </style>
