@@ -8,9 +8,9 @@
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th class="w-1/5 text-center text-base">Position</th>
-                                <th class="w-3/5 text-center text-base">Player</th>
-                                <th class="w-1/5 text-center text-base">Score</th>
+                                <th class="w-1/5 text-center text-lg text-primary-content">Position</th>
+                                <th class="w-3/5 text-center text-lg text-primary-content">Player</th>
+                                <th class="w-1/5 text-center text-lg text-primary-content">Score</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,10 +24,10 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="btn-group mt-2 border-2 border-primary p-px max-w-full mx-auto overflow-x-auto">
+                <div class="flex mt-2 border-2 border-primary p-px max-w-full mx-auto overflow-x-auto gap-3">
                     <template v-for="(link, index) in games.links" :key="index">
                         <button
-                            class="btn btn-md text-base md:btn-lg md:text-2xl"
+                            class="btn text-lg"
                             :class="{
                                 'btn-active': link.active
                             }"

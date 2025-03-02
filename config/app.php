@@ -135,7 +135,7 @@ return [
 
         'speed_timeout_difference' => 15, //change in timeout after every question
 
-        'cooldown_time' => 2000, //cooldown time after answering a question in ms
+        'cooldown_time' => 3000, //cooldown time after answering a question in ms
 
         'lives' => 3,
 

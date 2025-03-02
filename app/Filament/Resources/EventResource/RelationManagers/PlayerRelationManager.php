@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Closure;
 use Filament\Forms\Get;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class PlayerRelationManager extends RelationManager
 {
@@ -65,7 +67,12 @@ class PlayerRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('game.score')
                     ->label('Score')
                     ->searchable()
-                    ->sortable(query: fn (Builder $query, string $direction): Builder => $query->whereHas('game'))
+                    ->sortable(
+                        query: fn (Builder $query, string $direction): Builder => 
+                        $query->leftJoin('games', 'players.id', '=', 'games.player_id')
+                            ->select('players.*', 'games.score')
+                            ->orderByRaw("games.score {$direction} NULLS LAST")
+                    )
             ])
             ->filters([
                 //
@@ -89,10 +96,15 @@ class PlayerRelationManager extends RelationManager
                     ->color('primary')
                     ->icon('heroicon-o-arrow-path-rounded-square')
                     ->button()
-                    ->action(function($data, Player $record) {
-                        $record->game()?->delete();
-                        $record->invite_expires_at = now()->addMinutes(config('app.game.invite_validity_mins'));
-                        $record->save();
+                    ->action(function($data, Player $record, Collection $selectedRecords) {
+                        $selectedRecords->push($record);
+                        $selectedRecords = $selectedRecords->unique('id');
+                        
+                        foreach ($selectedRecords as $lineRecord) {
+                            $lineRecord->game()?->delete();
+                            $lineRecord->invite_expires_at = now()->addMinutes(config('app.game.invite_validity_mins'));
+                            $lineRecord->save();
+                        }
 
                         Notification::make()
                             ->title('Game has been reset!')
@@ -109,8 +121,13 @@ class PlayerRelationManager extends RelationManager
                     ->color('info')
                     ->icon('heroicon-o-envelope')
                     ->button()
-                    ->action(function($data, Player $record) {
-                        $record->notify(new GameInvite());
+                    ->action(function($data, Player $record, Collection $selectedRecords) {
+                        $selectedRecords->push($record);
+                        $selectedRecords = $selectedRecords->unique('id');
+
+                        foreach ($selectedRecords as $lineRecord) {
+                            $lineRecord->notify(new GameInvite());
+                        }
 
                         Notification::make()
                             ->title('Invite resent!')

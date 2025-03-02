@@ -42,7 +42,7 @@
                                 :key="`${rowIndex}.${colIndex}`"
                                 :class="[
                                     'cell md:leading-none font-semibold',
-                                    cell?.snake ? 'snake bg-primary' : '',
+                                    cell?.snake ? 'snake' : '',
                                     (cell?.snake && cell.head) ? `head head_${direction} text-xs md:text-base` : '',
                                     (cell?.snake && cell.tail) ? `tail tail_${tailDirection}` : '',
                                     (cell?.snake && blinkSnake) ? 'opacity-50' : '',
@@ -97,7 +97,7 @@
 
     <dialog id="game_start_modal" class="modal" ref="gameStartModal" open>
         <div class="modal-box" v-if="startModalPanel === 1">
-            <h3 class="font-bold text-xl text-primary-content">Laracon 2024 Snake Game!</h3>
+            <h3 class="font-bold text-xl text-primary-content">Ranium's SnaQ!</h3>
             <div class="w-full flex justify-center">
                 <ol class="list-disc py-3 px-2 w-fit">
                     <li>
@@ -117,12 +117,12 @@
         <div class="modal-box" v-else-if="startModalPanel === 2">
             <h3 class="font-bold text-lg">Ranium's SnaQ!</h3>
             <ol class="list-disc py-3 pl-2">
-                <li><strong>{{totalQuestions}} questions will appear one after another, each with four options.</strong></li>
-                <li><strong>Select the correct answer by "eating" the corresponding food.</strong> Correct answers earn points, while incorrect answers deduct points.</li>
-                <li><strong>There's a 2-second cooldown between each question.</strong></li>
-                <li><strong>The snake's speed increases with each correctly answered question.</strong></li>
-                <li><strong>Points awarded per question depend on its difficulty and your speed.</strong> Faster answers earn bonus points, but remember, wrong answers result in negative points.</li>
-                <li><strong>You have 3 lives to maximize your score.</strong> Hitting the wall or yourself will cost a life and respawn the snake at a random location.</li>
+                <li><strong>Get ready to play!</strong> Answer MCQs while steering your snake with the arrow keys.</li>
+                <li><strong>{{totalQuestions}} questions in total!</strong> Each comes with four options—choose wisely!</li>
+                <li><strong>Quick Selection:</strong> Use your arrow keys to navigate and "eat" the answer food.</li>
+                <li><strong>Earn & Deduct Points:</strong> Correct answers score points and speed up your snake, while wrong answers deduct points.</li>
+                <li><strong>3 Lives & Cooldown:</strong> Hitting a wall or your tail costs a life, and there's a {{cooldownTime/1000}}-second break between questions.</li>
+                <li><strong>Double Challenge:</strong> Manage both your snake and the MCQs. Good luck!</li>
             </ol>
             <p class="pb-4">Click below button to start the game.</p>
             <div class="modal-action justify-center">
@@ -150,9 +150,9 @@
             <h3 class="font-bold text-primary text-6xl text-center">{{ score }}</h3>
             <p class="mt-4">Please wait for the announcement of the winners. Keep an eye on the leaderboard as prizes will be awarded after the final talk.</p>
             <p class="py-2" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
-            <div class="modal-action justify-center" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">
+            <div class="modal-action justify-center">
                 <Link class="btn btn-primary text-lg" :href="route('leaderboard', {event: $page.props.currentEvent.slug})" v-if="$page.props?.appSettings?.show_leaderboard?.value ?? false">Leaderboard</Link>
-                <button class="btn btn-active text-lg" @click="resetGame">Restart</button>
+                <button class="btn btn-active text-lg" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false" @click="resetGame">Restart</button>
             </div>
             <div class="flex justify-center gap-2 pt-4">
                 <button class="btn btn-outline btn-primary" @click="openAboutModal">About</button>
@@ -205,7 +205,13 @@ export default {
             blinkSnake: false,
             blinkSnakeInterval: null,
             respawnCountdown: null,
-            showAboutModal: false
+            showAboutModal: false,
+            directionsArray: {
+                up: { dr: -1, dc:  0},
+                down: { dr:  1, dc:  0},
+                left: { dr:  0, dc: -1},
+                right: { dr:  0, dc:  1},
+            }
         }
     },
     props: {
@@ -326,42 +332,63 @@ export default {
                 }, this.cooldownTime)
             }
         },
+        getNextHeadPosition(dir) {
+            const nd = this.directionsArray[dir] ?? {dr: 0, dc: 0};
+            return {
+                row: (this.snake[0].row + nd.dr),
+                col: (this.snake[0].col + nd.dc)
+            }
+        },
         handleNav(dir) {
+            let newDir = null
             switch(dir) {
                 case 'left':
-                    this.direction = this.direction !== 'right' ? 'left' : 'right';
+                    newDir = this.direction !== 'right' ? 'left' : 'right';
                     break;
                 case 'up':
-                    this.direction = this.direction !== 'down' ? 'up' : 'down';
+                    newDir = this.direction !== 'down' ? 'up' : 'down';
                     break;
                 case 'right':
-                    this.direction = this.direction !== 'left' ? 'right' : 'left';
+                    newDir = this.direction !== 'left' ? 'right' : 'left';
                     break;
                 case 'down':
-                    this.direction = this.direction !== 'up' ? 'down' : 'up';
+                    newDir = this.direction !== 'up' ? 'down' : 'up';
                     break;
                 default:
                     break;
             }
+            const currSec = this.snake[1]
+            const nextHead = this.getNextHeadPosition(newDir);
+
+            if(this.snake.length !== 1 && currSec.row === nextHead.row && currSec.col === nextHead.col)
+                return;
+            this.direction = newDir;
         },
         handleKeydown (e) {
+            let newDir = null
             switch (e.keyCode) {
                 case 37:
-                    this.direction = this.direction !== 'right' ? 'left' : 'right';
+                    newDir = this.direction !== 'right' ? 'left' : 'right';
                     break;
                 case 38:
-                    this.direction = this.direction !== 'down' ? 'up' : 'down';
+                    newDir = this.direction !== 'down' ? 'up' : 'down';
                     break;
                 case 39:
-                    this.direction = this.direction !== 'left' ? 'right' : 'left';
+                    newDir = this.direction !== 'left' ? 'right' : 'left';
                     break;
                 case 40:
-                    this.direction = this.direction !== 'up' ? 'down' : 'up';
+                    newDir = this.direction !== 'up' ? 'down' : 'up';
                     break;
                 default:
                     // console.log(e.keyCode);
                     break;
             }
+            const currSec = this.snake[1]
+            const nextHead = this.getNextHeadPosition(newDir);
+
+            if(this.snake.length !== 1 && currSec.row === nextHead.row && currSec.col === nextHead.col)
+                return;
+            this.direction = newDir;
         },
         handleGameEnd(gameOverMsg) {
             clearInterval(this.gameInterval)
@@ -514,12 +541,7 @@ export default {
                 return snakeArray.some(segment => segment.row === r && segment.col === c);
             }
 
-            const directions = [
-                { dr: -1, dc:  0, direction: 'up'},
-                { dr:  1, dc:  0, direction: 'down'},
-                { dr:  0, dc: -1, direction: 'left'},
-                { dr:  0, dc:  1, direction: 'right'}
-            ];
+            const directions = Object.entries(this.directionsArray).map((entry) => ({...entry[1], direction: entry[0]}));
             
             function randomChoice(array) {
                 return array[Math.floor(Math.random() * array.length)];
@@ -704,6 +726,29 @@ div.ground-grid {
     color: white;
     line-height: 100%;
     border: 1px solid white;
+    background-size: cover;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.snake {
+    background-color: #e940a8;
 }
 
 .snake, .food {
