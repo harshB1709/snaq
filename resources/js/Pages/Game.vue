@@ -34,6 +34,46 @@
                                 <span :style="`--value:${respawnCountdown};`"></span>
                             </span>
                         </div>
+                        <span
+                            class="w-full flex justify-center absolute bottom-1/4 text-6xl md:text-9xl font-bold text-success"
+
+                            :class="{
+                                'animate__animated animate__slow animate__fadeOutUp': pointsAdded,
+                                'hidden': !pointsAdded,
+                            }"
+                        >
+                            +{{pointsAdded}}
+                        </span>
+                        <span
+                            class="w-full flex justify-center absolute bottom-1/4 text-4xl md:text-7xl font-semibold text-info"
+
+                            :class="{
+                                'animate__animated animate__slow animate__fadeOutUp': bonusAdded,
+                                'hidden': !bonusAdded
+                            }"
+                        >   
+                            &nbsp;&nbsp;+{{bonusAdded}}
+                        </span>
+                        <span
+                            class="w-full flex justify-center absolute bottom-1/4 text-6xl md:text-9xl font-bold text-error"
+
+                            :class="{
+                                'animate__animated animate__slow animate__fadeOutUp': pointsSubtracted,
+                                'hidden': !pointsSubtracted,
+                            }"
+                        >
+                            {{pointsSubtracted}}
+                        </span>
+                        <span
+                            class="w-full flex justify-center absolute bottom-1/4 text-7xl md:text-9xl font-bold"
+
+                            :class="{
+                                'animate__animated animate__slow animate__fadeOutUp': lifeLost,
+                                'hidden': !lifeLost,
+                            }"
+                        >
+                            💔
+                        </span>
                         <template
                             v-for="(row, rowIndex) in grid"
                         >
@@ -167,11 +207,16 @@
         v-model="showAboutModal"
         @update:modelValue="handleAboutModalShow"
     />
+
+    <template v-for="(src, key) in audios" :key="key">
+        <audio :ref="key" preload="auto" :src="src"></audio>
+    </template>
 </template>
 
 <script>
 import { Head, usePage, Link } from '@inertiajs/vue3';
-import AboutModal from "@/Components/AboutModal.vue"
+import AboutModal from "@/Components/AboutModal.vue";
+import 'animate.css';
 
 export default {
     name: "Game",
@@ -211,7 +256,21 @@ export default {
                 down: { dr:  1, dc:  0},
                 left: { dr:  0, dc: -1},
                 right: { dr:  0, dc:  1},
-            }
+            },
+            audios: {
+                countdown: '/sounds/countdown.mp3',
+                move: '/sounds/move.wav',
+                eat: '/sounds/eat.wav',
+                hit: '/sounds/hit.wav',
+                plusPoints: '/sounds/plusPoints.wav',
+                minusPoints: '/sounds/minusPoints.wav',
+                bonus: '/sounds/bonus.wav',
+                gameOver: '/sounds/gameOver.wav'
+            },
+            pointsAdded: null,
+            bonusAdded: null,
+            pointsSubtracted: null,
+            lifeLost: false
         }
     },
     props: {
@@ -281,6 +340,13 @@ export default {
                 }
             }
         },
+        playSound(key) {
+            const sound = new Audio(this.audios[key] ?? '');
+            if(sound) {
+                sound.play();   
+            }
+            // this.$refs?.[key]?.[0]?.play()
+        },
         startGame() {
 
             this.$refs.startGame?.classList?.add('loading');
@@ -290,6 +356,7 @@ export default {
                     const data = res.data;
                     this.nextStartModal();
                     this.gameStartedTimer = 300;
+                    setTimeout(() => this.playSound('countdown'), 100)
                     this.gameStartedTimerSetInterval = setInterval(function() {
                         if(this.gameStartedTimer > 0) {
                             this.gameStartedTimer--;
@@ -340,6 +407,7 @@ export default {
             }
         },
         handleNav(dir) {
+            this.playSound('move');
             let newDir = null
             switch(dir) {
                 case 'left':
@@ -365,33 +433,37 @@ export default {
             this.direction = newDir;
         },
         handleKeydown (e) {
-            let newDir = null
-            switch (e.keyCode) {
-                case 37:
-                    newDir = this.direction !== 'right' ? 'left' : 'right';
-                    break;
-                case 38:
-                    newDir = this.direction !== 'down' ? 'up' : 'down';
-                    break;
-                case 39:
-                    newDir = this.direction !== 'left' ? 'right' : 'left';
-                    break;
-                case 40:
-                    newDir = this.direction !== 'up' ? 'down' : 'up';
-                    break;
-                default:
-                    // console.log(e.keyCode);
-                    break;
-            }
-            const currSec = this.snake[1]
-            const nextHead = this.getNextHeadPosition(newDir);
+            if([37, 38, 39, 40].includes(e.keyCode)) {
+                this.playSound('move');
+                let newDir = null
+                switch (e.keyCode) {
+                    case 37:
+                        newDir = this.direction !== 'right' ? 'left' : 'right';
+                        break;
+                    case 38:
+                        newDir = this.direction !== 'down' ? 'up' : 'down';
+                        break;
+                    case 39:
+                        newDir = this.direction !== 'left' ? 'right' : 'left';
+                        break;
+                    case 40:
+                        newDir = this.direction !== 'up' ? 'down' : 'up';
+                        break;
+                    default:
+                        // console.log(e.keyCode);
+                        break;
+                }
+                const currSec = this.snake[1]
+                const nextHead = this.getNextHeadPosition(newDir);
 
-            if(this.snake.length !== 1 && currSec.row === nextHead.row && currSec.col === nextHead.col)
-                return;
-            this.direction = newDir;
+                if(this.snake.length !== 1 && currSec.row === nextHead.row && currSec.col === nextHead.col)
+                    return;
+                this.direction = newDir;
+            }
         },
         handleGameEnd(gameOverMsg) {
             clearInterval(this.gameInterval)
+            this.playSound('gameOver');
             this.gameOverMsg = gameOverMsg;
             this.$refs.gameEndModal.showModal();
         },
@@ -481,6 +553,11 @@ export default {
             }).includes(true)
         },
         handleSnakeHit(prevSnakeState, action) {
+            this.playSound('hit');
+            this.lifeLost = true;
+            setTimeout(() => {
+                this.lifeLost = false
+            }, 2300);
             clearInterval(this.gameInterval);
             this.snake = prevSnakeState;
             this.startBlinkSnake();
@@ -501,6 +578,7 @@ export default {
                         this.tailDirection = newSnake.tailDirection;
                     }
                     this.respawnCountdown = 3;
+                    setTimeout(() => this.playSound('countdown'), 400);
                     const respawnInterval = setInterval(() => {
                         this.respawnCountdown--;
                         if(this.respawnCountdown === 0) {
@@ -627,7 +705,7 @@ export default {
                 }
 
                 if (newSnake.length === snakeLength) {
-                    console.log(attempt)
+                    // console.log(attempt)
                     return {
                         snake: newSnake,
                         direction: headDirection.direction,
@@ -638,6 +716,7 @@ export default {
             }
         },
         handleFoodEat(pos) {
+            this.playSound('eat');
             const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);
             const color = option?.[0]?.color;
             if(color?.length) {
@@ -652,6 +731,30 @@ export default {
                     action: 'eatFood'
                 }).then(res => {
                     const data = res.data;
+                    const pointsDiff = data.points - this.score;
+                    if(pointsDiff > 0) {
+                        this.pointsAdded = pointsDiff - data.bonus_points;
+                        this.playSound('plusPoints');
+                        setTimeout(() => {
+                            this.pointsAdded = null
+                        }, 2300);
+                        if(data.bonus_points) {
+                            setTimeout(() => {
+                                this.bonusAdded = data.bonus_points;
+                                this.playSound('bonus');
+                                setTimeout(() => {
+                                    this.bonusAdded = null
+                                }, 2300)
+                            }, 200);
+                        }
+                    }
+                    else if(pointsDiff < 0) {
+                        this.pointsSubtracted = pointsDiff;
+                        this.playSound('minusPoints');
+                        setTimeout(() => {
+                            this.pointsSubtracted = null
+                        }, 2300);
+                    }
                     this.score = data.points;
                     this.questionNum++;
                     this.setNewQuestion(data.question, data.options);
@@ -829,5 +932,17 @@ div.ground-grid {
     min-width: 3.2rem;
     min-height: 3.2rem;
     font-size: 1.6rem;
+}
+</style>
+<style>
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 }
 </style>
