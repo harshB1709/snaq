@@ -356,7 +356,10 @@ export default {
                     const data = res.data;
                     this.nextStartModal();
                     this.gameStartedTimer = 300;
-                    setTimeout(() => this.playSound('countdown'), 100)
+                    setTimeout(() => {
+                        this.playSound('countdown');
+                        navigator.vibrate([70, 1000, 70, 1000, 70, 1000, 70]);
+                    }, 100)
                     this.gameStartedTimerSetInterval = setInterval(function() {
                         if(this.gameStartedTimer > 0) {
                             this.gameStartedTimer--;
@@ -466,6 +469,7 @@ export default {
         handleGameEnd(gameOverMsg) {
             clearInterval(this.gameInterval)
             this.playSound('gameOver');
+            navigator.vibrate([300, 150, 300]);
             this.gameOverMsg = gameOverMsg;
             this.$refs.gameEndModal.showModal();
         },
@@ -581,7 +585,10 @@ export default {
                         this.tailDirection = newSnake.tailDirection;
                     }
                     this.respawnCountdown = 3;
-                    setTimeout(() => this.playSound('countdown'), 400);
+                    setTimeout(() => {
+                        this.playSound('countdown');
+                        navigator.vibrate([70, 1000, 70, 1000, 70, 1000, 70]);
+                    }, 400);
                     const respawnInterval = setInterval(() => {
                         this.respawnCountdown--;
                         if(this.respawnCountdown === 0) {
