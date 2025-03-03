@@ -35,7 +35,7 @@
                             </span>
                         </div>
                         <span
-                            class="w-full flex justify-center absolute bottom-1/4 text-6xl md:text-9xl font-bold text-success"
+                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-6xl font-bold text-success"
 
                             :class="{
                                 'animate__animated animate__slow animate__fadeOutUp': pointsAdded,
@@ -45,7 +45,7 @@
                             +{{pointsAdded}}
                         </span>
                         <span
-                            class="w-full flex justify-center absolute bottom-1/4 text-4xl md:text-7xl font-semibold text-info"
+                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-4xl font-semibold text-info"
 
                             :class="{
                                 'animate__animated animate__slow animate__fadeOutUp': bonusAdded,
@@ -55,7 +55,7 @@
                             &nbsp;&nbsp;+{{bonusAdded}}
                         </span>
                         <span
-                            class="w-full flex justify-center absolute bottom-1/4 text-6xl md:text-9xl font-bold text-error"
+                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-6xl font-bold text-error"
 
                             :class="{
                                 'animate__animated animate__slow animate__fadeOutUp': pointsSubtracted,
@@ -65,7 +65,7 @@
                             {{pointsSubtracted}}
                         </span>
                         <span
-                            class="w-full flex justify-center absolute bottom-1/4 text-7xl md:text-9xl font-bold"
+                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-7xl font-bold"
 
                             :class="{
                                 'animate__animated animate__slow animate__fadeOutUp': lifeLost,
@@ -943,5 +943,17 @@ div.ground-grid {
     min-width: 3.5rem;
     min-height: 3.5rem;
     font-size: 1.7rem;
+}
+</style>
+<style>
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 }
 </style>

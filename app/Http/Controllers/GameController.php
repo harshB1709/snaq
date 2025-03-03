@@ -89,8 +89,6 @@ class GameController extends Controller
             'score' => 0
         ]);
 
-        $game->questions()->syncWithPivotValues($questions->map(fn ($question) => $question->id)->toArray(), ['score' => 0]);
-
         $questions = $questions->map(function($question, $k) use($difficulties) {
 
             return [
@@ -107,7 +105,11 @@ class GameController extends Controller
                 ],
                 'is_completed' => false
             ];
-        })->shuffle()->toArray();
+        })->shuffle();
+
+        $game->questions()->syncWithPivotValues($questions->map(fn ($question) => $question['id'])->toArray(), ['score' => 0]);
+
+        $questions = $questions->toArray();
 
         session([
             'questions' => $questions,
