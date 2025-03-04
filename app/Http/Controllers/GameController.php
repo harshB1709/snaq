@@ -73,6 +73,10 @@ class GameController extends Controller
         if($player->game && !$request->user())
             abort(403);
 
+        if(!$request->user() && !is_null($player->invite_expires_at) && $player->invite_expires_at < now()) {
+            abort(400, 'Sorry, this link has expired.');
+        }
+
         $questions = collect();
 
         foreach ($diff_cases as $difficulty) {
