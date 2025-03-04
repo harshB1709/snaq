@@ -57,7 +57,8 @@ class GameController extends Controller
             'totalQuestions' => config('app.game.total_questions'),
             'speedTimeout' => $initial_speed_timeout,
             'cooldownTime' => config('app.game.cooldown_time'),
-            'lives' => config('app.game.lives')
+            'lives' => config('app.game.lives'),
+            'thresholdScore' => config('app.game.threshold_score')
         ]);
     }
 
@@ -165,7 +166,7 @@ class GameController extends Controller
                         ]);
                     $this->incrementIndex($current_index, $question_change, $game_over, $speed_timeout, $started_at);
                     if($game_over)
-                        $game_over_message = 'You have answered all the questions. Please wait for the results.';
+                        $game_over_message = 'You have answered all the questions.';
                     break;
                 case 'hitWall':
                     $lives--;
@@ -197,6 +198,11 @@ class GameController extends Controller
                 $curr_ques = $questions[$current_index];
             }
             else {
+                $player = Player::find(session('player_id'));
+                if($player) {
+                    $player->games_count++;
+                    $player->save();
+                }
                 $request->session()->forget(['questions', 'points_scored', 'current_index', 'speedTimeout', 'started_at']);
             }
 

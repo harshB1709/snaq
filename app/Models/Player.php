@@ -20,7 +20,8 @@ class Player extends Model
         'display_name',
         'email',
         'phone',
-        'invite_expires_at'
+        'invite_expires_at',
+        'games_count'
     ];
 
     protected $casts = [

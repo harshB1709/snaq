@@ -129,7 +129,9 @@ return [
     'game' => [
         'total_questions' => 21,
 
-        'invite_validity_mins' => 15,
+        'invite_validity_mins' => 30, //in mins
+
+        'threshold_score' => 300,
 
         'initial_speed_timeout' => 400, //speed for question 1
 

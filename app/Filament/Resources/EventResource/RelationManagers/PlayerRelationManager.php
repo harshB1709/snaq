@@ -64,6 +64,9 @@ class PlayerRelationManager extends RelationManager
                     ->since()
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('games_count')
+                    ->label('Games Played')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('game.score')
                     ->label('Score')
                     ->searchable()

@@ -188,15 +188,18 @@
             <h3 class="font-bold text-xl text-primary-content text-center">{{gameOverMsg}}</h3>
             <p class="text-2xl text-center pt-4">Final Score:</p>
             <h3 class="font-bold text-primary text-6xl text-center">{{ score }}</h3>
-            <p class="mt-4">Please wait for the announcement of the winners. Keep an eye on the leaderboard as prizes will be awarded after the final talk.</p>
-            <p class="py-2" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
+            <div v-if="score >= thresholdScore">
+                <p class="mt-3 font-bold text-lg">Please head to the Ranium booth for a chance to win an iPhone 16!</p>
+                <p class="py-2 font-medium" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
+            </div>
+            <p class="mt-3 font-bold text-lg" v-else>Oh no! You fell just short.. You can restart to score more than {{thresholdScore}} before the link expires and get a change to win an iPhone 16.</p>
             <div class="modal-action justify-center">
                 <Link class="btn btn-primary text-lg" :href="route('leaderboard', {event: $page.props.currentEvent.slug})" v-if="$page.props?.appSettings?.show_leaderboard?.value ?? false">Leaderboard</Link>
                 <button class="btn btn-active text-lg" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false" @click="resetGame">Restart</button>
             </div>
             <div class="flex justify-center gap-2 pt-4">
-                <button class="btn btn-outline btn-primary" @click="openAboutModal">About</button>
-                <a href="https://x.com/ranium" target="_blank" class="btn btn-outline btn-primary">
+                <button class="btn btn-accent" @click="openAboutModal">About</button>
+                <a href="https://x.com/ranium" target="_blank" class="btn btn-outline btn-accent">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
                 </a>
             </div>
@@ -290,6 +293,10 @@ export default {
             type: Number,
             default: 3
         },
+        thresholdScore: {
+            type: Number,
+            default: 250
+        }
     },
     beforeMount () {
         window.addEventListener('keydown', this.handleKeydown, null);

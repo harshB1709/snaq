@@ -31,7 +31,8 @@ class HomeController extends Controller
         ];
 
         return Inertia::render('Event/Home', [
-            'registrationSetting' => $self_registration
+            'registrationSetting' => $self_registration,
+            'thresholdScore' => config('app.game.threshold_score')
         ]);
     }
 }
