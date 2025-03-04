@@ -21,7 +21,7 @@
 		    		  	<div class="flex flex-col items-center" v-else>
 		    		  		<p class="text-lg font-semibold text-center py-2">Want in? Come meet us at the Ranium booth to get registered!</p>
 		    		  	</div>
-                <p class="text-lg text-center font-bold py-2 text-success uppercase">All players scoring above {{thresholdScore}} points must visit the Ranium booth for a chance to win the prize!</p>
+                <p class="text-lg text-center font-bold py-2 text-success uppercase">All players scoring above 300 points must visit the Ranium booth to play LexiBot game and win the ultimate prize of iPhone 16!</p>
 		    	</div>
 		    </div>
 		</div>
