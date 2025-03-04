@@ -27,17 +27,17 @@ class GameController extends Controller
             abort(400, 'Sorry, this link isn\'t valid');
         }
 
+        if (!$request->hasValidSignature() && !$request->user()) {
+            abort(401);
+        }
+
         $allow_replay = false;
         $app_settings = $event->appSettings->keyBy('key')->toArray();
         if($app_settings && array_key_exists('allow_replay', $app_settings))
             $allow_replay = $app_settings['allow_replay'] ?? false;
 
         if($allow_replay || $request->user()) {
-            Game::where('player_id', session('player_id'))->delete();
-        }
-
-        if (!$request->hasValidSignature() && !$request->user()) {
-            abort(401);
+            Game::where('player_id', $player->id)->delete();
         }
 
         if($player->game) {
