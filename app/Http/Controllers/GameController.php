@@ -33,8 +33,7 @@ class GameController extends Controller
             $allow_replay = $app_settings['allow_replay'] ?? false;
 
         if($allow_replay || $request->user()) {
-            $game = $player->game;
-            $game?->delete();
+            Game::where('player_id', session('player_id'))->delete();
         }
 
         if (!$request->hasValidSignature() && !$request->user()) {
