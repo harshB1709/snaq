@@ -32,7 +32,7 @@ class GameController extends Controller
         if($app_settings && array_key_exists('allow_replay', $app_settings))
             $allow_replay = $app_settings['allow_replay'] ?? false;
 
-        if($request->user() || $allow_replay) {
+        if($allow_replay || $request->user()) {
             $game = $player->game;
             $game?->delete();
         }
