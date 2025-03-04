@@ -31,8 +31,11 @@ class GameController extends Controller
         $app_settings = $event->appSettings->keyBy('key')->toArray();
         if($app_settings && array_key_exists('allow_replay', $app_settings))
             $allow_replay = $app_settings['allow_replay'] ?? false;
-        if($request->user() || $allow_replay)
-            $player->game()?->delete();
+
+        if($request->user() || $allow_replay) {
+            $game = $player->game;
+            $game?->delete();
+        }
 
         if (!$request->hasValidSignature() && !$request->user()) {
             abort(401);

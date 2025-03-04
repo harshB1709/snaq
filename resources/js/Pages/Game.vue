@@ -189,10 +189,10 @@
             <p class="text-2xl text-center pt-4">Final Score:</p>
             <h3 class="font-bold text-primary text-6xl text-center">{{ score }}</h3>
             <div v-if="score >= thresholdScore">
-                <p class="mt-3 font-bold text-lg">Please head to the Ranium booth for a chance to win an iPhone 16!</p>
-                <p class="py-2 font-medium" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
+                <p class="mt-3 font-bold text-lg text-center">Please head to the Ranium booth for a chance to win an iPhone 16!</p>
+                <p class="py-2 font-medium text-center" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false">You can try again to beat the highscore. Click below button to restart the game. </p>
             </div>
-            <p class="mt-3 font-bold text-lg" v-else>Oh no! You fell just short.. You can restart to score more than {{thresholdScore}} before the link expires and get a change to win an iPhone 16.</p>
+            <p class="mt-3 font-bold text-lg text-center" v-else-if="$page?.props?.appSettings?.allow_replay?.value ?? false">Oh no! You fell just short.. You can restart to score more than {{thresholdScore}} before the link expires and get a change to win an iPhone 16.</p>
             <div class="modal-action justify-center">
                 <Link class="btn btn-primary text-lg" :href="route('leaderboard', {event: $page.props.currentEvent.slug})" v-if="$page.props?.appSettings?.show_leaderboard?.value ?? false">Leaderboard</Link>
                 <button class="btn btn-active text-lg" v-if="$page?.props?.appSettings?.allow_replay?.value ?? false" @click="resetGame">Restart</button>
