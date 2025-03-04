@@ -348,11 +348,15 @@ export default {
             }
         },
         playSound(key) {
-            const sound = new Audio(this.audios[key] ?? '');
-            if(sound) {
-                sound.play();   
+            try {
+                const sound = new Audio(this.audios[key] ?? '');
+                if(sound) {
+                    sound.play();   
+                }
             }
-            // this.$refs?.[key]?.[0]?.play()
+            catch(err) {
+                console.info(err)
+            }
         },
         startGame() {
 
