@@ -157,9 +157,14 @@ class GameController extends Controller
                     $selected_answer = collect($question['options'])
                         ->where(fn ($o) => $o['color'] === $color)
                         ->first();
-                    $time_elapsed = max(1, now()->timestamp - $started_at - config('app.game.delay_seconds') - (config('app.game.cooldown_time')/1000));
-                    $bonus_points = max(0, config('app.game.bonus_threshold_seconds') - $time_elapsed) * $this->time_bonus;
-                    $earned = ($selected_answer['value'] === $question['answer']) ? ($question['points']['correct'] + $bonus_points) : (-1 * $question['points']['incorrect']);
+                    if(strval($selected_answer['value']) === strval($question['answer'])) {
+                        $time_elapsed = max(1, now()->timestamp - $started_at - config('app.game.delay_seconds') - (config('app.game.cooldown_time')/1000));
+                        $bonus_points = max(0, config('app.game.bonus_threshold_seconds') - $time_elapsed) * $this->time_bonus;
+                        $earned = $question['points']['correct'] + $bonus_points;
+                    }
+                    else {
+                        $earned = -1 * $question['points']['incorrect'];
+                    }
                     $points_scored += $earned;
                     $game = Game::where('player_id', session('player_id'))->first();
                     $game->score = $points_scored;
