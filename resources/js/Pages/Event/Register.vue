@@ -30,13 +30,6 @@
                       <input type="text" placeholder="Email" v-model="email" id="email" class="input input-bordered border-base-content w-full" />
                       <InputError class="mt-1 text-error" :message="errors?.email?.join(' ')" />
                     </div>
-                    <div class="form-control w-full max-w-sm">
-                      <label class="label" for="phone">
-                        <span class="label-text">Phone No.</span>
-                      </label>
-                      <input type="text" placeholder="Phone No." v-model="phone" id="phone" class="input input-bordered border-base-content w-full" />
-                      <InputError class="mt-1 text-error" :message="errors?.phone?.join(' ')" />
-                    </div>
                     <div class="alert alert-success shadow-lg" v-if="registered">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -88,7 +81,6 @@ export default {
             name: "",
             display_name: "",
             email: "",
-            phone: "",
             processing: false,
             errors: null,
             registered: false,
@@ -111,8 +103,7 @@ export default {
                 .post(route('register-api', {'event': this.$page.props?.currentEvent?.slug}), {
                     name: this.name,
                     email: this.email,
-                    display_name: this.display_name,
-                    phone: this.phone
+                    display_name: this.display_name
                 })
                 .then((res) => {
                     if(res.data.status === 'success') {
@@ -120,7 +111,6 @@ export default {
                         this.name = '';
                         this.email = '';
                         this.display_name = '';
-                        this.phone = '';
                     }
                 })
                 .catch((err) => {
