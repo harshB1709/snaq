@@ -365,7 +365,7 @@ export default {
                     this.gameStartedTimer = 300;
                     setTimeout(() => {
                         this.playSound('countdown');
-                        navigator.vibrate([70, 1000, 70, 1000, 70, 1000, 100]);
+                        this.vibrate([70, 1000, 70, 1000, 70, 1000, 100]);
                     }, 100)
                     this.gameStartedTimerSetInterval = setInterval(function() {
                         if(this.gameStartedTimer > 0) {
@@ -418,7 +418,7 @@ export default {
         },
         handleNav(dir) {
             this.playSound('move');
-            navigator.vibrate(50);
+            this.vibrate(50);
             let newDir = null
             switch(dir) {
                 case 'left':
@@ -446,7 +446,7 @@ export default {
         handleKeydown (e) {
             if([37, 38, 39, 40].includes(e.keyCode)) {
                 this.playSound('move');
-                navigator.vibrate(50);
+                this.vibrate(50);
                 let newDir = null
                 switch (e.keyCode) {
                     case 37:
@@ -476,9 +476,13 @@ export default {
         handleGameEnd(gameOverMsg) {
             clearInterval(this.gameInterval)
             this.playSound('gameOver');
-            navigator.vibrate([0, 150, 300, 150, 300]);
+            this.vibrate([0, 150, 300, 150, 300]);
             this.gameOverMsg = gameOverMsg;
             this.$refs.gameEndModal.showModal();
+        },
+        vibrate(args) {
+            if('vibrate' in navigator)
+                navigator.vibrate(args)
         },
         move() {
             const prevSnake = [...this.snake];
@@ -568,7 +572,7 @@ export default {
         handleSnakeHit(prevSnakeState, action) {
             this.playSound('hit');
             this.lifeLost = true;
-            navigator.vibrate([200, 100, 200]);
+            this.vibrate([200, 100, 200]);
             setTimeout(() => {
                 this.lifeLost = false
             }, 2300);
@@ -594,7 +598,7 @@ export default {
                     this.respawnCountdown = 3;
                     setTimeout(() => {
                         this.playSound('countdown');
-                        navigator.vibrate([70, 1000, 70, 1000, 70, 1000, 100]);
+                        this.vibrate([70, 1000, 70, 1000, 70, 1000, 100]);
                     }, 400);
                     const respawnInterval = setInterval(() => {
                         this.respawnCountdown--;
@@ -734,7 +738,7 @@ export default {
         },
         handleFoodEat(pos) {
             this.playSound('eat');
-            navigator.vibrate([40, 20, 40]);
+            this.vibrate([40, 20, 40]);
             const option = this.options.filter(o => o?.position?.[0] === pos[0] && o?.position?.[1] === pos[1]);
             const color = option?.[0]?.color;
             if(color?.length) {
