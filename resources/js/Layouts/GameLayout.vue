@@ -1,6 +1,9 @@
 <template>
     <Head :title="title" />
-    <div class="min-h-screen ubuntu-mono bg-wall" :style="`--bg_wall: url('${$page.props?.currentEvent?.background_img_url ?? '/images/wall.png'}')`">
+    <div class="min-h-screen ubuntu-mono bg-wall">
+        <div class="absolute top-0 w-full h-full -z-10" id="particles-js">
+            
+        </div>
         <div class="navbar bg-base-200 bg-opacity-90 justify-between" v-if="showNavbar">
             <div class="navbar-start">
 <!--                <a class="btn btn-ghost normal-case text-xl text-primary" href="/">Ranium's SnaQ</a>-->
@@ -33,7 +36,6 @@
         </div>
         <slot />
     </div>
-
     <about-modal
         v-model="showAboutModal"
     />
@@ -68,10 +70,124 @@ export default {
             showAboutModal: false
         }
     },
-
+    mounted() {
+        this.initParticles();
+    },
     methods: {
         openAboutModal() {
             this.showAboutModal = true;
+        },
+        initParticles() {
+            particlesJS('particles-js', {
+                "particles": {
+                "number": {
+                  "value": 69,
+                  "density": {
+                    "enable": true,
+                    "value_area": 380
+                  }
+                },
+                "color": {
+                  "value": "#f53103"
+                },
+                "shape": {
+                  "type": "circle",
+                  "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                  },
+                  "polygon": {
+                    "nb_sides": 5
+                  },
+                  "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                  }
+                },
+                "opacity": {
+                  "value": 0.7,
+                  "random": true,
+                  "anim": {
+                    "enable": true,
+                    "speed": 1,
+                    "opacity_min": 0.25,
+                    "sync": false
+                  }
+                },
+                "size": {
+                  "value": 3,
+                  "random": true,
+                  "anim": {
+                    "enable": true,
+                    "speed": 4,
+                    "size_min": 0.4,
+                    "sync": false
+                  }
+                },
+                "line_linked": {
+                  "enable": true,
+                  "distance": 100,
+                  "color": "#f53103",
+                  "opacity": 0.6,
+                  "width": 1.1
+                },
+                "move": {
+                  "enable": true,
+                  "speed": 0.5,
+                  "direction": "none",
+                  "random": true,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false,
+                  "attract": {
+                    "enable": false,
+                    "rotateX": 1000,
+                    "rotateY": 1200
+                  }
+                }
+                },
+                "interactivity": {
+                "detect_on": "window",
+                "events": {
+                  "onhover": {
+                    "enable": false,
+                    "mode": "repulse"
+                  },
+                  "onclick": {
+                    "enable": false,
+                    "mode": "push"
+                  },
+                  "resize": true
+                },
+                "modes": {
+                  "grab": {
+                    "distance": 700,
+                    "line_linked": {
+                      "opacity": 0.3
+                    }
+                  },
+                  "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 0.9,
+                    "opacity": 0.5,
+                    "speed": 3
+                  },
+                  "repulse": {
+                    "distance": 80,
+                    "duration": 0.4
+                  },
+                  "push": {
+                    "particles_nb": 4
+                  },
+                  "remove": {
+                    "particles_nb": 2
+                  }
+                }
+                },
+                "retina_detect": true
+            })
         }
     }
 }

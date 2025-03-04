@@ -12,9 +12,16 @@ use App\Notifications\GameInvite;
 class PlayerController extends Controller
 {
     public function home(Request $request, Event $event) {
-        return Inertia::render('Event/Register', [
-            'inviteValidityMins' => config('app.game.invite_validity_mins')
-        ]);
+        $self_registration = $event->appSettings()
+            ->where('key', 'player_registration')
+            ->first();
+
+        if(($self_registration?->value ?? false) || $request->user())
+            return Inertia::render('Event/Register', [
+                'inviteValidityMins' => config('app.game.invite_validity_mins')
+            ]);
+
+        return redirect(route('home', ['event' => $event]));
     }
 
     public function register(Request $request, Event $event) {

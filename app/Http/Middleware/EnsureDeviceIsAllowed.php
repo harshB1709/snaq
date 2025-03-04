@@ -16,10 +16,15 @@ class EnsureDeviceIsAllowed
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $event = $request->route('event', null);
+        $app_setting = $event->appSettings()->where([
+            'key' => 'force_mobile'
+        ])->first();
+
         $detect = new MobileDetect();
         $is_mobile = $detect->isMobile();
 
-        if(!$is_mobile && !$request->user() && config('app.env') === 'production')
+        if(($app_setting?->value ?? true) && !$is_mobile && !$request->user() && config('app.env') === 'production')
             return abort(400, "Please use a mobile phone to play the game!");
         return $next($request);
     }

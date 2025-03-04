@@ -2,11 +2,11 @@
     <game-layout title="Register">
         <div class="container flex flex-col justify-center items-center mx-auto px-4">
             <div class="sm:max-w-md w-full rounded-xl flex flex-col items-center">
-                <div class="flex justify-center items-end py-4 gap-1">
-                    <img src="/images/ranium-logo.png" class="w-20 mx-auto">
-                    <span class="whitespace-nowrap font-bold text-center text-2xl text-primary leading-4">
+                <div class="w-full flex justify-center items-end my-4 gap-1 bg-[#121325] rounded">
+                    <img src="/images/game-logo.png" class="w-56 h-auto mx-auto">
+                    <!-- <span class="whitespace-nowrap font-bold text-center text-2xl text-primary leading-4">
                         's SnaQ
-                    </span>
+                    </span> -->
                 </div>
                 <div class="w-full flex flex-col bg-base-200 rounded-lg p-4 items-center gap-4">
                     <div class="form-control w-full max-w-sm">

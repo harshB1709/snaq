@@ -1,7 +1,7 @@
 <template>
     <game-layout title="Leaderboard">
         <div class="container min-h-screen flex flex-col items-center mx-auto py-8 px-4 ubuntu-mono">
-            <div class="sm:max-w-3xl w-full rounded-xl flex flex-col items-center">
+            <div class="sm:max-w-3xl w-full rounded-xl flex flex-col items-center bg-base-100">
                 <h1 class="font-bold text-center text-primary text-4xl md:text-5xl underline underline-offset-4">Leaderboard</h1>
                 <div class="overflow-x-auto mt-8 w-full">
                     <table class="table table-zebra w-full border-2 border-primary rounded w-full">
