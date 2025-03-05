@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Inertia\Inertia;
 
 class Handler extends ExceptionHandler
 {
@@ -26,5 +27,31 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Prepare exception for rendering.
+     *
+     * @param  \Throwable  $e
+     * @return \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        $response = parent::render($request, $e);
+
+        if (config('app.env') === 'production' && !config('app.debug') && in_array($response->status(), [500, 503, 404, 403, 401, 400])) {
+            return Inertia::render('Error', [
+                    'status' => $response->status(),
+                    'message' => $e->getMessage()
+                ])
+                    ->toResponse($request)
+                    ->setStatusCode($response->status());
+        } elseif ($response->status() === 419) {
+            return back()->with([
+                'message' => 'The page expired, please try again.',
+            ]);
+        }
+
+        return $response;
     }
 }

@@ -25,7 +25,7 @@ class EnsureDeviceIsAllowed
         $is_mobile = $detect->isMobile();
 
         if(($app_setting?->value ?? true) && !$is_mobile && !$request->user() && config('app.env') === 'production')
-            return abort(400, "Please use a mobile phone to play the game!");
+            return abort(400, $app_setting?->message ?? "Please use a mobile phone to play the game!");
         return $next($request);
     }
 }

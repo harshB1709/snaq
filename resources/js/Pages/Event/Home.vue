@@ -48,31 +48,6 @@ export default {
         default: 250
       }
     },
-
-    data() {
-        return {
-            interval: null
-        }
-    },
-
-    created() {
-        this.reload();
-        this.interval = setInterval(this.reload, 5000)
-    },
-
-    beforeDestroy() {
-        clearInterval(this.interval);
-    },
-
-    methods: {
-        goToLink(link) {
-            this.$inertia.visit(link);
-        },
-        reload() {
-            console.log('reloading');
-            router.reload({ only: ['games'] })
-        }
-    }
 }
 
 </script>

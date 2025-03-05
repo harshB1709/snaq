@@ -1,6 +1,6 @@
 <template>
     <Head :title="title" />
-    <div class="min-h-screen ubuntu-mono bg-wall">
+    <div class="flex flex-col min-h-screen ubuntu-mono bg-wall relative">
         <div class="absolute top-0 w-full h-full -z-10" id="particles-js">
             
         </div>
@@ -30,6 +30,9 @@
                             <a :href="route('leaderboard', {event: $page.props?.currentEvent?.slug})">Leaderboard</a>
                         </li>
                         <li v-if="$page.props?.registrationSetting?.value ?? true"><a :href="route('player.register', {event: $page.props?.currentEvent?.slug})">Register</a></li>
+                        <li v-if="route().current() !== 'home'">
+                            <a :href="route('home', {event: $page.props?.currentEvent?.slug})">Home</a>
+                        </li>
                     </template>
                 </ul>
             </div>
