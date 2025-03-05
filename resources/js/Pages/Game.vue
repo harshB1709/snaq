@@ -10,7 +10,7 @@
         >
             <!-- Snake grid -->
             <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
-                <div class="flex justify-evenly">
+                <div class="flex justify-between">
                     <span class="text-center font-bold text-lg md:text-2xl text-primary-content">
                         Score: {{score}}
                     </span>
@@ -115,10 +115,10 @@
 
                 <!-- MCQ -->
                 <div class="w-full" v-if="gameStarted">
-                    <div class="mt-2 w-full p-2 px-6 bg-warning text-warning-content rounded-xl font-vt323 md:text-lg font-medium">
+                    <div class="mt-2 w-full p-2 px-6 bg-warning text-warning-content rounded-xl font-vt323 md:text-lg font-medium leading-tight md:leading-normal">
                         <span class="font-extrabold">Q{{questionNum}}:</span> {{question}}
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 text-sm font-vt323 leading-none md:text-base md:leading-normal font-medium">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 font-vt323 text-sm leading-none md:text-base md:leading-normal font-medium">
                         <div v-for="(option, index) in options" class="p-2 px-5 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
                             <div
                                 class="font-bold border border-white h-4 w-4 flex-none"
