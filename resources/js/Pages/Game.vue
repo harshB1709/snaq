@@ -10,7 +10,7 @@
         >
             <!-- Snake grid -->
             <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
-                <div class="flex justify-between">
+                <div class="flex justify-between font-vt323 leading-tight">
                     <span class="text-center font-bold text-lg md:text-2xl text-primary-content">
                         Score: {{score}}
                     </span>
