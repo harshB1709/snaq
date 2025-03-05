@@ -11,11 +11,11 @@
             <!-- Snake grid -->
             <div class="flex flex-col flex-1 gap-2 w-full max-w-xl min-h-64 md:min-h-full">
                 <div class="flex justify-evenly">
-                    <span class="text-center font-bold text-xl md:text-2xl text-primary-content">
+                    <span class="text-center font-bold text-lg md:text-2xl text-primary-content">
                         Score: {{score}}
                     </span>
 
-                    <span class="text-center font-bold text-xl md:text-2xl text-primary-content">
+                    <span class="text-center font-bold text-lg md:text-2xl text-primary-content">
                         Lives: <span v-html="livesString"></span>
                     </span>
                 </div>
@@ -65,7 +65,7 @@
                             {{pointsSubtracted}}
                         </span>
                         <span
-                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-7xl font-bold"
+                            class="w-full h-3/4 flex items-end justify-center absolute bottom-1/4 text-5xl font-bold"
 
                             :class="{
                                 'animate__animated animate__slow animate__fadeOutUp': lifeLost,
@@ -102,7 +102,7 @@
 
             <div class="w-full md:w-auto md:flex-1 flex flex-col gap-2 pb-1 justify-center">
                 <!-- Controls -->
-                <div class="flex flex-col gap-5 md:hidden">
+                <div class="flex flex-col gap-4 md:hidden">
                     <div class="flex w-full justify-center">
                       <button><kbd class="kbd bg-base-300 text-base-content shadow-md kbd-xl" @click="handleNav('up')">▲</kbd></button>
                     </div>
@@ -115,15 +115,15 @@
 
                 <!-- MCQ -->
                 <div class="w-full" v-if="gameStarted">
-                    <div class="mt-2 w-full p-3 px-6 bg-warning text-warning-content rounded-xl md:text-lg font-bold">
-                        <span class="font-extrabold">Q{{questionNum}}:</span> {{question}}?</div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 text-sm md:text-base font-semibold">
-                        <div v-for="(option, index) in options" class="p-3 px-5 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
+                    <div class="mt-2 w-full p-2 px-6 bg-warning text-warning-content rounded-xl font-vt323 md:text-lg font-medium">
+                        <span class="font-extrabold">Q{{questionNum}}:</span> {{question}}
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 mt-3 md:mt-4 text-sm font-vt323 leading-none md:text-base md:leading-normal font-medium">
+                        <div v-for="(option, index) in options" class="p-2 px-5 bg-accent text-accent-content rounded-xl flex gap-2 items-center">
                             <div
-                                class="font-bold border border-white h-5 w-5 md:h-5 md:w-5 flex-none"
+                                class="font-bold border border-white h-4 w-4 flex-none"
                                 :style="`background: ${option.color};`"
                             >
-                                <!-- {{String.fromCharCode(65 + index)}}: -->
                             </div>
                             <span>
                                 &nbsp;{{option.value}}
@@ -958,6 +958,10 @@ div.ground-grid {
     min-width: 3.5rem;
     min-height: 3.5rem;
     font-size: 1.7rem;
+}
+
+.font-vt323 {
+  font-family: "VT323", monospace;
 }
 </style>
 <style>
