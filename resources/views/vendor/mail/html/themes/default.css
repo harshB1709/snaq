@@ -38,7 +38,7 @@ a img {
 /* Typography */
 
 h1 {
-    color: #3d4852;
+    color: #272426;
     font-size: 18px;
     font-weight: bold;
     margin-top: 0;
@@ -115,6 +115,7 @@ img {
     width: 570px;
     background: #111126;
     padding: 3px;
+    border-radius: 10px 10px 0 0;
 }
 
 .logo {

@@ -2,7 +2,7 @@
 	<game-layout title="Home">
 		<div class="container flex flex-col justify-center items-center mx-auto px-4">
 		    <div class="sm:max-w-2xl w-full rounded-xl flex flex-col items-center">
-		    	<div class="w-full flex justify-center items-end my-4 gap-1 bg-[#121325] rounded">
+		    	<div class="w-full flex justify-center items-end my-4 gap-1 bg-[#121325] p-1 rounded">
 		    	    <img src="/images/game-logo.png" class="w-56 h-auto mx-auto">
 		    	</div>
 		    	<div class="w-full p-4 bg-base-200 text-base-content rounded">

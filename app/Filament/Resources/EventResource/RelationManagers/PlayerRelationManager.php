@@ -38,10 +38,6 @@ class PlayerRelationManager extends RelationManager
                     ->required()
                     ->email()
                     ->unique(ignoreRecord: true, modifyRuleUsing: fn ($rule) => $rule->where('event_id', $this->getOwnerRecord()?->id)),
-                TextInput::make('phone')
-                    ->label('Phone No.')
-                    ->required()
-                    ->tel(),
                 Hidden::make('invite_expires_at')
             ]);
     }
