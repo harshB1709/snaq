@@ -131,7 +131,7 @@ export default {
                     name: this.name,
                     email: this.email,
                     display_name: this.display_name,
-                    avatar: this.avatarOptions[this.selectedAvatar]
+                    avatar: window.location.origin + this.avatarOptions[this.selectedAvatar]
                 })
                 .then((res) => {
                     if(res.data.status === 'success') {
@@ -151,13 +151,11 @@ export default {
         },
         incrementAvatar() {
             this.selectedAvatar = (this.selectedAvatar + 1) % this.avatarOptions.length;
-            console.log(this.selectedAvatar);
         },
         decrementAvatar() {
             this.selectedAvatar = (this.selectedAvatar - 1) % this.avatarOptions.length;
             if(this.selectedAvatar < 0)
                 this.selectedAvatar += this.avatarOptions.length;
-            console.log(this.selectedAvatar);
         }
     }
 }
