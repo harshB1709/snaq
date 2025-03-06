@@ -10,21 +10,44 @@
                 </div>
                 <div class="w-full flex flex-col bg-base-200 rounded-lg p-4 items-center gap-4">
                     <div class="form-control w-full max-w-sm">
-                      <label class="label" for="name">
+                        <label class="label font-bold justify-center" for="avatar">
+                            <span class="label-text">Select Your avatar</span>
+                        </label>
+                        <div class="flex gap-4 p-2 items-center justify-center">
+                            <button class="btn btn-circle btn-accent btn-outline" @click="decrementAvatar">❮</button>
+                            <div class="avatar">
+                                <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2 p-3 bg-secondary">
+                                    <template v-for="(option, index) in avatarOptions" :key="index">
+                                        <img
+                                            :src="option"
+                                            :class="{
+                                                '!object-contain w-full h-full': true,
+                                                'hidden': index !== selectedAvatar
+                                            }"
+                                            rel="preload"
+                                        />
+                                    </template>
+                                </div>
+                            </div>
+                            <button class="btn btn-circle btn-accent btn-outline" @click="incrementAvatar">❯</button>
+                        </div>
+                    </div>
+                    <div class="form-control w-full max-w-sm">
+                      <label class="label font-bold" for="name">
                         <span class="label-text">Name</span>
                       </label>
                       <input type="text" placeholder="Name" v-model="name" autocomplete="name" id="name" class="input input-bordered border-base-content w-full" />
                       <InputError class="mt-1 text-error" :message="errors?.name?.join(' ')" />
                     </div>
                     <div class="form-control w-full max-w-sm">
-                      <label class="label" for="display_name">
+                      <label class="label font-bold" for="display_name">
                         <span class="label-text">Display Name(Optional)</span>
                       </label>
                       <input type="text" placeholder="Display Name" v-model="display_name" id="display_name" class="input input-bordered border-base-content w-full" />
                       <InputError class="mt-1 text-error" :message="errors?.display_name?.join(' ')" />
                     </div>
                     <div class="form-control w-full max-w-sm">
-                      <label class="label" for="email">
+                      <label class="label font-bold" for="email">
                         <span class="label-text">Email</span>
                       </label>
                       <input type="text" placeholder="Email" v-model="email" id="email" class="input input-bordered border-base-content w-full" />
@@ -75,6 +98,10 @@ export default {
     },
 
     data() {
+        let avatarOptions = [];
+        for(let i = 1; i < 25; i++) {
+            avatarOptions.push(`/images/avatars/snake_${i}.png`)
+        }
         return {
             name: "",
             display_name: "",
@@ -82,6 +109,8 @@ export default {
             processing: false,
             errors: null,
             registered: false,
+            avatarOptions,
+            selectedAvatar: Math.floor(Math.random() * avatarOptions.length)
         }
     },
 
@@ -101,7 +130,8 @@ export default {
                 .post(route('register-api', {'event': this.$page.props?.currentEvent?.slug}), {
                     name: this.name,
                     email: this.email,
-                    display_name: this.display_name
+                    display_name: this.display_name,
+                    avatar: this.avatarOptions[this.selectedAvatar]
                 })
                 .then((res) => {
                     if(res.data.status === 'success') {
@@ -109,6 +139,7 @@ export default {
                         this.name = '';
                         this.email = '';
                         this.display_name = '';
+                        this.selectedAvatar = Math.floor(Math.random() * this.avatarOptions.length)
                     }
                 })
                 .catch((err) => {
@@ -117,6 +148,16 @@ export default {
                 .finally(() => {
                     this.processing = false;
                 });
+        },
+        incrementAvatar() {
+            this.selectedAvatar = (this.selectedAvatar + 1) % this.avatarOptions.length;
+            console.log(this.selectedAvatar);
+        },
+        decrementAvatar() {
+            this.selectedAvatar = (this.selectedAvatar - 1) % this.avatarOptions.length;
+            if(this.selectedAvatar < 0)
+                this.selectedAvatar += this.avatarOptions.length;
+            console.log(this.selectedAvatar);
         }
     }
 }

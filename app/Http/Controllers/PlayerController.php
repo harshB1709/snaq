@@ -35,13 +35,15 @@ class PlayerController extends Controller
                 'max:255',
                 Rule::unique('players', 'email')->where(fn ($query) => $query->where('event_id', $event->id))
             ],
+            'avatar' => 'string|nullable'
         ]);
 
         $player = Player::create([
             'event_id' => $event->id,
             'email' => $request->get('email'),
             'name' => $request->get('name'),
-            'display_name' => $request->get('display_name', null)
+            'display_name' => $request->get('display_name', null),
+            'avatar' => $request->get('avatar', null)
         ]);
 
         $player->notify(new GameInvite());

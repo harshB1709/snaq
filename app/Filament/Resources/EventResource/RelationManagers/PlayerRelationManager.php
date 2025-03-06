@@ -53,6 +53,12 @@ class PlayerRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('display_name')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('avatar')
+                    ->circular()
+                    ->checkFileExistence(false)
+                    ->extraImgAttributes(
+                        ['style' => 'object-fit: contain; background: #a4cbb4']
+                    ),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()
                     ->sortable(),
