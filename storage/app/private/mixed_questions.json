@@ -37,7 +37,7 @@
       ]
     },
     {
-      "question": "In programming, what symbol is commonly used to end a statement in languages like C and Java?",
+      "question": "What symbol is commonly used to end a statement in C and Java?",
       "answer": "Semicolon",
       "wrong_answers": [
         "Colon",
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "question": "What is the term for a piece of code that can be called multiple times in a program?",
+      "question": "What is a piece of reusable code that can be called multiple times?",
       "answer": "Function",
       "wrong_answers": [
         "Variable",
@@ -226,7 +226,7 @@
       ]
     },
     {
-      "question": "In email addresses, what symbol is used to separate the username from the domain?",
+      "question": "Which symbol separates the username from the domain in an email?",
       "answer": "@",
       "wrong_answers": [
         "#",
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "question": "What is the term for a network security system that monitors and controls incoming and outgoing network traffic?",
+      "question": "Which network security system monitors and controls traffic flow?",
       "answer": "Firewall",
       "wrong_answers": [
         "Antivirus",
@@ -271,7 +271,7 @@
       ]
     },
     {
-      "question": "What is the name of the network of physical objects connected via the internet?",
+      "question": "What is the term for a network of internet-connected physical objects?",
       "answer": "Internet of Things",
       "wrong_answers": [
         "World Wide Web",
@@ -343,15 +343,6 @@
       ]
     },
     {
-      "question": "Which ocean is the largest on Earth?",
-      "answer": "Pacific Ocean",
-      "wrong_answers": [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Arctic Ocean"
-      ]
-    },
-    {
       "question": "Which programming language is used to develop iOS apps?",
       "answer": "Swift",
       "wrong_answers": [
@@ -368,11 +359,721 @@
         "<href>",
         "<hyperlink>"
       ]
+    },
+    {
+      "question": "What is the capital city of Italy?",
+      "answer": "Rome",
+      "wrong_answers": ["Milan", "Venice", "Florence"]
+    },
+    {
+      "question": "Which planet is known as the 'Blue Planet'?",
+      "answer": "Earth",
+      "wrong_answers": ["Neptune", "Uranus", "Saturn"]
+    },
+    {
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "answer": "William Shakespeare",
+      "wrong_answers": ["Charles Dickens", "Jane Austen", "Mark Twain"]
+    },
+    {
+      "question": "What is the largest mammal in the world?",
+      "answer": "Blue Whale",
+      "wrong_answers": ["Elephant", "Giraffe", "Hippopotamus"]
+    },
+    {
+      "question": "Which element has the chemical symbol 'O'?",
+      "answer": "Oxygen",
+      "wrong_answers": ["Gold", "Osmium", "Oganesson"]
+    },
+    {
+      "question": "In which continent is the Sahara Desert located?",
+      "answer": "Africa",
+      "wrong_answers": ["Asia", "Australia", "South America"]
+    },
+    {
+      "question": "What is the boiling point of water at standard atmospheric pressure?",
+      "answer": "100°C",
+      "wrong_answers": ["90°C", "80°C", "110°C"]
+    },
+    {
+      "question": "Who painted the 'Mona Lisa'?",
+      "answer": "Leonardo da Vinci",
+      "wrong_answers": ["Vincent van Gogh", "Pablo Picasso", "Claude Monet"]
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "answer": "Mercury",
+      "wrong_answers": ["Venus", "Earth", "Mars"]
+    },
+    {
+      "question": "Which ocean is the largest by surface area?",
+      "answer": "Pacific Ocean",
+      "wrong_answers": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+    },
+    {
+      "question": "Which planet is known as the 'Red Planet'?",
+      "answer": "Mars",
+      "wrong_answers": ["Jupiter", "Saturn", "Venus"]
+    },
+    {
+      "question": "What is the tallest mountain in the world?",
+      "answer": "Mount Everest",
+      "wrong_answers": ["K2", "Kangchenjunga", "Lhotse"]
+    },
+    {
+      "question": "Which country is famous for the maple leaf symbol?",
+      "answer": "Canada",
+      "wrong_answers": ["USA", "UK", "Australia"]
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "answer": "Au",
+      "wrong_answers": ["Ag", "Gd", "Ga"]
+    },
+    {
+      "question": "Which language is primarily spoken in Brazil?",
+      "answer": "Portuguese",
+      "wrong_answers": ["Spanish", "English", "French"]
+    },
+    {
+      "question": "How many continents are there on Earth?",
+      "answer": "Seven",
+      "wrong_answers": ["Five", "Six", "Eight"]
+    },
+    {
+      "question": "Which instrument has six strings and is commonly used in rock music?",
+      "answer": "Guitar",
+      "wrong_answers": ["Piano", "Violin", "Flute"]
+    },
+    {
+      "question": "Which country is sushi originally from?",
+      "answer": "Japan",
+      "wrong_answers": ["China", "Thailand", "South Korea"]
+    },
+    {
+      "question": "What color is typically associated with bananas?",
+      "answer": "Yellow",
+      "wrong_answers": ["Red", "Green", "Blue"]
+    },
+    {
+      "question": "Who wrote the 'Harry Potter' series?",
+      "answer": "J.K. Rowling",
+      "wrong_answers": ["J.R.R. Tolkien", "Stephen King", "George R.R. Martin"]
+    },
+    {
+      "question": "How many legs does an insect typically have?",
+      "answer": "Six",
+      "wrong_answers": ["Eight", "Four", "Ten"]
+    },
+    {
+      "question": "Which sport uses a bat, ball, and wickets?",
+      "answer": "Cricket",
+      "wrong_answers": ["Football", "Basketball", "Golf"]
+    },
+    {
+      "question": "Which vegetable is famous for making eyes water?",
+      "answer": "Onion",
+      "wrong_answers": ["Potato", "Carrot", "Tomato"]
+    },
+    {
+      "question": "How many days are there in a leap year?",
+      "answer": "366",
+      "wrong_answers": ["365", "364", "360"]
+    },
+    {
+      "question": "Which superhero is known for his spider-like abilities?",
+      "answer": "Spider-Man",
+      "wrong_answers": ["Batman", "Iron Man", "Superman"]
+    },
+    {
+      "question": "In sports, what does NBA stand for?",
+      "answer": "National Basketball Association",
+      "wrong_answers": ["National Baseball Association", "New Basketball Association", "National Boxing Association"]
+    },
+    {
+      "question": "Which animal is known as man's best friend?",
+      "answer": "Dog",
+      "wrong_answers": ["Cat", "Horse", "Rabbit"]
+    },
+    {
+      "question": "Which fictional city is Batman from?",
+      "answer": "Gotham City",
+      "wrong_answers": ["Metropolis", "Central City", "Star City"]
+    },
+    {
+      "question": "Which social media platform is known for its 280-character posts?",
+      "answer": "Twitter (X)",
+      "wrong_answers": ["Facebook", "Instagram", "TikTok"]
+    },
+    {
+      "question": "What device measures temperature?",
+      "answer": "Thermometer",
+      "wrong_answers": ["Scale", "Barometer", "Thermometer"]
+    },
+    {
+      "question": "Which of these is a popular beverage made from beans?",
+      "answer": "Coffee",
+      "wrong_answers": ["Tea", "Juice", "Milk"]
+    },
+    {
+      "question": "How many sides does a triangle have?",
+      "answer": "3",
+      "wrong_answers": ["4", "5", "6"]
+    },
+    {
+      "question": "In computing, what is used to store data permanently?",
+      "answer": "Hard Drive",
+      "wrong_answers": ["RAM", "CPU", "Monitor"]
+    },
+    {
+      "question": "Which fast-food chain is famous for the 'Big Mac'?",
+      "answer": "McDonald's",
+      "wrong_answers": ["Burger King", "Wendy's", "Subway"]
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "answer": "Mercury",
+      "wrong_answers": ["Venus", "Mars", "Earth"]
+    },
+    {
+      "question": "What is the currency of the United Kingdom?",
+      "answer": "Pound Sterling",
+      "wrong_answers": ["Euro", "Dollar", "Yen"]
+    },
+    {
+      "question": "Which command creates a new Laravel project?",
+      "answer": "laravel new",
+      "wrong_answers": ["php artisan new", "composer create-laravel", "php artisan create"]
+    },
+    {
+      "question": "What is the default templating engine in Laravel?",
+      "answer": "Blade",
+      "wrong_answers": ["Twig", "Smarty", "Handlebars"]
+    },
+    {
+      "question": "Which function is used to output text in PHP?",
+      "answer": "echo",
+      "wrong_answers": ["print", "console.log", "write"]
+    },
+    {
+      "question": "Which superglobal array stores form input data in PHP?",
+      "answer": "$_POST",
+      "wrong_answers": ["$_FORM", "$_INPUT", "$_REQUEST"]
+    },
+    {
+      "question": "Which JavaScript function displays text in an alert box?",
+      "answer": "alert()",
+      "wrong_answers": ["popup()", "console.log()", "message()"]
+    },
+    {
+      "question": "What is 12 divided by 3?",
+      "answer": "4",
+      "wrong_answers": ["3", "6", "5"]
+    },
+    {
+      "question": "What comes next in the sequence: 2, 4, 8, 16, __?",
+      "answer": "32",
+      "wrong_answers": ["24", "30", "36"]
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "answer": "Tokyo",
+      "wrong_answers": ["Seoul", "Beijing", "Bangkok"]
+    },
+    {
+      "question": "Who is the creator of Linux?",
+      "answer": "Linus Torvalds",
+      "wrong_answers": ["Bill Gates", "Steve Jobs", "Mark Zuckerberg"]
+    },
+    {
+      "question": "Which company created the PlayStation gaming console?",
+      "answer": "Sony",
+      "wrong_answers": ["Microsoft", "Nintendo", "Sega"]
+    },
+    {
+      "question": "What does SQL stand for?",
+      "answer": "Structured Query Language",
+      "wrong_answers": ["System Query Logic", "Simple Query Language", "Sequential Query List"]
+    },
+    {
+      "question": "Which company’s logo features a bitten apple?",
+      "answer": "Apple",
+      "wrong_answers": ["Microsoft", "Dell", "Samsung"]
+    },
+    {
+      "question": "What does the 'F' in 'F12' typically open in a web browser?",
+      "answer": "Developer Tools",
+      "wrong_answers": ["Find Menu", "Fullscreen Mode", "Favorites"]
+    },
+    {
+      "question": "I have hands but cannot clap. What am I?",
+      "answer": "A clock",
+      "wrong_answers": ["A robot", "A mannequin", "A statue"]
+    },
+    {
+      "question": "What runs but never walks, has a bed but never sleeps?",
+      "answer": "A river",
+      "wrong_answers": ["A cheetah", "A treadmill", "A wind"]
+    },
+    {
+      "question": "What does CSS stand for?",
+      "answer": "Cascading Style Sheets",
+      "wrong_answers": ["Creative Styling System", "Computer Styled Sheets", "Colorful Site Styling"]
+    },
+    {
+      "question": "Which symbol is used to define an ID in CSS?",
+      "answer": "#",
+      "wrong_answers": [".", "$", "&"]
+    },
+    {
+      "question": "Which command is used to create a new Laravel controller?",
+      "answer": "php artisan make:controller",
+      "wrong_answers": ["php artisan create:controller", "php artisan new:controller", "php artisan generate:controller"]
+    },
+    {
+      "question": "What is the default route file in Laravel for web routes?",
+      "answer": "web.php",
+      "wrong_answers": ["routes.php", "index.php", "app.php"]
+    },
+    {
+      "question": "Which PHP function is used to count the number of elements in an array?",
+      "answer": "count()",
+      "wrong_answers": ["size()", "length()", "elements()"]
+    },
+    {
+      "question": "What is the correct way to declare a variable in PHP?",
+      "answer": "$variableName",
+      "wrong_answers": ["var variableName", "variableName", "let variableName"]
+    },
+    {
+      "question": "What does HTTP stand for?",
+      "answer": "HyperText Transfer Protocol",
+      "wrong_answers": ["Hyperlink Transfer Process", "High Technology Transfer Protocol", "Hyper Transfer Text Protocol"]
+    },
+    {
+      "question": "Which CSS property controls the size of text?",
+      "answer": "font-size",
+      "wrong_answers": ["text-size", "size", "font-style"]
+    },
+    {
+      "question": "Which JavaScript keyword is used to declare a constant variable?",
+      "answer": "const",
+      "wrong_answers": ["let", "var", "static"]
+    },
+    {
+      "question": "What is the value of 5 squared?",
+      "answer": "25",
+      "wrong_answers": ["10", "20", "15"]
+    },
+    {
+      "question": "What is 10% of 200?",
+      "answer": "20",
+      "wrong_answers": ["10", "30", "25"]
+    },
+    {
+      "question": "What is the smallest even number?",
+      "answer": "2",
+      "wrong_answers": ["0", "4", "6"]
+    },
+    {
+      "question": "What does USB stand for?",
+      "answer": "Universal Serial Bus",
+      "wrong_answers": ["United System Backup", "Uniform Standard Base", "Universal Storage Buffer"]
+    },
+    {
+      "question": "Who founded Microsoft?",
+      "answer": "Bill Gates",
+      "wrong_answers": ["Steve Jobs", "Elon Musk", "Mark Zuckerberg"]
+    },
+    {
+      "question": "What does the 'C' in CPU stand for?",
+      "answer": "Central",
+      "wrong_answers": ["Computer", "Cache", "Core"]
+    },
+    {
+      "question": "Which company's tagline is 'Just Do It'?",
+      "answer": "Nike",
+      "wrong_answers": ["Adidas", "Puma", "Reebok"]
+    },
+    {
+      "question": "Which of the following is an input device?",
+      "answer": "Keyboard",
+      "wrong_answers": ["Monitor", "Printer", "Speaker"]
+    },
+    {
+      "question": "Which fast-food chain is known for its 'Whopper' burger?",
+      "answer": "Burger King",
+      "wrong_answers": ["McDonald's", "KFC", "Subway"]
+    },
+    {
+      "question": "Which number comes next in the pattern: 2, 4, 6, 8, __?",
+      "answer": "10",
+      "wrong_answers": ["12", "9", "11"]
+    },
+    {
+      "question": "Which word is spelled the same forward and backward?",
+      "answer": "Racecar",
+      "wrong_answers": ["Level", "Radar", "Refer"]
+    },
+    {
+      "question": "What gets wetter as it dries?",
+      "answer": "A towel",
+      "wrong_answers": ["Sponge", "Rain", "Soap"]
+    },
+    {
+      "question": "Who created Laravel?",
+      "answer": "Taylor Otwell",
+      "wrong_answers": ["Fabien Potencier", "Rasmus Lerdorf", "Matt Stauffer"]
+    },
+    {
+      "question": "In which year was Laravel first released?",
+      "answer": "2011",
+      "wrong_answers": ["2009", "2013", "2015"]
+    },
+    {
+      "question": "Which PHP framework inspired Laravel?",
+      "answer": "CodeIgniter",
+      "wrong_answers": ["Symfony", "Zend", "CakePHP"]
+    },
+    {
+      "question": "Which company maintains Laravel?",
+      "answer": "Laravel LLC",
+      "wrong_answers": ["Google", "Microsoft", "Facebook"]
+    },
+    {
+      "question": "Which Laravel event is held annually for developers?",
+      "answer": "Laracon",
+      "wrong_answers": ["PHPCon", "LaravelWorld", "DevSummit"]
+    },
+    {
+      "question": "Which Laravel package is used for authentication?",
+      "answer": "Laravel Sanctum",
+      "wrong_answers": ["Laravel Jetstream", "Laravel Breeze", "Laravel Cashier"]
+    },
+    {
+      "question": "Which database migration tool does Laravel use?",
+      "answer": "Eloquent Migrations",
+      "wrong_answers": ["Schema Builder", "Laravel DB Sync", "Artisan Migrate"]
+    },
+    {
+      "question": "Which Laravel package provides a full OAuth2 server implementation?",
+      "answer": "Laravel Passport",
+      "wrong_answers": ["Laravel Sanctum", "Laravel Guard", "Laravel Auth"]
+    },
+    {
+      "question": "What does Laravel use to manage dependencies?",
+      "answer": "Composer",
+      "wrong_answers": ["NPM", "Yarn", "Pip"]
+    },
+    {
+      "question": "Which Laravel feature helps with scheduled tasks?",
+      "answer": "Task Scheduler",
+      "wrong_answers": ["Cron Jobs", "Artisan Queue", "Job Manager"]
+    },
+    {
+      "question": "What is the default database used in Laravel?",
+      "answer": "MySQL",
+      "wrong_answers": ["PostgreSQL", "SQLite", "MongoDB"]
+    },
+    {
+      "question": "Which command generates a new Laravel model?",
+      "answer": "php artisan make:model",
+      "wrong_answers": ["php artisan new:model", "php artisan create:model", "php artisan generate:model"]
+    },
+    {
+      "question": "Which Laravel feature helps with database seeding?",
+      "answer": "Factories",
+      "wrong_answers": ["Migrations", "Seeders", "Collections"]
+    },
+    {
+      "question": "Which Laravel feature allows managing background tasks?",
+      "answer": "Queues",
+      "wrong_answers": ["Jobs", "Tasks", "Workers"]
+    },
+    {
+      "question": "Which Laravel feature simplifies real-time broadcasting?",
+      "answer": "Laravel Echo",
+      "wrong_answers": ["Laravel WebSockets", "Livewire", "Jetstream"]
+    },
+    {
+      "question": "Which Laravel tool helps with email notifications?",
+      "answer": "Mailables",
+      "wrong_answers": ["Notifiers", "EmailManager", "Laravel Send"]
+    },
+    {
+      "question": "Which Laravel tool helps deploy applications easily?",
+      "answer": "Laravel Cloud",
+      "wrong_answers": ["Laravel Envoyer", "Laravel Vapor", "Laravel Jetstream"]
+    },
+    {
+      "question": "Which Laravel package makes handling subscriptions easier?",
+      "answer": "Laravel Cashier",
+      "wrong_answers": ["Laravel Billing", "Laravel Stripe", "Laravel PayPal"]
+    },
+    {
+      "question": "Which Laravel tool helps with real-time queues and job monitoring?",
+      "answer": "Laravel Horizon",
+      "wrong_answers": ["Laravel Queue", "Laravel Scheduler", "Laravel Tasks"]
+    },
+    {
+      "question": "Which Bollywood actor is known as the 'King of Bollywood'?",
+      "answer": "Shah Rukh Khan",
+      "wrong_answers": ["Salman Khan", "Amitabh Bachchan", "Ranbir Kapoor"]
+    },
+    {
+      "question": "Which Bollywood movie features the song 'Bole Chudiyan'?",
+      "answer": "Kabhi Khushi Kabhie Gham",
+      "wrong_answers": ["Dilwale Dulhania Le Jayenge", "Kal Ho Naa Ho", "Hum Saath Saath Hain"]
+    },
+    {
+      "question": "Which city is famous for its Hyderabadi Biryani?",
+      "answer": "Hyderabad",
+      "wrong_answers": ["Lucknow", "Delhi", "Chennai"]
+    },
+    {
+      "question": "What is the main ingredient of a 'Masala Dosa'?",
+      "answer": "Rice and lentil batter",
+      "wrong_answers": ["Flour", "Semolina", "Cornmeal"]
+    },
+    {
+      "question": "Which Indian TV show featured the character Jethalal Gada?",
+      "answer": "Taarak Mehta Ka Ooltah Chashmah",
+      "wrong_answers": ["Sarabhai vs Sarabhai", "CID", "FIR"]
+    },
+    {
+      "question": "What is the famous tagline of Amul?",
+      "answer": "'The Taste of India'",
+      "wrong_answers": ["'Doodh Doodh, Piyo Glass Full Doodh'", "'Eat Fresh'", "'Daag Acche Hain'"]
+    },
+    {
+      "question": "Which company owns the Maggi brand in India?",
+      "answer": "Nestlé",
+      "wrong_answers": ["Britannia", "ITC", "Parle"]
+    },
+    {
+      "question": "Who is the wife of Lord Shiva in Hindu mythology?",
+      "answer": "Parvati",
+      "wrong_answers": ["Saraswati", "Lakshmi", "Draupadi"]
+    },
+    {
+      "question": "What is Lord Krishna’s favorite food?",
+      "answer": "Makhan (Butter)",
+      "wrong_answers": ["Halwa", "Ladoo", "Rice"]
+    },
+    {
+      "question": "Which Bollywood actor played the role of 'Bajrangi' in 'Bajrangi Bhaijaan'?",
+      "answer": "Salman Khan",
+      "wrong_answers": ["Aamir Khan", "Ranbir Kapoor", "Akshay Kumar"]
+    },
+    {
+      "question": "Which Indian state is known for its spicy 'Misal'?",
+      "answer": "Maharashtra",
+      "wrong_answers": ["Rajasthan", "Punjab", "West Bengal"]
+    },
+    {
+      "question": "Which Indian TV crime show featured ACP Pradyuman?",
+      "answer": "CID",
+      "wrong_answers": ["Crime Patrol", "Savdhaan India", "Adaalat"]
+    },
+    {
+      "question": "Which Bollywood actor is known for the dialogue 'How’s the josh?'",
+      "answer": "Vicky Kaushal",
+      "wrong_answers": ["Ranveer Singh", "Shahid Kapoor", "Ajay Devgn"]
+    },
+    {
+      "question": "Which sweet dish is commonly associated with Bengal?",
+      "answer": "Rasgulla",
+      "wrong_answers": ["Gulab Jamun", "Jalebi", "Ladoo"]
+    },
+    {
+      "question": "Which was India’s first color TV serial?",
+      "answer": "Hum Log",
+      "wrong_answers": ["Ramayan", "Mahabharat", "Buniyaad"]
+    },
+    {
+      "question": "Which company owns the Tata Salt brand?",
+      "answer": "Tata Consumer Products",
+      "wrong_answers": ["Hindustan Unilever", "Nestlé", "ITC"]
+    },
+    {
+      "question": "Which Hindu festival is known as the 'Festival of Lights'?",
+      "answer": "Diwali",
+      "wrong_answers": ["Holi", "Navratri", "Raksha Bandhan"]
+    },
+    {
+      "question": "Which Indian cricketer is known as 'Captain Cool'?",
+      "answer": "MS Dhoni",
+      "wrong_answers": ["Virat Kohli", "Rohit Sharma", "Kapil Dev"]
+    },
+    {
+      "question": "Which Indian TV show was famous for the catchphrase 'Daya, darwaza tod do'?",
+      "answer": "CID",
+      "wrong_answers": ["Crime Patrol", "Savdhaan India", "Shaktimaan"]
+    },
+    {
+      "question": "Which of these Bollywood actors is known as 'Bhaijaan'?",
+      "answer": "Salman Khan",
+      "wrong_answers": ["Aamir Khan", "Hrithik Roshan", "Saif Ali Khan"]
+    },
+    {
+      "question": "Which Bollywood actor is known as 'Mr. Perfectionist'?",
+      "answer": "Aamir Khan",
+      "wrong_answers": ["Salman Khan", "Shah Rukh Khan", "Ranbir Kapoor"]
+    },
+    {
+      "question": "Which Bollywood movie featured the song 'Kajra Re'?",
+      "answer": "Bunty Aur Babli",
+      "wrong_answers": ["Devdas", "Kabhi Alvida Naa Kehna", "Hum Tum"]
+    },
+    {
+      "question": "Which is the most commonly used spice in Indian cooking?",
+      "answer": "Turmeric",
+      "wrong_answers": ["Cinnamon", "Cumin", "Black Pepper"]
+    },
+    {
+      "question": "Which city is famous for its 'Pyaaz Kachori'?",
+      "answer": "Jaipur",
+      "wrong_answers": ["Mumbai", "Kolkata", "Delhi"]
+    },
+    {
+      "question": "Which Indian TV show was based on the lives of Sarabhai family?",
+      "answer": "Sarabhai vs Sarabhai",
+      "wrong_answers": ["Khichdi", "Office Office", "Hum Paanch"]
+    },
+    {
+      "question": "Which Indian brand has the tagline 'Daag Acche Hain'?",
+      "answer": "Surf Excel",
+      "wrong_answers": ["Tide", "Ariel", "Nirma"]
+    },
+    {
+      "question": "Which chocolate brand introduced '5 Star' in India?",
+      "answer": "Cadbury",
+      "wrong_answers": ["Nestlé", "Amul", "Mars"]
+    },
+    {
+      "question": "Who is considered the 'Destroyer' in Hindu mythology?",
+      "answer": "Shiva",
+      "wrong_answers": ["Brahma", "Vishnu", "Indra"]
+    },
+    {
+      "question": "Which Hindu god is known as the remover of obstacles?",
+      "answer": "Ganesha",
+      "wrong_answers": ["Hanuman", "Kartikeya", "Krishna"]
+    },
+    {
+      "question": "Which Bollywood movie starred Shah Rukh Khan as a hockey coach?",
+      "answer": "Chak De! India",
+      "wrong_answers": ["Dil Se", "Kabir Singh", "Raees"]
+    },
+    {
+      "question": "Which Indian dish is commonly eaten during Navratri fasting?",
+      "answer": "Sabudana Khichdi",
+      "wrong_answers": ["Masala Dosa", "Butter Chicken", "Chole Bhature"]
+    },
+    {
+      "question": "Which popular reality TV show is hosted by Salman Khan?",
+      "answer": "Bigg Boss",
+      "wrong_answers": ["Khatron Ke Khiladi", "Indian Idol", "Dance India Dance"]
+    },
+    {
+      "question": "Which Indian brand is famous for its 'Hajmola' digestive tablets?",
+      "answer": "Dabur",
+      "wrong_answers": ["Patanjali", "Zandu", "Himalaya"]
+    },
+    {
+      "question": "Which Indian company owns the 'Good Day' biscuit brand?",
+      "answer": "Britannia",
+      "wrong_answers": ["Parle", "ITC", "Nestlé"]
+    },
+    {
+      "question": "Which god gave Arjuna the divine bow 'Gandiva'?",
+      "answer": "Agni",
+      "wrong_answers": ["Shiva", "Indra", "Brahma"]
+    },
+    {
+      "question": "Which Bollywood actress played Mastani in 'Bajirao Mastani'?",
+      "answer": "Deepika Padukone",
+      "wrong_answers": ["Priyanka Chopra", "Katrina Kaif", "Kangana Ranaut"]
+    },
+    {
+      "question": "Which Indian snack is made of deep-fried gram flour sticks?",
+      "answer": "Sev",
+      "wrong_answers": ["Pani Puri", "Samosa", "Dhokla"]
+    },
+    {
+      "question": "Which programming paradigm does Laravel primarily follow?",
+      "answer": "MVC (Model-View-Controller)",
+      "wrong_answers": ["OOP (Object-Oriented Programming)", "Event-Driven", "Functional Programming"]
+    },
+    {
+      "question": "Which Bollywood actor is known for the dialogue 'Don ko pakadna mushkil hi nahi, namumkin hai'?",
+      "answer": "Shah Rukh Khan",
+      "wrong_answers": ["Amitabh Bachchan", "Salman Khan", "Akshay Kumar"]
+    },
+    {
+      "question": "Which is the most-watched Indian TV serial of all time?",
+      "answer": "Ramayan",
+      "wrong_answers": ["Mahabharat", "Kyunki Saas Bhi Kabhi Bahu Thi", "Taarak Mehta Ka Ooltah Chashmah"]
+    },
+    {
+      "question": "Which Indian city is famous for its Mishti Doi?",
+      "answer": "Kolkata",
+      "wrong_answers": ["Delhi", "Lucknow", "Hyderabad"]
+    },
+    {
+      "question": "Which is the largest land animal?",
+      "answer": "African Elephant",
+      "wrong_answers": ["Hippopotamus", "Giraffe", "Polar Bear"]
+    },
+    {
+      "question": "Which part of the plant absorbs water?",
+      "answer": "Roots",
+      "wrong_answers": ["Leaves", "Stem", "Flowers"]
+    },
+    {
+      "question": "Which bird is known for its ability to mimic human speech?",
+      "answer": "Parrot",
+      "wrong_answers": ["Eagle", "Ostrich", "Peacock"]
+    },
+    {
+      "question": "What do bees collect from flowers to make honey?",
+      "answer": "Nectar",
+      "wrong_answers": ["Pollen", "Sap", "Water"]
+    },
+    {
+      "question": "Which tree is known as the ‘Tree of Life’?",
+      "answer": "Coconut Tree",
+      "wrong_answers": ["Mango Tree", "Banyan Tree", "Neem Tree"]
+    },
+    {
+      "question": "Which animal is known as the 'Ship of the Desert'?",
+      "answer": "Camel",
+      "wrong_answers": ["Elephant", "Horse", "Llama"]
+    },
+    {
+      "question": "Which plant is famous for surviving in deserts?",
+      "answer": "Cactus",
+      "wrong_answers": ["Bamboo", "Fern", "Moss"]
+    },
+    {
+      "question": "What is the fastest land animal?",
+      "answer": "Cheetah",
+      "wrong_answers": ["Horse", "Lion", "Greyhound"]
+    },
+    {
+      "question": "Which sea creature has eight arms?",
+      "answer": "Octopus",
+      "wrong_answers": ["Squid", "Starfish", "Jellyfish"]
+    },
+    {
+      "question": "Which animal is known for carrying its home on its back?",
+      "answer": "Turtle",
+      "wrong_answers": ["Crab", "Snail", "Porcupine"]
     }
   ],
   "2": [
     {
-      "question": "What is the output of the following PHP code?\n\n<?php\necho 5 + '5 apples';\n?>",
+      "question": "What is the output of the following PHP code?\n<?php echo 5 + '5 apples';>",
       "answer": 10,
       "wrong_answers": [
         "5",
@@ -388,6 +1089,21 @@
         -9,
         0
       ]
+    },
+    {
+      "question": "In which year did the Titanic sink?",
+      "answer": "1912",
+      "wrong_answers": ["1905", "1915", "1920"]
+    },
+    {
+      "question": "What is the main ingredient in guacamole?",
+      "answer": "Avocado",
+      "wrong_answers": ["Tomato", "Cucumber", "Pepper"]
+    },
+    {
+      "question": "Who discovered penicillin?",
+      "answer": "Alexander Fleming",
+      "wrong_answers": ["Marie Curie", "Louis Pasteur", "Isaac Newton"]
     },
     {
       "question": "In CSS, which property is used to change the text color of an element?",
@@ -462,7 +1178,7 @@
       ]
     },
     {
-      "question": "What is the output of the following JavaScript code?\n\nconsole.log(typeof null);",
+      "question": "What is the output of the following JavaScript code?\nconsole.log(typeof null);",
       "answer": "object",
       "wrong_answers": [
         "null",
@@ -498,7 +1214,7 @@
       ]
     },
     {
-      "question": "In CSS, which property is used to change the background color of an element?",
+      "question": "Which CSS property sets an element’s background color?",
       "answer": "background-color",
       "wrong_answers": [
         "color",
@@ -525,7 +1241,7 @@
       ]
     },
     {
-      "question": "In relational databases, which SQL command is used to remove rows from a table?",
+      "question": "Which SQL command removes rows from a table?",
       "answer": "DELETE",
       "wrong_answers": [
         "REMOVE",
@@ -570,7 +1286,7 @@
       ]
     },
     {
-      "question": "What is the output of the following Python code?\n\nprint(len([1, 2, [3, 4], 5]))",
+      "question": "What is the output of the following Python code?\nprint(len([1, 2, [3, 4], 5]))",
       "answer": "4",
       "wrong_answers": [
         "5",
@@ -651,7 +1367,7 @@
       ]
     },
     {
-      "question": "Which HTML attribute is used to provide alternate text for an image if it cannot be displayed?",
+      "question": "Which HTML attribute provides alternative text for an image?",
       "answer": "alt",
       "wrong_answers": [
         "title",
@@ -723,7 +1439,7 @@
       ]
     },
     {
-      "question": "Which programming language is widely used for machine learning and artificial intelligence?",
+      "question": "Which language is widely used for machine learning and AI?",
       "answer": "Python",
       "wrong_answers": [
         "C",
@@ -739,6 +1455,651 @@
         "Advanced Programming Integration",
         "Application Program Instruction"
       ]
+    },
+    {
+      "question": "Which Laravel tool is used for handling multi-server deployments?",
+      "answer": "Laravel Envoyer",
+      "wrong_answers": ["Laravel Forge", "Laravel Vapor", "Laravel Horizon"]
+    },
+    {
+      "question": "Which PHP function is used to check if a variable is set?",
+      "answer": "isset()",
+      "wrong_answers": ["empty()", "is_null()", "defined()"]
+    },
+    {
+      "question": "What does the 'M' stand for in LAMP stack?",
+      "answer": "MySQL",
+      "wrong_answers": ["MongoDB", "MariaDB", "Memcached"]
+    },
+    {
+      "question": "Which JavaScript method removes the last element from an array?",
+      "answer": "pop()",
+      "wrong_answers": ["shift()", "splice()", "slice()"]
+    },
+    {
+      "question": "Which CSS property is used to make text uppercase?",
+      "answer": "text-transform",
+      "wrong_answers": ["text-case", "font-style", "text-decoration"]
+    },
+    {
+      "question": "Which algorithm is the fastest for searching in a sorted array?",
+      "answer": "Binary Search",
+      "wrong_answers": ["Linear Search", "Bubble Sort", "Depth-First Search"]
+    },
+    {
+      "question": "Which database does Laravel use by default in development?",
+      "answer": "SQLite",
+      "wrong_answers": ["MySQL", "PostgreSQL", "MongoDB"]
+    },
+    {
+      "question": "Which Linux command is used to display running processes?",
+      "answer": "ps",
+      "wrong_answers": ["ls", "top", "htop"]
+    },
+    {
+      "question": "Which number is represented by the Roman numeral 'XL'?",
+      "answer": "40",
+      "wrong_answers": ["50", "10", "60"]
+    },
+    {
+      "question": "Which is the smallest prime number greater than 10?",
+      "answer": "11",
+      "wrong_answers": ["12", "13", "15"]
+    },
+    {
+      "question": "Which is the longest river in the world?",
+      "answer": "Nile",
+      "wrong_answers": ["Amazon", "Yangtze", "Mississippi"]
+    },
+    {
+      "question": "Which country has the highest number of time zones?",
+      "answer": "France",
+      "wrong_answers": ["USA", "Russia", "China"]
+    },
+    {
+      "question": "Which city hosted the first modern Olympic Games?",
+      "answer": "Athens",
+      "wrong_answers": ["London", "Paris", "Rome"]
+    },
+    {
+      "question": "Which programming language is used for writing smart contracts on Ethereum?",
+      "answer": "Solidity",
+      "wrong_answers": ["Rust", "Python", "Go"]
+    },
+    {
+      "question": "Which Laravel feature provides automatic validation for form requests?",
+      "answer": "Form Request Validation",
+      "wrong_answers": ["Middleware Validation", "Controller Filters", "Sanitization Filters"]
+    },
+    {
+      "question": "Which HTTP status code represents 'Not Modified'?",
+      "answer": "304",
+      "wrong_answers": ["404", "500", "201"]
+    },
+    {
+      "question": "Which Linux command is used to change file permissions?",
+      "answer": "chmod",
+      "wrong_answers": ["chown", "ls", "cp"]
+    },
+    {
+      "question": "Which planet has the strongest gravitational force?",
+      "answer": "Jupiter",
+      "wrong_answers": ["Earth", "Saturn", "Mars"]
+    },
+    {
+      "question": "Which famous scientist developed the theory of general relativity?",
+      "answer": "Albert Einstein",
+      "wrong_answers": ["Isaac Newton", "Galileo Galilei", "Nikola Tesla"]
+    },
+    {
+      "question": "Which programming concept describes an object containing different implementations of a method?",
+      "answer": "Polymorphism",
+      "wrong_answers": ["Encapsulation", "Abstraction", "Inheritance"]
+    },
+    {
+      "question": "Which method in PHP is used to remove leading and trailing whitespace from a string?",
+      "answer": "trim()",
+      "wrong_answers": ["strip()", "cut()", "slice()"]
+    },
+    {
+      "question": "What is the default database migration command in Laravel?",
+      "answer": "php artisan migrate",
+      "wrong_answers": ["php artisan db:migrate", "php artisan migrate:run", "php artisan migrate:all"]
+    },
+    {
+      "question": "What does the 'C' in CRUD stand for?",
+      "answer": "Create",
+      "wrong_answers": ["Control", "Compute", "Configure"]
+    },
+    {
+      "question": "Which PHP function is used to generate a random number?",
+      "answer": "rand()",
+      "wrong_answers": ["random()", "generateRandom()", "shuffle()"]
+    },
+    {
+      "question": "Which HTTP status code represents 'Unauthorized'?",
+      "answer": "401",
+      "wrong_answers": ["403", "404", "500"]
+    },
+    {
+      "question": "What is the sum of the interior angles of a triangle?",
+      "answer": "180 degrees",
+      "wrong_answers": ["360 degrees", "90 degrees", "120 degrees"]
+    },
+    {
+      "question": "Which number comes next in the sequence: 1, 3, 6, 10, __?",
+      "answer": "15",
+      "wrong_answers": ["12", "14", "16"]
+    },
+    {
+      "question": "Which country is the largest by land area?",
+      "answer": "Russia",
+      "wrong_answers": ["USA", "Canada", "China"]
+    },
+    {
+      "question": "Which city is known as the 'City of Love'?",
+      "answer": "Paris",
+      "wrong_answers": ["Venice", "Rome", "New York"]
+    },
+    {
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "answer": "Michelangelo",
+      "wrong_answers": ["Leonardo da Vinci", "Raphael", "Vincent van Gogh"]
+    },
+    {
+      "question": "What is the capital city of Canada?",
+      "answer": "Ottawa",
+      "wrong_answers": ["Toronto", "Montreal", "Vancouver"]
+    },
+    {
+      "question": "Which planet is known for its prominent ring system?",
+      "answer": "Saturn",
+      "wrong_answers": ["Jupiter", "Neptune", "Uranus"]
+    },
+    {
+      "question": "Which web browser was the first to introduce private browsing mode?",
+      "answer": "Safari",
+      "wrong_answers": ["Google Chrome", "Mozilla Firefox", "Internet Explorer"]
+    },
+    {
+      "question": "Which Laravel feature allows event broadcasting?",
+      "answer": "Laravel Echo",
+      "wrong_answers": ["Laravel Horizon", "Laravel Vapor", "Laravel Sanctum"]
+    },
+    {
+      "question": "What is the term for a function calling itself in programming?",
+      "answer": "Recursion",
+      "wrong_answers": ["Looping", "Polymorphism", "Iteration"]
+    },
+    {
+      "question": "Who discovered gravity?",
+      "answer": "Isaac Newton",
+      "wrong_answers": ["Albert Einstein", "Galileo Galilei", "Johannes Kepler"]
+    },
+    {
+      "question": "Which Laravel tool allows managing cloud deployments?",
+      "answer": "Laravel Vapor",
+      "wrong_answers": ["Laravel Envoyer", "Laravel Forge", "Laravel Horizon"]
+    },
+    {
+      "question": "Which PHP function converts a string to lowercase?",
+      "answer": "strtolower()",
+      "wrong_answers": ["toLower()", "lowercase()", "strlower()"]
+    },
+    {
+      "question": "Which Laravel command lists all registered routes?",
+      "answer": "php artisan route:list",
+      "wrong_answers": ["php artisan routes", "php artisan show:routes", "php artisan route:show"]
+    },
+    {
+      "question": "Which CSS unit is relative to the width of the viewport?",
+      "answer": "vw",
+      "wrong_answers": ["vh", "em", "rem"]
+    },
+    {
+      "question": "Which tag is used to group options in a <select> dropdown?",
+      "answer": "<optgroup>",
+      "wrong_answers": ["<group>", "<fieldset>", "<option-list>"]
+    },
+    {
+      "question": "What does the 'H' stand for in HTTPS?",
+      "answer": "Hyper",
+      "wrong_answers": ["Host", "High", "Hybrid"]
+    },
+    {
+      "question": "What is the sum of the angles in a pentagon?",
+      "answer": "540 degrees",
+      "wrong_answers": ["360 degrees", "450 degrees", "600 degrees"]
+    },
+    {
+      "question": "Which mathematical constant is approximately equal to 2.718?",
+      "answer": "Euler's Number (e)",
+      "wrong_answers": ["Pi (π)", "Golden Ratio (φ)", "Imaginary Unit (i)"]
+    },
+    {
+      "question": "Which famous tech entrepreneur also founded SpaceX?",
+      "answer": "Elon Musk",
+      "wrong_answers": ["Jeff Bezos", "Bill Gates", "Steve Jobs"]
+    },
+    {
+      "question": "Which social media platform was originally called 'Picaboo'?",
+      "answer": "Snapchat",
+      "wrong_answers": ["Instagram", "Facebook", "TikTok"]
+    },
+    {
+      "question": "What does SaaS stand for in cloud computing?",
+      "answer": "Software as a Service",
+      "wrong_answers": ["Storage as a Service", "System as a Solution", "Software and Security"]
+    },
+    {
+      "question": "Which country is home to the tallest building in the world?",
+      "answer": "United Arab Emirates",
+      "wrong_answers": ["United States", "China", "Saudi Arabia"]
+    },
+    {
+      "question": "Which mobile operating system was developed by Google?",
+      "answer": "Android",
+      "wrong_answers": ["iOS", "Windows Mobile", "HarmonyOS"]
+    },
+    {
+      "question": "What is the lightest element on the periodic table?",
+      "answer": "Hydrogen",
+      "wrong_answers": ["Helium", "Oxygen", "Lithium"]
+    },
+    {
+      "question": "Which gaming company created 'The Legend of Zelda' series?",
+      "answer": "Nintendo",
+      "wrong_answers": ["Sony", "Microsoft", "Capcom"]
+    },
+    {
+      "question": "Which mythical creature is the national animal of Scotland?",
+      "answer": "Unicorn",
+      "wrong_answers": ["Dragon", "Griffin", "Phoenix"]
+    },
+    {
+      "question": "Which color of light has the shortest wavelength?",
+      "answer": "Violet",
+      "wrong_answers": ["Red", "Blue", "Green"]
+    },
+    {
+      "question": "What was the first feature-length animated movie?",
+      "answer": "Snow White and the Seven Dwarfs",
+      "wrong_answers": ["Cinderella", "Fantasia", "Bambi"]
+    },
+    {
+      "question": "What is the term for a website that automatically updates content in real time?",
+      "answer": "Dynamic website",
+      "wrong_answers": ["Static website", "Reactive website", "API-driven site"]
+    },
+    {
+      "question": "What is the missing number in the sequence: 3, 6, 9, __, 15?",
+      "answer": "12",
+      "wrong_answers": ["10", "11", "14"]
+    },
+    {
+      "question": "Solve for x: 5x - 10 = 15",
+      "answer": "x = 5",
+      "wrong_answers": ["x = 10", "x = 3", "x = 7"]
+    },
+    {
+      "question": "Convert 1011 (binary) to decimal.",
+      "answer": "11",
+      "wrong_answers": ["10", "12", "13"]
+    },
+    {
+      "question": "If a triangle has angles of 50° and 60°, what is the third angle?",
+      "answer": "70°",
+      "wrong_answers": ["80°", "60°", "90°"]
+    },
+    {
+      "question": "What is the next prime number after 17?",
+      "answer": "19",
+      "wrong_answers": ["20", "21", "23"]
+    },
+    {
+      "question": "A train travels at 60 km/h. How far does it travel in 2.5 hours?",
+      "answer": "150 km",
+      "wrong_answers": ["120 km", "180 km", "200 km"]
+    },
+    {
+      "question": "Solve: 8! / 6!",
+      "answer": "56",
+      "wrong_answers": ["720", "64", "48"]
+    },
+    {
+      "question": "How many ways can you arrange the letters in the word 'CAT'?",
+      "answer": "6",
+      "wrong_answers": ["3", "9", "12"]
+    },
+    {
+      "question": "What is the sum of all angles in a hexagon?",
+      "answer": "720°",
+      "wrong_answers": ["360°", "540°", "600°"]
+    },
+    {
+      "question": "Which sorting algorithm has the worst-case complexity of O(n²)?",
+      "answer": "Bubble Sort",
+      "wrong_answers": ["Merge Sort", "Quick Sort", "Heap Sort"]
+    },
+    {
+      "question": "Solve: log₂ 32 = ?",
+      "answer": "5",
+      "wrong_answers": ["4", "6", "10"]
+    },
+    {
+      "question": "Which HTTP method is used to submit form data to a server?",
+      "answer": "POST",
+      "wrong_answers": ["GET", "PUT", "DELETE"]
+    },
+    {
+      "question": "Solve: 2x + 3 = 11",
+      "answer": "x = 4",
+      "wrong_answers": ["x = 5", "x = 3", "x = 6"]
+    },
+    {
+      "question": "How many bits are in a byte?",
+      "answer": "8",
+      "wrong_answers": ["16", "4", "12"]
+    },
+    {
+      "question": "What is the missing letter in the pattern: A, C, E, __, I?",
+      "answer": "G",
+      "wrong_answers": ["H", "F", "J"]
+    },
+    {
+      "question": "A website loads in 4 seconds. How many times can it load in 2 minutes?",
+      "answer": "30 times",
+      "wrong_answers": ["15 times", "20 times", "25 times"]
+    },
+    {
+      "question": "In JavaScript, what is the result of 10 + '5'?",
+      "answer": "'105'",
+      "wrong_answers": ["15", "'15'", "'10+5'"]
+    },
+    {
+      "question": "If an object falls freely under gravity, what is its velocity after 3 seconds? (g = 9.8 m/s²)",
+      "answer": "29.4 m/s",
+      "wrong_answers": ["19.6 m/s", "39.2 m/s", "9.8 m/s"]
+    },
+    {
+      "question": "If a rectangle has a length of 10 and width of 4, what is its perimeter?",
+      "answer": "28",
+      "wrong_answers": ["20", "30", "40"]
+    },
+    {
+      "question": "Which Bollywood movie had the iconic dialogue 'Mogambo Khush Hua'?",
+      "answer": "Mr. India",
+      "wrong_answers": ["Sholay", "Deewaar", "Don"]
+    },
+    {
+      "question": "Which actor played the role of Munna Bhai in 'Munna Bhai M.B.B.S'?",
+      "answer": "Sanjay Dutt",
+      "wrong_answers": ["Salman Khan", "Shah Rukh Khan", "Aamir Khan"]
+    },
+    {
+      "question": "Which actress made her Bollywood debut with the movie 'Dhadak'?",
+      "answer": "Janhvi Kapoor",
+      "wrong_answers": ["Sara Ali Khan", "Alia Bhatt", "Kriti Sanon"]
+    },
+    {
+      "question": "Which was the first Indian movie to be nominated for an Oscar?",
+      "answer": "Mother India",
+      "wrong_answers": ["Lagaan", "Salaam Bombay", "Mughal-e-Azam"]
+    },
+    {
+      "question": "In which movie does Amitabh Bachchan play the role of a teacher to autistic children?",
+      "answer": "Black",
+      "wrong_answers": ["Taare Zameen Par", "Paa", "Bhootnath"]
+    },
+    {
+      "question": "Which Bollywood actor is known as 'Khiladi'?",
+      "answer": "Akshay Kumar",
+      "wrong_answers": ["Ajay Devgn", "Salman Khan", "John Abraham"]
+    },
+    {
+      "question": "Which Bollywood movie features the song 'Tum Hi Ho'?",
+      "answer": "Aashiqui 2",
+      "wrong_answers": ["Ek Villain", "Student of the Year", "Half Girlfriend"]
+    },
+    {
+      "question": "Which Bollywood movie is based on India's first cricket World Cup win?",
+      "answer": "83",
+      "wrong_answers": ["MS Dhoni: The Untold Story", "Bhaag Milkha Bhaag", "Chak De! India"]
+    },
+    {
+      "question": "Which Bollywood movie was inspired by 'The Godfather'?",
+      "answer": "Sarkar",
+      "wrong_answers": ["Gangs of Wasseypur", "Raees", "Agneepath"]
+    },
+    {
+      "question": "Who played the role of Alauddin Khilji in 'Padmaavat'?",
+      "answer": "Ranveer Singh",
+      "wrong_answers": ["Shahid Kapoor", "Hrithik Roshan", "Varun Dhawan"]
+    },
+    {
+      "question": "Which director is known for making the 'Dhoom' series?",
+      "answer": "Sanjay Gadhvi",
+      "wrong_answers": ["Rohit Shetty", "Karan Johar", "Kabir Khan"]
+    },
+    {
+      "question": "Which was the first Bollywood movie to cross 500 crore worldwide?",
+      "answer": "Dangal",
+      "wrong_answers": ["Baahubali 2", "PK", "Bajrangi Bhaijaan"]
+    },
+    {
+      "question": "Which actress played the role of Rani in 'Queen'?",
+      "answer": "Kangana Ranaut",
+      "wrong_answers": ["Deepika Padukone", "Alia Bhatt", "Anushka Sharma"]
+    },
+    {
+      "question": "Which Bollywood movie had the highest number of songs?",
+      "answer": "Indrasabha",
+      "wrong_answers": ["Hum Aapke Hain Koun", "Taal", "Devdas"]
+    },
+    {
+      "question": "Which Bollywood actor made his debut with the film 'Saawariya'?",
+      "answer": "Ranbir Kapoor",
+      "wrong_answers": ["Varun Dhawan", "Ranveer Singh", "Sidharth Malhotra"]
+    },
+    {
+      "question": "Which Bollywood movie's story revolves around a mathematician named Anand Kumar?",
+      "answer": "Super 30",
+      "wrong_answers": ["3 Idiots", "Taare Zameen Par", "Hichki"]
+    },
+    {
+      "question": "Which legendary singer is known as the 'Nightingale of India'?",
+      "answer": "Lata Mangeshkar",
+      "wrong_answers": ["Asha Bhosle", "Alka Yagnik", "Shreya Ghoshal"]
+    },
+    {
+      "question": "Which Bollywood film won the Filmfare Award for Best Movie in 2023?",
+      "answer": "Gangubai Kathiawadi",
+      "wrong_answers": ["RRR", "Brahmastra", "Drishyam 2"]
+    },
+    {
+      "question": "Which Bollywood actor starred in 'Bajirao Mastani' and 'Gully Boy'?",
+      "answer": "Ranveer Singh",
+      "wrong_answers": ["Shah Rukh Khan", "Tiger Shroff", "Rajkummar Rao"]
+    },
+    {
+      "question": "Which Bollywood movie was the first to be released in IMAX format?",
+      "answer": "Dhoom 3",
+      "wrong_answers": ["Krrish", "Bahubali", "Ra.One"]
+    },
+    {
+      "question": "Which Indian scientist is widely credited as the father of the Indian nuclear programme?",
+      "answer": "Homi Bhabha",
+      "wrong_answers": ["Vikram Sarabhai", "APJ Abdul Kalam", "C.V. Raman"]
+    },
+    {
+      "question": "Which Indian company developed the UPI payment system?",
+      "answer": "NPCI (National Payments Corporation of India)",
+      "wrong_answers": ["Paytm", "RBI", "Google Pay"]
+    },
+    {
+      "question": "Which IPL team has won the most championships as of 2024?",
+      "answer": "Mumbai Indians",
+      "wrong_answers": ["Chennai Super Kings", "Kolkata Knight Riders", "Royal Challengers Bangalore"]
+    },
+    {
+      "question": "Which Indian city is known as the 'Silicon Valley of India'?",
+      "answer": "Bangalore",
+      "wrong_answers": ["Hyderabad", "Pune", "Chennai"]
+    },
+    {
+      "question": "Which popular Indian street food is made with puffed rice, onions, tomatoes, and tamarind chutney?",
+      "answer": "Bhel Puri",
+      "wrong_answers": ["Pani Puri", "Vada Pav", "Dahi Puri"]
+    },
+    {
+      "question": "Who was the first Bollywood actor to receive an Oscar (Honorary Award)?",
+      "answer": "Satyajit Ray",
+      "wrong_answers": ["Lata Mangeshkar", "Raj Kapoor", "Amitabh Bachchan"]
+    },
+    {
+      "question": "Which programming language was developed by Indian-American computer scientist Bjarne Stroustrup?",
+      "answer": "C++",
+      "wrong_answers": ["Java", "Python", "Ruby"]
+    },
+    {
+      "question": "Which of the following Laravel features is used for handling background jobs?",
+      "answer": "Queues",
+      "wrong_answers": ["Middleware", "Pipelines", "Service Providers"]
+    },
+    {
+      "question": "Which Indian state has the highest number of UNESCO World Heritage Sites?",
+      "answer": "Maharashtra",
+      "wrong_answers": ["Rajasthan", "Karnataka", "Tamil Nadu"]
+    },
+    {
+      "question": "Which Indian festival marks the victory of Lord Rama over Ravana?",
+      "answer": "Dussehra",
+      "wrong_answers": ["Diwali", "Holi", "Navratri"]
+    },
+    {
+      "question": "Which e-commerce giant acquired Flipkart in 2018?",
+      "answer": "Walmart",
+      "wrong_answers": ["Amazon", "Reliance", "Alibaba"]
+    },
+    {
+      "question": "In Laravel, which method is used to rollback the last migration?",
+      "answer": "php artisan migrate:rollback",
+      "wrong_answers": ["php artisan migrate:reset", "php artisan rollback", "php artisan migrate:refresh"]
+    },
+    {
+      "question": "Which was the first Indian web series to be nominated for an International Emmy Award?",
+      "answer": "Sacred Games",
+      "wrong_answers": ["Mirzapur", "Delhi Crime", "Paatal Lok"]
+    },
+    {
+      "question": "Which of these Indian cities does NOT have a metro system as of 2024?",
+      "answer": "Dehradun",
+      "wrong_answers": ["Lucknow", "Jaipur", "Kochi"]
+    },
+    {
+      "question": "Which Indian ad slogan goes like ____ doodh pita hai India'?",
+      "answer": "Amul",
+      "wrong_answers": ["Mother Dairy", "Kwality Walls", "Gokul"]
+    },
+    {
+      "question": "What is the missing number in this series: 2, 6, 12, 20, __, 42?",
+      "answer": "30",
+      "wrong_answers": ["28", "32", "34"]
+    },
+    {
+      "question": "Who was the guru of both Kauravas and Pandavas in the Mahabharata?",
+      "answer": "Dronacharya",
+      "wrong_answers": ["Kripacharya", "Bhishma", "Parashurama"]
+    },
+    {
+      "question": "Which river is believed to have originated from Lord Shiva’s hair?",
+      "answer": "Ganga",
+      "wrong_answers": ["Yamuna", "Saraswati", "Godavari"]
+    },
+    {
+      "question": "Who was Lakshmana’s wife in the Ramayana?",
+      "answer": "Urmila",
+      "wrong_answers": ["Mandavi", "Shrutakirti", "Tara"]
+    },
+    {
+      "question": "Which of these weapons was given to Arjuna by Lord Indra?",
+      "answer": "Vajra",
+      "wrong_answers": ["Sudharshana Chakra", "Brahmastra", "Pashupatastra"]
+    },
+    {
+      "question": "Who was the son of Ravana and Mandodari?",
+      "answer": "Meghnad (Indrajit)",
+      "wrong_answers": ["Kumbhakarna", "Vibhishana", "Atikaya"]
+    },
+    {
+      "question": "Which demon king was a great devotee of Lord Vishnu and was sent to the underworld by Vamana avatar?",
+      "answer": "Bali",
+      "wrong_answers": ["Hiranyakashipu", "Ravana", "Shishupala"]
+    },
+    {
+      "question": "Who composed the Mahabharata?",
+      "answer": "Ved Vyasa",
+      "wrong_answers": ["Valmiki", "Tulsidas", "Kalidasa"]
+    },
+    {
+      "question": "Which son of Karna survived the Kurukshetra war?",
+      "answer": "Vrishaketu",
+      "wrong_answers": ["Sudama", "Sudheshna", "Shalya"]
+    },
+    {
+      "question": "What is the name of Krishna's conch shell?",
+      "answer": "Panchajanya",
+      "wrong_answers": ["Ananta", "Sudarshana", "Sharanga"]
+    },
+    {
+      "question": "Which pigment gives plants their green color?",
+      "answer": "Chlorophyll",
+      "wrong_answers": ["Carotene", "Anthocyanin", "Melanin"]
+    },
+    {
+      "question": "Which mammal can fly?",
+      "answer": "Bat",
+      "wrong_answers": ["Flying Squirrel", "Eagle", "Penguin"]
+    },
+    {
+      "question": "Which type of plant completes its life cycle in one year?",
+      "answer": "Annual",
+      "wrong_answers": ["Perennial", "Biennial", "Epiphyte"]
+    },
+    {
+      "question": "Which part of the plant is responsible for photosynthesis?",
+      "answer": "Leaves",
+      "wrong_answers": ["Roots", "Stem", "Flowers"]
+    },
+    {
+      "question": "What is the largest living structure on Earth?",
+      "answer": "Great Barrier Reef",
+      "wrong_answers": ["Amazon Rainforest", "Mount Everest", "Baobab Tree"]
+    },
+    {
+      "question": "Which animal has the strongest bite force?",
+      "answer": "Saltwater Crocodile",
+      "wrong_answers": ["Tiger", "Hyena", "Shark"]
+    },
+    {
+      "question": "What is the world’s tallest tree species?",
+      "answer": "Coast Redwood",
+      "wrong_answers": ["Oak", "Baobab", "Douglas Fir"]
+    },
+    {
+      "question": "Which gas do plants release during photosynthesis?",
+      "answer": "Oxygen",
+      "wrong_answers": ["Carbon Dioxide", "Nitrogen", "Hydrogen"]
+    },
+    {
+      "question": "Which is the only marsupial found in North America?",
+      "answer": "Opossum",
+      "wrong_answers": ["Kangaroo", "Koala", "Armadillo"]
+    },
+    {
+      "question": "Which flower is used to produce saffron?",
+      "answer": "Crocus",
+      "wrong_answers": ["Lavender", "Hibiscus", "Tulip"]
     }
   ],
   "3": [
@@ -750,6 +2111,11 @@
         "Selection Sort",
         "Insertion Sort"
       ]
+    },
+    {
+      "question": "A car is moving at 90 km/h. How many meters does it travel in one second?",
+      "answer": "25 meters",
+      "wrong_answers": ["20 meters", "30 meters", "15 meters"]
     },
     {
       "question": "What is the time complexity of binary search in a sorted array?",
@@ -779,7 +2145,7 @@
       ]
     },
     {
-      "question": "In Laravel, which of the following is used to protect routes from unauthorized access?",
+      "question": "In Laravel, what is used to protect routes from unauthorized access?",
       "answer": "Middleware",
       "wrong_answers": [
         "Controllers",
@@ -797,7 +2163,7 @@
       ]
     },
     {
-      "question": "Which design pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation?",
+      "question": "Which design pattern allows sequential access to an aggregate object without exposing its structure?",
       "answer": "Iterator Pattern",
       "wrong_answers": [
         "Observer Pattern",
@@ -815,7 +2181,7 @@
       ]
     },
     {
-      "question": "In object-oriented programming, what is the term for a class that cannot be instantiated but can be subclassed?",
+      "question": "In OOP, what is a class that cannot be instantiated but can be subclassed?",
       "answer": "Abstract Class",
       "wrong_answers": [
         "Interface",
@@ -842,7 +2208,7 @@
       ]
     },
     {
-      "question": "What is the output of the following code in Python?\n\nprint('Hello World'[::-1])",
+      "question": "What is the output of the following code in Python?\nprint('Hello World'[::-1])",
       "answer": "dlroW olleH",
       "wrong_answers": [
         "Hello World",
@@ -851,7 +2217,7 @@
       ]
     },
     {
-      "question": "In SQL, which clause is used to sort the result set in ascending or descending order?",
+      "question": "Which SQL clause sorts query results in ascending or descending order?",
       "answer": "ORDER BY",
       "wrong_answers": [
         "GROUP BY",
@@ -869,7 +2235,7 @@
       ]
     },
     {
-      "question": "What does the 'this' keyword refer to in JavaScript within a regular function (not in strict mode)?",
+      "question": "In JavaScript, what does this refer to in a regular function (non-strict mode)?",
       "answer": "The global object (window in browsers)",
       "wrong_answers": [
         "The function itself",
@@ -887,7 +2253,7 @@
       ]
     },
     {
-      "question": "Which HTTP status code indicates that the requested resource has been permanently moved to a new URL?",
+      "question": "Which HTTP status code means a resource has permanently moved?",
       "answer": "301",
       "wrong_answers": [
         "404",
@@ -923,7 +2289,7 @@
       ]
     },
     {
-      "question": "Which JavaScript array method creates a new array with the results of calling a provided function on every element?",
+      "question": "Which JavaScript method creates a new array by applying a function to each element?",
       "answer": "map()",
       "wrong_answers": [
         "forEach()",
@@ -959,7 +2325,7 @@
       ]
     },
     {
-      "question": "What is the term for a function passed into another function as an argument in JavaScript?",
+      "question": "What is a function passed as an argument to another function in JavaScript?",
       "answer": "Callback function",
       "wrong_answers": [
         "Anonymous function",
@@ -968,7 +2334,7 @@
       ]
     },
     {
-      "question": "In HTML5, which attribute is used to specify that an input field must be filled out?",
+      "question": "Which HTML5 attribute ensures an input field must be filled out?",
       "answer": "required",
       "wrong_answers": [
         "validate",
@@ -977,7 +2343,7 @@
       ]
     },
     {
-      "question": "Which CSS property is used to create space between the element's border and its content?",
+      "question": "Which CSS property controls space between content and border?",
       "answer": "padding",
       "wrong_answers": [
         "margin",
@@ -1010,15 +2376,6 @@
         "Django",
         "Laravel",
         "Ruby on Rails"
-      ]
-    },
-    {
-      "question": "What does CSS stand for?",
-      "answer": "Cascading Style Sheets",
-      "wrong_answers": [
-        "Computer Style Sheets",
-        "Creative Style System",
-        "Cascading System Sheets"
       ]
     },
     {
@@ -1058,7 +2415,7 @@
       ]
     },
     {
-      "question": "In CSS, which value of the 'position' property will position an element relative to the viewport, so it always stays in the same place even if the page is scrolled?",
+      "question": "Which CSS position value keeps an element fixed in the same place when the page scrolls?",
       "answer": "fixed",
       "wrong_answers": [
         "absolute",
@@ -1085,16 +2442,7 @@
       ]
     },
     {
-      "question": "In programming, what does 'API' stand for?",
-      "answer": "Application Programming Interface",
-      "wrong_answers": [
-        "Application Protocol Interface",
-        "Advanced Programming Integration",
-        "Application Program Instruction"
-      ]
-    },
-    {
-      "question": "Which protocol is commonly used for secure communication over a computer network?",
+      "question": "Which protocol is used for secure communication over a network?",
       "answer": "HTTPS",
       "wrong_answers": [
         "FTP",
@@ -1110,6 +2458,606 @@
         "To find the minimum value in the array",
         "To remove duplicate elements"
       ]
+    },
+    {
+      "question": "Which was the first Bollywood movie to be entirely shot abroad?",
+      "answer": "Sangam",
+      "wrong_answers": ["Awara", "An Evening in Paris", "Pakeezah"]
+    },
+    {
+      "question": "Which Indian dish originates from Awadhi cuisine and is made by slow-cooking rice and meat?",
+      "answer": "Dum Biryani",
+      "wrong_answers": ["Hyderabadi Biryani", "Mughlai Biryani", "Lucknowi Korma"]
+    },
+    {
+      "question": "Which Indian state is the largest producer of spices?",
+      "answer": "Kerala",
+      "wrong_answers": ["Tamil Nadu", "Rajasthan", "Andhra Pradesh"]
+    },
+    {
+      "question": "In Mahabharata, which warrior fought using 60 different weapons in a single battle?",
+      "answer": "Karna",
+      "wrong_answers": ["Arjuna", "Bhishma", "Dronacharya"]
+    },
+    {
+      "question": "Which Hindu deity is known as 'Bhootnath' and is worshipped as the lord of ghosts?",
+      "answer": "Shiva",
+      "wrong_answers": ["Vishnu", "Yama", "Kali"]
+    },
+    {
+      "question": "Which Indian TV series was the longest-running show on Doordarshan?",
+      "answer": "Shanti",
+      "wrong_answers": ["Malgudi Days", "Hum Log", "Ramayan"]
+    },
+    {
+      "question": "Which IPL franchise was banned for two years due to a betting scandal?",
+      "answer": "Chennai Super Kings",
+      "wrong_answers": ["Rajasthan Royals", "Kings XI Punjab", "Delhi Capitals"]
+    },
+    {
+      "question": "Which Indian cricketer was the first to score a triple century in Test cricket?",
+      "answer": "Virender Sehwag",
+      "wrong_answers": ["Sachin Tendulkar", "Sunil Gavaskar", "Kapil Dev"]
+    },
+    {
+      "question": "Which Indian startup was the first to reach a valuation of $10 billion?",
+      "answer": "Flipkart",
+      "wrong_answers": ["Paytm", "Byju’s", "Ola"]
+    },
+    {
+      "question": "Which is the first company to introduce mobile banking in India?",
+      "answer": "ICICI Bank",
+      "wrong_answers": ["HDFC Bank", "SBI", "Axis Bank"]
+    },
+    {
+      "question": "Which is the only Bollywood movie to be inspired by Shakespeare's 'Othello'?",
+      "answer": "Omkara",
+      "wrong_answers": ["Haider", "Maqbool", "Dev.D"]
+    },
+    {
+      "question": "Who directed the 1983 cult classic 'Jaane Bhi Do Yaaro'?",
+      "answer": "Kundan Shah",
+      "wrong_answers": ["Hrishikesh Mukherjee", "Basu Chatterjee", "Govind Nihalani"]
+    },
+    {
+      "question": "Which Indian fast-food brand is famous for 'desi Chinese' flavors?",
+      "answer": "Wow! Momo",
+      "wrong_answers": ["Bikanervala", "Haldiram’s", "Kailash Parbat"]
+    },
+    {
+      "question": "Which of these brands was NOT originally founded in India?",
+      "answer": "Bata",
+      "wrong_answers": ["Parle", "Tata", "Havells"]
+    },
+    {
+      "question": "Which Indian river is known as the 'Sorrow of Bihar' due to frequent flooding?",
+      "answer": "Kosi River",
+      "wrong_answers": ["Ganga", "Brahmaputra", "Yamuna"]
+    },
+    {
+      "question": "Which company created India’s first indigenous computer in 1960?",
+      "answer": "Tata Institute of Fundamental Research (TIFR)",
+      "wrong_answers": ["BHEL", "CDAC", "ISRO"]
+    },
+    {
+      "question": "What is the original name of the founder of Reliance Industries?",
+      "answer": "Dhirubhai Ambani",
+      "wrong_answers": ["Mukesh Ambani", "Gautam Adani", "Anil Ambani"]
+    },
+    {
+      "question": "Which Indian state has the highest number of classical dance forms?",
+      "answer": "Odisha",
+      "wrong_answers": ["Tamil Nadu", "Kerala", "Andhra Pradesh"]
+    },
+    {
+      "question": "Which historical site is known as the world's oldest university?",
+      "answer": "Nalanda University",
+      "wrong_answers": ["Takshashila", "Vikramshila", "Somnath"]
+    },
+    {
+      "question": "Which was the first Bollywood movie to win a Filmfare Award for Best Film?",
+      "answer": "Do Bigha Zamin",
+      "wrong_answers": ["Mother India", "Mughal-e-Azam", "Pyaasa"]
+    },
+    {
+      "question": "In Mahabharata, which warrior was known for his ability to fight at night?",
+      "answer": "Ghatotkacha",
+      "wrong_answers": ["Karna", "Dronacharya", "Bhima"]
+    },
+    {
+      "question": "Which Indian tech company developed the 'Simputer', an affordable handheld computer?",
+      "answer": "Encore Software",
+      "wrong_answers": ["Infosys", "TCS", "Wipro"]
+    },
+    {
+      "question": "Which Indian brand was the first to introduce instant noodles?",
+      "answer": "Maggi",
+      "wrong_answers": ["Top Ramen", "Sunfeast Yippee", "Knorr"]
+    },
+    {
+      "question": "Which IPL team won the first-ever Indian Premier League championship?",
+      "answer": "Rajasthan Royals",
+      "wrong_answers": ["Chennai Super Kings", "Mumbai Indians", "Kolkata Knight Riders"]
+    },
+    {
+      "question": "Which Indian mathematician is credited with developing the concept of zero?",
+      "answer": "Aryabhata",
+      "wrong_answers": ["Bhaskara I", "Ramanujan", "Brahmagupta"]
+    },
+    {
+      "question": "Which command in Laravel is used to clear the cache?",
+      "answer": "php artisan cache:clear",
+      "wrong_answers": ["php artisan reset:cache", "php artisan flush:cache", "php artisan remove:cache"]
+    },
+    {
+      "question": "Which Indian state has the highest number of official languages?",
+      "answer": "Jharkhand",
+      "wrong_answers": ["Karnataka", "West Bengal", "Tamil Nadu"]
+    },
+    {
+      "question": "What does the ‘S’ in HTTPS stand for?",
+      "answer": "Secure",
+      "wrong_answers": ["Speed", "Safety", "Script"]
+    },
+    {
+      "question": "Which Bollywood director is known for making movies like 'Gangs of Wasseypur' and 'Dev.D'?",
+      "answer": "Anurag Kashyap",
+      "wrong_answers": ["Sanjay Leela Bhansali", "Vishal Bhardwaj", "Zoya Akhtar"]
+    },
+    {
+      "question": "What is the name of the oldest Indian newspaper still in circulation?",
+      "answer": "The Bombay Samachar",
+      "wrong_answers": ["The Hindu", "The Statesman", "The Times of India"]
+    },
+    {
+      "question": "Which Indian freedom fighter was also known as 'Punjab Kesari'?",
+      "answer": "Lala Lajpat Rai",
+      "wrong_answers": ["Bhagat Singh", "Subhash Chandra Bose", "Sardar Patel"]
+    },
+    {
+      "question": "Which Bollywood film was the first to feature a female lead in a double role?",
+      "answer": "Seeta Aur Geeta",
+      "wrong_answers": ["Chaalbaaz", "Hum Dono", "Kahaani"]
+    },
+    {
+      "question": "Which major Indian company introduced the 'Indica', the first fully indigenous car?",
+      "answer": "Tata Motors",
+      "wrong_answers": ["Mahindra", "Hindustan Motors", "Maruti Suzuki"]
+    },
+    {
+      "question": "In Hindu mythology, who was the mother of Karna?",
+      "answer": "Kunti",
+      "wrong_answers": ["Ganga", "Draupadi", "Radha"]
+    },
+    {
+      "question": "Which Indian state has the longest coastline?",
+      "answer": "Gujarat",
+      "wrong_answers": ["Maharashtra", "Tamil Nadu", "Andhra Pradesh"]
+    },
+    {
+      "question": "Which Indian scientist developed the missile program and was also known as the 'Missile Man of India'?",
+      "answer": "Dr. APJ Abdul Kalam",
+      "wrong_answers": ["Homi Bhabha", "Vikram Sarabhai", "Satish Dhawan"]
+    },
+    {
+      "question": "Which software company created the Angular framework?",
+      "answer": "Google",
+      "wrong_answers": ["Facebook", "Microsoft", "Twitter"]
+    },
+    {
+      "question": "What is the time complexity of quicksort in the worst case?",
+      "answer": "O(n²)",
+      "wrong_answers": ["O(n log n)", "O(n)", "O(log n)"]
+    },
+    {
+      "question": "Which Laravel command is used to reset the database and run all migrations?",
+      "answer": "php artisan migrate:fresh",
+      "wrong_answers": ["php artisan db:reset", "php artisan migrate:rollback", "php artisan refresh:db"]
+    },
+    {
+      "question": "In JavaScript, which method is used to convert an object into a JSON string?",
+      "answer": "JSON.stringify()",
+      "wrong_answers": ["JSON.parse()", "toString()", "serialize()"]
+    },
+    {
+      "question": "Which HTTP status code indicates 'Too Many Requests'?",
+      "answer": "429",
+      "wrong_answers": ["500", "404", "301"]
+    },
+    {
+      "question": "In CSS, what property controls the order of flex items inside a container?",
+      "answer": "order",
+      "wrong_answers": ["flex-order", "align-items", "grid-template"]
+    },
+    {
+      "question": "Which PHP function is used to prevent SQL injection in MySQLi?",
+      "answer": "mysqli_real_escape_string()",
+      "wrong_answers": ["mysqli_escape_string()", "addslashes()", "str_replace()"]
+    },
+    {
+      "question": "In relational databases, what is the ACID property 'C'?",
+      "answer": "Consistency",
+      "wrong_answers": ["Concurrency", "Control", "Compression"]
+    },
+    {
+      "question": "Which of the following data structures does not allow duplicate values?",
+      "answer": "Set",
+      "wrong_answers": ["Array", "List", "Linked List"]
+    },
+    {
+      "question": "What does 'NPM' stand for in web development?",
+      "answer": "Node Package Manager",
+      "wrong_answers": ["New Project Module", "Network Protocol Management", "Next Process Management"]
+    },
+    {
+      "question": "What is the default method used for HTTP forms when no method is specified?",
+      "answer": "GET",
+      "wrong_answers": ["POST", "PUT", "DELETE"]
+    },
+    {
+      "question": "Which of the following sorting algorithms is NOT stable?",
+      "answer": "Quick Sort",
+      "wrong_answers": ["Merge Sort", "Bubble Sort", "Insertion Sort"]
+    },
+    {
+      "question": "What does REST stand for in web services?",
+      "answer": "Representational State Transfer",
+      "wrong_answers": ["Remote Execution of Services and Transactions", "Resource Execution and State Transmission", "Rapid Execution of System Transactions"]
+    },
+    {
+      "question": "Which Laravel feature provides CSRF protection for forms?",
+      "answer": "@csrf directive",
+      "wrong_answers": ["@secure directive", "@token directive", "@auth directive"]
+    },
+    {
+      "question": "Which Big O notation describes the best case time complexity of insertion sort?",
+      "answer": "O(n)",
+      "wrong_answers": ["O(n log n)", "O(n²)", "O(1)"]
+    },
+    {
+      "question": "In Python, what is the output of `bool([])`?",
+      "answer": "False",
+      "wrong_answers": ["True", "None", "Error"]
+    },
+    {
+      "question": "Which of the following is NOT a JavaScript framework?",
+      "answer": "Django",
+      "wrong_answers": ["Vue.js", "Angular", "React"]
+    },
+    {
+      "question": "What is the value of log₃(81)?",
+      "answer": "4",
+      "wrong_answers": ["3", "5", "6"]
+    },
+    {
+      "question": "Which of the following is NOT a valid HTTP method?",
+      "answer": "FETCH",
+      "wrong_answers": ["HEAD", "PATCH", "OPTIONS"]
+    },
+    {
+      "question": "Which MySQL storage engine supports transactions?",
+      "answer": "InnoDB",
+      "wrong_answers": ["MyISAM", "Memory", "CSV"]
+    },
+    {
+      "question": "In which case does Dijkstra’s algorithm fail?",
+      "answer": "Graphs with negative weights",
+      "wrong_answers": ["Graphs with loops", "Graphs with weighted edges", "Graphs with unconnected nodes"]
+    },
+    {
+      "question": "Which sorting algorithm is the most efficient for nearly sorted data?",
+      "answer": "Insertion Sort",
+      "wrong_answers": ["Bubble Sort", "Quick Sort", "Heap Sort"]
+    },
+    {
+      "question": "Which PHP function is used to serialize an object?",
+      "answer": "serialize()",
+      "wrong_answers": ["json_encode()", "toString()", "encode()"]
+    },
+    {
+      "question": "Which Laravel command is used to generate a policy class?",
+      "answer": "php artisan make:policy",
+      "wrong_answers": ["php artisan policy:create", "php artisan generate:policy", "php artisan make:guard"]
+    },
+    {
+      "question": "Which HTTP status code represents 'Request Timeout'?",
+      "answer": "408",
+      "wrong_answers": ["504", "500", "404"]
+    },
+    {
+      "question": "Which of the following is NOT a valid CSS property?",
+      "answer": "box-align",
+      "wrong_answers": ["justify-content", "align-items", "flex-wrap"]
+    },
+    {
+      "question": "Which Laravel feature is used for task scheduling?",
+      "answer": "Scheduler",
+      "wrong_answers": ["Queues", "Jobs", "Pipelines"]
+    },
+    {
+      "question": "Which algorithm is used to find the shortest path in an unweighted graph?",
+      "answer": "Breadth-First Search (BFS)",
+      "wrong_answers": ["Dijkstra's Algorithm", "Bellman-Ford Algorithm", "A* Algorithm"]
+    },
+    {
+      "question": "What does SQL's 'HAVING' clause do?",
+      "answer": "Filters grouped records",
+      "wrong_answers": ["Sorts results", "Joins tables", "Filters individual records"]
+    },
+    {
+      "question": "Which of the following is NOT a NoSQL database?",
+      "answer": "PostgreSQL",
+      "wrong_answers": ["MongoDB", "Redis", "Cassandra"]
+    },
+    {
+      "question": "What is the result of 2^10?",
+      "answer": "1024",
+      "wrong_answers": ["512", "2048", "1000"]
+    },
+    {
+      "question": "Which HTTP header is used to specify cache policies?",
+      "answer": "Cache-Control",
+      "wrong_answers": ["Expires", "ETag", "Last-Modified"]
+    },
+    {
+      "question": "What is the output of `5 + '5'` in JavaScript?",
+      "answer": "'55'",
+      "wrong_answers": ["10", "'10'", "Error"]
+    },
+    {
+      "question": "Which CSS property is used to control the stacking order of elements on the z-axis?",
+      "answer": "z-index",
+      "wrong_answers": ["order", "position", "display"]
+    },
+    {
+      "question": "Which Laravel directive is used for loops?",
+      "answer": "@foreach",
+      "wrong_answers": ["@loop", "@while", "@forEach"]
+    },
+    {
+      "question": "What does PWA stand for in web development?",
+      "answer": "Progressive Web App",
+      "wrong_answers": ["Portable Web Application", "Programmable Web API", "Proactive Web Analytics"]
+    },
+    {
+      "question": "Which Linux command is used to find the process ID of a running program?",
+      "answer": "ps",
+      "wrong_answers": ["pid", "top", "find"]
+    },
+    {
+      "question": "Which SQL statement is used to remove all rows from a table without logging individual row deletions?",
+      "answer": "TRUNCATE",
+      "wrong_answers": ["DELETE", "DROP", "CLEAR"]
+    },
+    {
+      "question": "What is the decimal equivalent of the binary number 10101?",
+      "answer": "21",
+      "wrong_answers": ["19", "23", "25"]
+    },
+    {
+      "question": "Which Laravel feature helps prevent SQL injection attacks?",
+      "answer": "Eloquent ORM",
+      "wrong_answers": ["Query Builder", "Controllers", "Blade Templates"]
+    },
+    {
+      "question": "Which sorting algorithm works by repeatedly swapping adjacent elements?",
+      "answer": "Bubble Sort",
+      "wrong_answers": ["Quick Sort", "Merge Sort", "Insertion Sort"]
+    },
+    {
+      "question": "Which Big O notation represents the worst-case time complexity of merge sort?",
+      "answer": "O(n log n)",
+      "wrong_answers": ["O(n²)", "O(log n)", "O(n)"]
+    },
+    {
+      "question": "Which PHP function is used to include a file and stop execution if the file is not found?",
+      "answer": "require()",
+      "wrong_answers": ["include()", "import()", "autoload()"]
+    },
+    {
+      "question": "In Laravel, which method is used to check if a session exists?",
+      "answer": "session()->has()",
+      "wrong_answers": ["session()->exists()", "session()->get()", "session()->check()"]
+    },
+    {
+      "question": "Which HTTP method is idempotent?",
+      "answer": "PUT",
+      "wrong_answers": ["POST", "DELETE", "PATCH"]
+    },
+    {
+      "question": "Which of the following is NOT a valid JavaScript data type?",
+      "answer": "character",
+      "wrong_answers": ["boolean", "undefined", "symbol"]
+    },
+    {
+      "question": "Which Laravel command is used to generate middleware?",
+      "answer": "php artisan make:middleware",
+      "wrong_answers": ["php artisan generate:middleware", "php artisan middleware:create", "php artisan new:middleware"]
+    },
+    {
+      "question": "Which algorithm is used for cycle detection in a graph?",
+      "answer": "Floyd’s Cycle Detection Algorithm",
+      "wrong_answers": ["Dijkstra’s Algorithm", "Prim’s Algorithm", "Kruskal’s Algorithm"]
+    },
+    {
+      "question": "Which CSS property is used to create a 3D effect on elements?",
+      "answer": "transform",
+      "wrong_answers": ["perspective", "skew", "translate"]
+    },
+    {
+      "question": "Which database indexing technique improves read performance?",
+      "answer": "B-Tree Indexing",
+      "wrong_answers": ["Hash Indexing", "Bitmap Indexing", "Clustered Indexing"]
+    },
+    {
+      "question": "In Python, which keyword is used to define an anonymous function?",
+      "answer": "lambda",
+      "wrong_answers": ["def", "function", "arrow"]
+    },
+    {
+      "question": "Which Linux command is used to find the disk usage of a directory?",
+      "answer": "du",
+      "wrong_answers": ["df", "ls", "stat"]
+    },
+    {
+      "question": "Which programming concept allows multiple methods with the same name but different parameters?",
+      "answer": "Method Overloading",
+      "wrong_answers": ["Method Overriding", "Encapsulation", "Polymorphism"]
+    },
+    {
+      "question": "What is the derivative of sin(x)?",
+      "answer": "cos(x)",
+      "wrong_answers": ["-cos(x)", "tan(x)", "-sin(x)"]
+    },
+    {
+      "question": "Which hashing algorithm is commonly used for password hashing?",
+      "answer": "bcrypt",
+      "wrong_answers": ["MD5", "SHA-1", "CRC32"]
+    },
+    {
+      "question": "Which Laravel function retrieves the current authenticated user?",
+      "answer": "Auth::user()",
+      "wrong_answers": ["User::auth()", "Session::user()", "Auth::current()"]
+    },
+    {
+      "question": "Which of the following sorting algorithms is NOT divide and conquer?",
+      "answer": "Selection Sort",
+      "wrong_answers": ["Merge Sort", "Quick Sort", "Heap Sort"]
+    },
+    {
+      "question": "Which HTTP header is used to prevent Cross-Site Scripting (XSS) attacks?",
+      "answer": "Content-Security-Policy",
+      "wrong_answers": ["Access-Control-Allow-Origin", "Strict-Transport-Security", "X-Frame-Options"]
+    },
+    {
+      "question": "Which data structure is best suited for implementing LRU caching?",
+      "answer": "Doubly Linked List with HashMap",
+      "wrong_answers": ["Queue", "Stack", "Binary Search Tree"]
+    },
+    {
+      "question": "Guess the movie from emojis: 👦👧❤️🏃‍♂️🚂🌾",
+      "answer": "Dilwale Dulhania Le Jayenge",
+      "wrong_answers": ["Kuch Kuch Hota Hai", "Kabir Singh", "Veer-Zaara"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🎤🚁🎶👨‍👩‍👧‍👦🎓💔😢",
+      "answer": "Kabhi Khushi Kabhie Gham",
+      "wrong_answers": ["Taare Zameen Par", "Rockstar", "Bajrangi Bhaijaan"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🎭🧑🏻‍🦯💰🔪💃🎶🖤",
+      "answer": "Andhadhun",
+      "wrong_answers": ["Badlapur", "Drishyam", "Kahaani"]
+    },
+    {
+      "question": "Guess the movie from emojis: 💪🚀🇮🇳🔬👨‍🔬🌕",
+      "answer": "Mission Mangal",
+      "wrong_answers": ["Rocketry", "Chak De! India", "Parmanu"]
+    },
+    {
+      "question": "Guess the movie from emojis: ⚔️👑💃🔥🏰",
+      "answer": "Padmaavat",
+      "wrong_answers": ["Bajirao Mastani", "Tanhaji", "Mughal-e-Azam"]
+    },
+    {
+      "question": "Guess the movie from emojis: 💖🏏🇮🇳🏆👨‍🏫",
+      "answer": "Lagaan",
+      "wrong_answers": ["MS Dhoni: The Untold Story", "Chak De! India", "83"]
+    },
+    {
+      "question": "Guess the movie from emojis: 👩‍🏫🎓✍️🔡🌟❤️😢🎨",
+      "answer": "Taare Zameen Par",
+      "wrong_answers": ["Black", "Super 30", "3 Idiots"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🐅🕺🎵💪🔫🇮🇳🇵🇰",
+      "answer": "Tiger Zinda Hai",
+      "wrong_answers": ["Dhoom 2", "Singham", "War"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🚗👮‍♂️🔥😎👊🦁",
+      "answer": "Singham",
+      "wrong_answers": ["Dabangg", "Sooryavanshi", "Don"]
+    },
+    {
+      "question": "Guess the movie from emojis: 📖👨‍🏫🎓📷🏥🤣🏫🌊🎭",
+      "answer": "3 Idiots",
+      "wrong_answers": ["Super 30", "Munna Bhai M.B.B.S.", "Chhichhore"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🎩🪄🎭💰👯🃏🔥🤯",
+      "answer": "Dhoom 3",
+      "wrong_answers": ["Race 2", "Don 2", "Baazigar"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🕉️👳‍♂️🔫🔥💣🔫",
+      "answer": "Gangs of Wasseypur",
+      "wrong_answers": ["Raees", "Mirzapur", "Shootout at Lokhandwala"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🧓👩‍⚕️👴🏼💔🏥🎶😭",
+      "answer": "Piku",
+      "wrong_answers": ["Bajrangi Bhaijaan", "October", "Badhaai Ho"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🇮🇳💪🏑🏃🏻‍♀️🥇🏆👨‍🏫",
+      "answer": "Chak De! India",
+      "wrong_answers": ["Lagaan", "83", "Dangal"]
+    },
+    {
+      "question": "Guess the movie from emojis: 🛶❤️🎶👩🏼‍❤️‍💋‍👨🏽🖋️🎤🎵📖😢",
+      "answer": "Aashiqui 2",
+      "wrong_answers": ["Rockstar", "Tamasha", "Ae Dil Hai Mushkil"]
+    },
+    {
+      "question": "Which national park in India is known for having the highest density of Royal Bengal Tigers?",
+      "answer": "Kanha National Park",
+      "wrong_answers": ["Sundarbans National Park", "Ranthambore National Park", "Jim Corbett National Park"]
+    },
+    {
+      "question": "Which tree is known as the ‘Kalpavriksha’ or ‘Wish-fulfilling tree’ in Indian mythology?",
+      "answer": "Baobab Tree",
+      "wrong_answers": ["Neem Tree", "Banyan Tree", "Peepal Tree"]
+    },
+    {
+      "question": "Which Indian river dolphin is an endangered species?",
+      "answer": "Ganges River Dolphin",
+      "wrong_answers": ["Irrawaddy Dolphin", "Gangetic Beaked Dolphin", "Mugger Dolphin"]
+    },
+    {
+      "question": "Which Indian bird was once declared extinct but was later rediscovered?",
+      "answer": "Jerdon’s Courser",
+      "wrong_answers": ["Pink-headed Duck", "Forest Owlet", "Himalayan Quail"]
+    },
+    {
+      "question": "Which mountain range in India has the highest biodiversity of medicinal plants?",
+      "answer": "Western Ghats",
+      "wrong_answers": ["Eastern Ghats", "Himalayas", "Aravalli Hills"]
+    },
+    {
+      "question": "What is the scientific name of the Indian Cobra?",
+      "answer": "Naja naja",
+      "wrong_answers": ["Bungarus caeruleus", "Daboia russelii", "Ophiophagus hannah"]
+    },
+    {
+      "question": "Which rare Indian tree is known for its fragrant wood and is highly valued for religious purposes?",
+      "answer": "Sandalwood (Santalum album)",
+      "wrong_answers": ["Sal (Shorea robusta)", "Teak (Tectona grandis)", "Ebony (Diospyros ebenum)"]
+    },
+    {
+      "question": "Which national park in India is home to the world’s largest population of one-horned rhinoceroses?",
+      "answer": "Kaziranga National Park",
+      "wrong_answers": ["Manas National Park", "Dudhwa National Park", "Sundarbans National Park"]
+    },
+    {
+      "question": "Which species of deer is found exclusively in the Indian subcontinent and is known for its 'four horns'?",
+      "answer": "Chousingha (Four-horned Antelope)",
+      "wrong_answers": ["Sambar Deer", "Spotted Deer", "Barking Deer"]
+    },
+    {
+      "question": "Which Indian plant is known as the ‘Queen of Herbs’ and has significant medicinal importance in Ayurveda?",
+      "answer": "Tulsi (Holy Basil)",
+      "wrong_answers": ["Amla", "Ashwagandha", "Neem"]
     }
   ]
 }

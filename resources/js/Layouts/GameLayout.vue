@@ -16,9 +16,9 @@
                     <li><a href="javascript:void(0);" @click="openAboutModal">About</a></li>
                     <template v-if="showEventRoutes">
                         <li v-if="($page.props?.appSettings?.show_leaderboard?.value ?? false) || ($page.props?.auth?.user ?? false)">
-                            <a :href="route('leaderboard', {event: $page.props?.currentEvent?.slug})">Leaderboard</a>
+                            <a :href="route('leaderboard', {event: $page.props?.currentEvent?.slug ?? ''})">Leaderboard</a>
                         </li>
-                        <li v-if="$page.props?.registrationSetting?.value ?? true"><a :href="route('player.register', {event: $page.props?.currentEvent?.slug})">Register</a></li>
+                        <li v-if="$page.props?.registrationSetting?.value ?? false"><a :href="route('player.register', {event: $page.props?.currentEvent?.slug ?? ''})">Register</a></li>
                     </template>
                 </ul>
             </div>
@@ -27,11 +27,11 @@
                     <li><a href="javascript:void(0);" @click="openAboutModal">About</a></li>
                     <template v-if="showEventRoutes">
                         <li v-if="($page.props?.appSettings?.show_leaderboard?.value ?? false) || ($page.props?.auth?.user ?? false)">
-                            <a :href="route('leaderboard', {event: $page.props?.currentEvent?.slug})">Leaderboard</a>
+                            <a :href="route('leaderboard', {event: $page.props?.currentEvent?.slug ?? ''})">Leaderboard</a>
                         </li>
-                        <li v-if="$page.props?.registrationSetting?.value ?? true"><a :href="route('player.register', {event: $page.props?.currentEvent?.slug})">Register</a></li>
+                        <li v-if="$page.props?.registrationSetting?.value ?? false"><a :href="route('player.register', {event: $page.props?.currentEvent?.slug ?? ''})">Register</a></li>
                         <li v-if="route().current() !== 'home'">
-                            <a :href="route('home', {event: $page.props?.currentEvent?.slug})">Home</a>
+                            <a :href="route('home', {event: $page.props?.currentEvent?.slug ?? ''})">Home</a>
                         </li>
                     </template>
                 </ul>
@@ -91,7 +91,7 @@ export default {
                   }
                 },
                 "color": {
-                  "value": "#f53103"
+                  "value": "#dc8850"
                 },
                 "shape": {
                   "type": "circle",
@@ -131,7 +131,7 @@ export default {
                 "line_linked": {
                   "enable": true,
                   "distance": 100,
-                  "color": "#f53103",
+                  "color": "#dc8850",
                   "opacity": 0.6,
                   "width": 1.1
                 },

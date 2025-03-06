@@ -23,6 +23,10 @@ use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Database\Seeders\QuestionSeeder;
+use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 class QuestionResource extends Resource
 {
@@ -113,6 +117,30 @@ class QuestionResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->headerActions([
+                Tables\Actions\Action::make('reseed')
+                    ->label('Reseed Data')
+                    ->icon('heroicon-o-arrow-path')
+                    ->requiresConfirmation()
+                    ->action(function () {
+                        $exception = DB::transaction(function () {
+                            DB::table('questions')->truncate();
+
+                            $seeder = new QuestionSeeder();
+                            $seeder->run();
+                        });
+
+                        Notification::make()
+                            ->title('Questions Reseeded')
+                            ->success()
+                            ->body('The questions table has been successfully reseeded!')
+                            ->send();
+                    })
+                    ->color('danger')
+                    ->modalHeading('Confirm Reseed')
+                    ->modalDescription('This will delete all existing questions and reseed the table. Are you sure?')
+                    ->modalButton('Yes, Reseed'),
             ]);
     }
 
