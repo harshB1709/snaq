@@ -112,10 +112,14 @@ img {
 /* Logo */
 
 .logo-container {
-    width: 570px;
+    width: min(570px, 100%);
     background: #111126;
     padding: 3px;
     border-radius: 10px 10px 0 0;
+}
+
+.logo-container div {
+    width: 100%;
 }
 
 .logo {
