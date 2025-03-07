@@ -1,5 +1,5 @@
 <template>
-	<game-layout :title="`Error ${status}`">
+	<game-layout :title="`Error ${status}`" :show-navbar="$page.props.event">
 		<div class="flex flex-col justify-center items-center mx-auto px-4 flex-1">
 			<div class="sm:max-w-lg w-full rounded-xl flex flex-col items-center">
 				<div class="w-full flex flex-col gap-1 justify-center items-end gap-1 rounded p-2 mb-4 bg-base-100" style="font-family: bungee, sans-serif;">
