@@ -264,7 +264,7 @@ class GameController extends Controller
     }
 
     public function leaderboard(Event $event, Request $request) {
-        $games = Game::withWhereHas('player', fn ($query) => $query->where('event_id', $event->id))->select('id','event_id','name','display_name')
+        $games = Game::withWhereHas('player', fn ($query) => $query->where('event_id', $event->id))->select('id','event_id','name','display_name','avatar')
                     ->select('id', 'player_id', 'score')
                     ->orderByDesc('score')
                     ->paginate(25);

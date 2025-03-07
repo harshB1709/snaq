@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\EventResource\RelationManagers;
 
+use App\Forms\Components\AvatarSelector;
 use App\Models\Player;
 use App\Notifications\GameInvite;
 use Filament\Forms;
@@ -27,8 +28,17 @@ class PlayerRelationManager extends RelationManager
 
     public function form(Form $form): Form
     {
+        $avatars = [];
+
+        for ($i=1; $i < 25; $i++) { 
+            $avatars[] = url("/images/avatars/snake_{$i}.png");
+        }
         return $form
             ->schema([
+                AvatarSelector::make('avatar')
+                    ->label('Select Your Avatar')
+                    ->avatarOptions($avatars)
+                    ->default($avatars[array_rand($avatars)]),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),

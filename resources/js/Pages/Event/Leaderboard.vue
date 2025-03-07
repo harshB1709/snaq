@@ -17,7 +17,14 @@
                             <template v-for="(game, index) in games.data" :key="index">
                                 <tr>
                                     <th class="text-center text-xl">#{{ games.from + index }}</th>
-                                    <td class="text-center text-xl">{{ game.player.display_name }}</td>
+                                    <td class="text-center text-xl">
+                                        <div class="flex justify-center items-center gap-2">
+                                            <div class="w-14 aspect-square rounded-full p-1 bg-secondary">
+                                                <img :src="game.player.avatar" class="aspect-square object-contain rounded-full" v-if="game.player.avatar">
+                                            </div>
+                                            <span>{{ game.player.display_name }}</span>
+                                        </div>
+                                    </td>
                                     <td class="text-center text-xl">{{ game.score }}</td>
                                 </tr>
                             </template>
