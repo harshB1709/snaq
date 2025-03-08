@@ -131,7 +131,7 @@ return [
 
         'invite_validity_mins' => 30, //in mins
 
-        'threshold_score' => 400,
+        'threshold_score' => 500,
 
         'initial_speed_timeout' => 400, //speed for question 1
 
