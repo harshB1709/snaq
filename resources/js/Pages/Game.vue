@@ -562,11 +562,7 @@ export default {
             return tailDir;
         },
         resetGame() {
-            window.location.reload()
-            this.$refs.gameEndModal.close();
-            this.snake = [{ row: 0, col: 0 }];
-            this.direction = 'right';
-            this.startGame();
+            window.location.reload();
         },
         inPositions(r,c) {
             return this.options.map(i => {

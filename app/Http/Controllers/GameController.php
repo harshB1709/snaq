@@ -31,19 +31,6 @@ class GameController extends Controller
             abort(401);
         }
 
-        $allow_replay = false;
-        $app_settings = $event->appSettings->keyBy('key')->toArray();
-        if($app_settings && array_key_exists('allow_replay', $app_settings))
-            $allow_replay = $app_settings['allow_replay'] ?? false;
-
-        if($allow_replay || $request->user()) {
-            Game::where('player_id', $player->id)->delete();
-        }
-
-        if($player->game) {
-            abort(400, 'Sorry, you have already played the game. This link isn\'t valid anymore');
-        }
-
         if(!$request->user() && !is_null($player->invite_expires_at) && $player->invite_expires_at < now()) {
             abort(400, 'Sorry, this link has expired.');
         }
@@ -69,6 +56,15 @@ class GameController extends Controller
         $diff_cases = Difficulty::cases();
         $difficulties = collect($diff_cases)->map(fn ($d) => $d->value)->toArray();
         $player = Player::findOrFail(session('player_id'));
+
+        $allow_replay = false;
+        $app_settings = $event->appSettings->keyBy('key')->toArray();
+        if($app_settings && array_key_exists('allow_replay', $app_settings))
+            $allow_replay = $app_settings['allow_replay'] ?? false;
+
+        if($allow_replay || $request->user()) {
+            Game::where('player_id', $player->id)->delete();
+        }
 
         if($player->game && !$request->user())
             abort(403);
