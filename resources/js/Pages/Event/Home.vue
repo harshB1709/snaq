@@ -6,7 +6,7 @@
 		    	    <img src="/images/game-logo.png" class="w-56 h-auto mx-auto">
 		    	</div>
 		    	<div class="w-full p-4 bg-base-200 text-base-content rounded">
-		    		  	<h2 class="text-xl font-bold text-center">Welcome to Laracon India 2025, from all of us at Ranium.</h2>
+              <h2 class="text-xl font-bold text-center">Welcome to Snaq.</h2>
 		    		  	<div class="flex items-center justify-center pt-2 gradient-text-container">
 		    		    	<h2 class="gradient-text">Kem Chho?</h2>
 		    		  	</div>
@@ -15,13 +15,13 @@
 		    		  	  <p>Rack up {{thresholdScore}}+ points for a shot at a brand new <span class="text-shadows whitespace-nowrap">iPhone 16</span></p>
 		    		  	</div>
 		    		  	<div class="flex flex-col items-center" v-if="registrationSetting.value">
-		    		  		<p class="text-lg font-semibold text-center py-2 pb-3">Want in? Click the below button or come meet us at the Ranium booth to get registered!</p>
+                <p class="text-lg font-semibold text-center py-2 pb-3">Ready to play? Register below to join the event.</p>
 		    		  		<Link class="btn btn-primary btn-active text-lg w-min" :href="route('player.register', {event: $page.props.currentEvent.slug})">Register</Link>
 		    		  	</div>
 		    		  	<div class="flex flex-col items-center" v-else>
-		    		  		<p class="text-lg font-semibold text-center py-2">Want in? Come meet us at the Ranium booth to get registered!</p>
+                <p class="text-lg font-semibold text-center py-2">Registration is currently closed. Please check back later.</p>
 		    		  	</div>
-                <p class="text-lg text-center font-bold py-2 text-success uppercase">All players scoring above {{thresholdScore}} points must visit the Ranium booth to play LexiBot game and win the ultimate prize of iPhone 16!</p>
+                <p class="text-lg text-center font-bold py-2 text-success uppercase">Score {{thresholdScore}} points or more to qualify for the event prize.</p>
 		    	</div>
 		    </div>
 		</div>

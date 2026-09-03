@@ -6,7 +6,7 @@
         </div>
         <div class="navbar bg-base-200 bg-opacity-90 justify-between" v-if="showNavbar">
             <div class="navbar-start">
-<!--                <a class="btn btn-ghost normal-case text-xl text-primary" href="/">Ranium's SnaQ</a>-->
+<!--                <a class="btn btn-ghost normal-case text-xl text-primary" href="/">Snaq</a>-->
             </div>
             <div class="dropdown dropdown-end lg:hidden">
                 <label tabindex="0" class="btn btn-ghost">

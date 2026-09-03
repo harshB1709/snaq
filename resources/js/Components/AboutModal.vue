@@ -33,9 +33,9 @@
             </a>
         </p> -->
         <div class="mt-1">
-            <a href="https://ranium.in">
+            <div>
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.000000 200.000000"
-                 preserveAspectRatio="xMidYMid meet" class="w-20 inline-block mr-3 fill-effect" :class="{ 'svg-outline': !showColour }" ref="raniumLogo">
+                 preserveAspectRatio="xMidYMid meet" class="w-20 inline-block mr-3 fill-effect" :class="{ 'svg-outline': !showColour }" ref="snaqLogo">
 
                     <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
                     fill="#000000" stroke="#000000">
@@ -49,7 +49,7 @@
                         -2 2 -22z" fill="#006df5" stroke="#006df5"/>
                     </g>
                 </svg>
-            </a>
+            </div>
         </div>
       </label>
     </div>
